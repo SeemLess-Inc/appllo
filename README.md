@@ -1,3 +1,18 @@
+
+To build SemanticUI:
+
+```
+npm run uibuld
+```
+ or 
+
+```
+cd src/assets/fomantic
+npx gulp build
+```
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

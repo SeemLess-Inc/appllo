@@ -3,12 +3,10 @@ import { Menu, Dropdown, Icon } from "semantic-ui-react";
 
 const TopMenu = () => (
   <Menu secondary>
-    <Menu.Item header>Seemless.tv</Menu.Item>
-    <Menu.Menu
-      style={{
-        justifyContent: "center"
-      }}
-    >
+    <Menu.Menu position="left">
+      <Menu.Item header>Seemless.tv</Menu.Item>{" "}
+    </Menu.Menu>
+    <Menu.Menu position="center">
       <Menu.Item>Dashboard</Menu.Item>
       <Menu.Item>|</Menu.Item>
       <Menu.Item>Ad Editor</Menu.Item>
