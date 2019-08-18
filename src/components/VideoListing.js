@@ -6,7 +6,7 @@ function VideoListing(props) {
 
   return (
     <Item>
-      <Item.Image src="{video.thumbnail}" size="tiny" />
+      <Item.Image src={video.thumbnail} size="tiny" />
       <Item.Content>
         <Item.Header as="a">{video.title}</Item.Header>
         <Item.Meta>{video.uploadedDate}</Item.Meta>
