@@ -3,7 +3,9 @@ import { Grid } from "semantic-ui-react";
 import TopMenu from "./components/TopMenu";
 import VideosList from "./components/VideosList";
 import VideoEdit from "./components/VideoEdit";
-import Keyframes from "./components/Keyframes";
+import Framer from "./components/Framer"
+import AdAssets from "./components/AdAssets"
+import KeyframesList from "./components/KeyframesList";
 import "./assets/fomantic/dist/semantic.css";
 //import './App.css';
 
@@ -23,9 +25,11 @@ class App extends React.Component {
           </Grid.Column>
           <Grid.Column width={8}>
             <VideoEdit />
+            <Framer />
+            <AdAssets />
           </Grid.Column>
           <Grid.Column width={4}>
-            <Keyframes />
+            <KeyframesList />
           </Grid.Column>
         </Grid.Row>
       </Grid>

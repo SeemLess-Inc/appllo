@@ -1,7 +1,7 @@
 import React from "react";
 import { Item } from "semantic-ui-react";
 
-function VideoListing(props) {
+function VideoListItem(props) {
   const video = props.video;
 
   return (
@@ -17,6 +17,6 @@ function VideoListing(props) {
   );
 }
 
-export default VideoListing;
+export default VideoListItem;
 
 

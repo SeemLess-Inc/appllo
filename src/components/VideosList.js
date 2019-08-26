@@ -1,6 +1,6 @@
 import React from "react";
 import { Header, Icon, Grid, Item, Divider } from "semantic-ui-react";
-import VideoListing from "./VideoListing";
+import VideoListItem from "./VideoListItem";
 
 class VideosList extends React.Component {
   constructor(props) {
@@ -75,7 +75,7 @@ class VideosList extends React.Component {
         <Grid.Row style={{ margin: 14 }}>
           <Item.Group divided>
             {videos.map(video => {
-              return <VideoListing video={video} key={video.id} />;
+              return <VideoListItem video={video} key={video.id} />;
             })}
           </Item.Group>
         </Grid.Row>
