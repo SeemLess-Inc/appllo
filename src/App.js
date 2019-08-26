@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "semantic-ui-react";
 import TopMenu from "./components/TopMenu";
 import VideosList from "./components/VideosList";
-import VideoEdit from "./components/VideoEdit";
+import VideoEditor from "./components/VideoEditor";
 import Framer from "./components/Framer"
 import AdAssets from "./components/AdAssets"
 import KeyframesList from "./components/KeyframesList";
@@ -24,7 +24,7 @@ class App extends React.Component {
             <VideosList />
           </Grid.Column>
           <Grid.Column width={8}>
-            <VideoEdit />
+            <VideoEditor />
             <Framer />
             <AdAssets />
           </Grid.Column>

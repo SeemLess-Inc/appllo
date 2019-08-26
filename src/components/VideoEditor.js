@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, Grid, Divider, Button, Embed } from "semantic-ui-react";
 
-const VideoEdit = () => (
+const VideoEditor = () => (
   <Grid>
     <Grid.Row>
       <Grid.Column width={12}>
@@ -16,11 +16,11 @@ const VideoEdit = () => (
     </Grid.Row>
     <Divider />
     <Grid.Row>
-      <Grid.Column width={12}>
+      <Grid.Column width={16}>
         <Embed id="45cYwDMibGo" source="youtube" brandedUI="false" />
       </Grid.Column>
     </Grid.Row>
   </Grid>
 );
 
-export default VideoEdit;
+export default VideoEditor;
