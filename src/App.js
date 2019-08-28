@@ -1,38 +1,27 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
 import TopMenu from "./components/TopMenu";
-import VideosList from "./components/VideosList";
-import VideoEditor from "./components/VideoEditor";
-import Framer from "./components/Framer"
-import AdAssets from "./components/AdAssets"
-import KeyframesList from "./components/KeyframesList";
+import Home from "./views/Home";
+import Dashboard from "./views/Dashboard";
+import AdEditor from "./views/AdEditor";
 import "./assets/fomantic/dist/semantic.css";
 //import './App.css';
-
 class App extends React.Component {
   render() {
     return (
-      <Grid fluid celled style={{ marginTop: 0 }}>
-        <Grid.Row>
-          <Grid.Column width={16}>
-            <TopMenu />
-          </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row>
-          <Grid.Column width={4}>
-            <VideosList />
-          </Grid.Column>
-          <Grid.Column width={8}>
-            <VideoEditor />
-            <Framer />
-            <AdAssets />
-          </Grid.Column>
-          <Grid.Column width={4}>
-            <KeyframesList />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Router>
+        <Grid fluid celled style={{ marginTop: 0 }}>
+          <Grid.Row>
+            <Grid.Column width={16}>
+              <TopMenu />
+            </Grid.Column>
+          </Grid.Row>
+          <Route path="/" exact component={Home} />
+          <Route path="/edit/" component={AdEditor} />
+          <Route path="/dashboard/" component={Dashboard} />
+        </Grid>
+      </Router>
     );
   }
 }
