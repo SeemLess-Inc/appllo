@@ -1,10 +1,10 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import VideosList from "../components/VideosList";
-import VideoEditor from "../components/VideoEditor";
-import Framer from "../components/Framer";
-import AdAssets from "../components/AdAssets";
-import KeyframesList from "../components/KeyframesList";
+import VideosList from "../components/videoList/VideosList";
+import VideoEditor from "../components/videoEdit/VideoEditor";
+import Framer from "../components/videoEdit/Framer";
+import AdAssets from "../components/videoEdit/AdAssets";
+import KeyframesList from "../components/keyframes/KeyframesList";
 //import './App.css';
 
 class AdEditor extends React.Component {

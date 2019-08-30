@@ -17,7 +17,7 @@ const VideoEditor = () => (
     <Divider />
     <Grid.Row>
       <Grid.Column width={16}>
-        <Embed id="45cYwDMibGo" source="youtube" brandedUI="false" />
+        <Embed id="45cYwDMibGo" source="youtube" />
       </Grid.Column>
     </Grid.Row>
   </Grid>

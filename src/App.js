@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Grid fluid celled style={{ marginTop: 0 }}>
+        <Grid celled style={{ marginTop: 0 }}>
           <Grid.Row>
             <Grid.Column width={16}>
               <TopMenu />
