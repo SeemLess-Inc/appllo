@@ -1,5 +1,5 @@
 import React from "react";
-import { Item, Accordion } from "semantic-ui-react";
+import { Item, Accordion, Checkbox } from "semantic-ui-react";
 import KeyframeHumansForm from "./KeyframeHumansForm";
 import KeyframeBrandContentForm from "./KeyframeBrandContentForm";
 import KeyframeAssetAttributionForm from "./KeyframeAssetAttributionForm";
@@ -36,8 +36,9 @@ class KeyframeItem extends React.Component {
 
     return (
       <Item>
+        <Checkbox label=" " />
         <Item.Content>
-          <Item.Header as="a">{keyframe.title}</Item.Header>
+          <Item.Header>{keyframe.title}</Item.Header>
           <Item.Meta>{keyframe.timespan}</Item.Meta>
           <Accordion defaultActiveIndex={1} panels={rootPanels}></Accordion>
         </Item.Content>
