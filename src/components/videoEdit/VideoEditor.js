@@ -1,5 +1,6 @@
 import React from "react";
-import { Header, Grid, Divider, Button, Embed } from "semantic-ui-react";
+import { Header, Grid, Divider, Button, Container } from "semantic-ui-react";
+import VideoApp from './VideoApp'
 
 const VideoEditor = () => (
   <Grid>
@@ -17,7 +18,9 @@ const VideoEditor = () => (
     <Divider />
     <Grid.Row>
       <Grid.Column width={16}>
-        <Embed id="45cYwDMibGo" source="youtube" />
+        <Container>
+        <VideoApp></VideoApp>
+        </Container>
       </Grid.Column>
     </Grid.Row>
   </Grid>

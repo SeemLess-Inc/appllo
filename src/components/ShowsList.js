@@ -6,7 +6,6 @@ import {
   Divider,
   Accordion
 } from "semantic-ui-react";
-//import ShowItem from "./ShowItem";
 
 class ShowsList extends React.Component {
   constructor(props) {

@@ -7,23 +7,21 @@ import AdAssets from "../components/videoEdit/AdAssets";
 import KeyframesList from "../components/keyframes/KeyframesList";
 //import './App.css';
 
-class AdEditor extends React.Component {
-  render() {
-    return (
-      <Grid.Row>
-        <Grid.Column width={4}>
-          <VideosList />
-        </Grid.Column>
-        <Grid.Column width={8}>
-          <VideoEditor />
-          <Framer />
-          <AdAssets />
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <KeyframesList />
-        </Grid.Column>
-      </Grid.Row>
-    );
-  }
-}
+const AdEditor = () => {
+  return (
+    <Grid.Row>
+      <Grid.Column width={4}>
+        <VideosList />
+      </Grid.Column>
+      <Grid.Column width={8}>
+        <VideoEditor />
+        <Framer />
+        <AdAssets />
+      </Grid.Column>
+      <Grid.Column width={4}>
+        <KeyframesList />
+      </Grid.Column>
+    </Grid.Row>
+  );
+};
 export default AdEditor;
