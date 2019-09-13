@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import ShowsList from "../components/ShowsList";
-import ShowMetrics from "../components/ShowMetrics";
+import ShowsList from "../components/dashboard/ShowsList";
+import ShowMetrics from "../components/dashboard/ShowMetrics";
 
 const Dashboard = () => {
   return (

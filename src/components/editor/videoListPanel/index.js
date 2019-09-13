@@ -2,7 +2,7 @@ import React from "react";
 import { Header, Icon, Grid, Item, Divider } from "semantic-ui-react";
 import VideoListItem from "./VideoListItem";
 
-class VideosList extends React.Component {
+class VideosListPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -84,4 +84,4 @@ class VideosList extends React.Component {
   }
 }
 
-export default VideosList;
+export default VideosListPanel;

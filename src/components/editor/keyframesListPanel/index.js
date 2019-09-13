@@ -2,7 +2,7 @@ import React from "react";
 import { Header, Grid, Icon, Divider, Item } from "semantic-ui-react";
 import KeyframeItem from "./KeyframeItem";
 
-function KeyframesList() {
+function KeyframesListPanel() {
   const keyframes = [
     {
       id: 0,
@@ -76,4 +76,4 @@ function KeyframesList() {
   );
 }
 
-export default KeyframesList;
+export default KeyframesListPanel;
