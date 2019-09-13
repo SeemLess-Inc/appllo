@@ -1,65 +1,25 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchVideos } from "../../../store/actions/videosActions";
+
 import { Header, Icon, Grid, Item, Divider } from "semantic-ui-react";
 import VideoListItem from "./VideoListItem";
 
 class VideosListPanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.props.dispatch(fetchVideos());
   }
 
   render() {
-    const videos = [
-      {
-        id: 0,
-        title: "Big Little Lies - Apple iMac",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "55:12"
-      },
-      {
-        id: 1,
-        title: "13 Reasons Why - VW",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "53:25"
-      },
-      {
-        id: 2,
-        title: "Comedians in Cars - BMW",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "43:17"
-      },
-      {
-        id: 3,
-        title: "Stranger Things - Coke",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "56:32"
-      },
-      {
-        id: 4,
-        title: "Black Mirror - PGTips",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "56:36"
-      },
-      {
-        id: 5,
-        title: "Comedians in Cars - BMW",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "47:18"
-      },
-      {
-        id: 6,
-        title: "True Detective - Bud Light",
-        thumbnail: './video.png',
-        uploadedDate: "May 6, 2019",
-        duration: "56:34"
-      }
-    ];
+    const { error, loading, videos } = this.props;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
     return (
       <Grid>
@@ -84,4 +44,12 @@ class VideosListPanel extends React.Component {
   }
 }
 
-export default VideosListPanel;
+//export default VideosListPanel;
+
+const mapStateToProps = state => ({
+  videos: state.videos.items,
+  loading: state.videos.loading,
+  error: state.videos.error
+});
+
+export default connect(mapStateToProps)(VideosListPanel);

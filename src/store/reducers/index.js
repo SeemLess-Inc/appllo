@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import profile from './profile';
+import { combineReducers } from "redux";
+import videos from "./videosReducer";
 
 const rootReducer = combineReducers({
-    profile
-})
+  videos
+});
 
-export default rootReducer
+export default rootReducer;

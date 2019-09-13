@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { createLogger } from "redux-logger";
+import thunk from "redux-thunk";
 import { loadState, saveState } from "./localStorage";
 import throttle from "lodash/throttle";
 import rootReducer from "./reducers";
@@ -16,6 +17,9 @@ const configureStore = () => {
     if (typeof devToolsExtension === "function") {
       enhancers.push(devToolsExtension());
     }
+
+    // Add thunk to middleware
+    middleware.push(thunk);
 
     // Enable Logger in dev mode
     const logger = createLogger({
