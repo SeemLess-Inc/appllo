@@ -1,9 +1,7 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 
-function KeyframeAssetAttributionForm(props) {
-  //  const tags = props.tags;
-
+function KeyframeAssetAttributionForm() {
   return (
     <Form>
       <Form.Group grouped>

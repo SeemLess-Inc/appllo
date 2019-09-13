@@ -1,9 +1,7 @@
 import React from "react";
 import { Form, Dropdown, Label, Icon } from "semantic-ui-react";
 
-function KeyframeHumansForm(props) {
-  //  const tags = props.tags;
-
+function KeyframeHumansForm() {
   const optionsAge = [
     { key: 0, value: 0, text: "age 20-29" },
     { key: 1, value: 1, text: "age 20-29" }
@@ -46,7 +44,7 @@ function KeyframeHumansForm(props) {
       <Form.Group grouped>
         <h5>tags</h5>
         <Label.Group>
-        <Label as="a">
+          <Label as="a">
             athletic
             <Icon name="close" />
           </Label>
