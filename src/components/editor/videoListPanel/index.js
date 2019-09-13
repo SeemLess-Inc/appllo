@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchVideos } from "../../../store/actions/videosActions";
-
 import { Header, Icon, Grid, Item, Divider } from "semantic-ui-react";
 import VideoListItem from "./VideoListItem";
 
@@ -43,8 +42,6 @@ class VideosListPanel extends React.Component {
     );
   }
 }
-
-//export default VideosListPanel;
 
 const mapStateToProps = state => ({
   videos: state.videos.items,

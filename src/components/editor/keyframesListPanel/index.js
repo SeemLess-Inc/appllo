@@ -1,58 +1,24 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchKeyframes } from "../../../store/actions/keyframesActions";
 import { Header, Grid, Icon, Divider, Item } from "semantic-ui-react";
 import KeyframeItem from "./KeyframeItem";
 
-function KeyframesListPanel() {
-  const keyframes = [
-    {
-      id: 0,
-      title: "Keyframe 1",
-      timespan: "07:13-07:21",
-      description: "age 20-29, white, female, standing"
-    },
-    {
-      id: 1,
-      title: "Keyframe 2",
-      timespan: "10:46-10:51",
-      description: "age 20-20, white, female, standing"
-    },
-    {
-      id: 2,
-      title: "Keyframe 3",
-      timespan: "27:13-27:21",
-      description: "age 20-20, white, female, standing"
-    },
-    {
-      id: 3,
-      title: "Keyframe 4",
-      timespan: "30:23-30:21",
-      description: "age 20-20, white, female, standing"
-    },
-    {
-      id: 4,
-      title: "Keyframe 5",
-      timespan: "07:13-07:21",
-      description: "age 20-20, white, female, standing"
-    },
-    {
-      id: 5,
-      title: "Keyframe 6",
-      timespan: "07:13-07:21",
-      description: "age 20-20, white, female, standing"
-    },
-    {
-      id: 6,
-      title: "Keyframe 7",
-      timespan: "07:13-07:21",
-      description: "age 20-20, white, female, standing"
-    },
-    {
-      id: 7,
-      title: "Custom Keyframe 8",
-      timespan: "47:13",
-      description: "-"
+class KeyframesListPanel extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchKeyframes());
+  }
+
+  render() {
+    const { error, loading, keyframes } = this.props;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
     }
-  ];
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
   return (
     <Grid>
@@ -75,5 +41,12 @@ function KeyframesListPanel() {
     </Grid>
   );
 }
+}
+const mapStateToProps = state => ({
+  keyframes: state.keyframes.items,
+  loading: state.keyframes.loading,
+  error: state.keyframes.error
+});
 
-export default KeyframesListPanel;
+export default connect(mapStateToProps)(KeyframesListPanel);
+
