@@ -1,16 +1,17 @@
 // TODO: Switch to live fetch once we have a stable API endpoint
 
-function getKeyframes() {
-//  return fetch("/netra.json")
-  return fetch("/data/keyframes.json")
+function getKeyframesJSON() {
+  const url = "/data/keyframes.json"
+// const url = "/netra.json"
+  return fetch(url)
     .then(handleErrors)
     .then(res => res.json());
 }
 
-export function fetchKeyframes() {
+export function getKeyframes() {
   return dispatch => {
     dispatch(fetchKeyframesBegin());
-    return getKeyframes()
+    return getKeyframesJSON()
       .then(json => {
         dispatch(fetchKeyframesSuccess(json.keyframes));
         return json.keyframes;

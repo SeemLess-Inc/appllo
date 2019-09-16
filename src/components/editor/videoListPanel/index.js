@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchVideos } from "../../../store/actions/videosActions";
-import { Header, Icon, Grid, Item, Divider } from "semantic-ui-react";
+import { getVideos } from "../../../store/actions/videosActions";
+import { Header, Icon, Grid, Item, Divider, Dimmer, Loader } from "semantic-ui-react";
 import VideoListItem from "./VideoListItem";
 
 class VideosListPanel extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchVideos());
+    this.props.dispatch(getVideos());
   }
 
   render() {
@@ -17,7 +17,11 @@ class VideosListPanel extends React.Component {
     }
 
     if (loading) {
-      return <div>Loading...</div>;
+      return (
+        <Dimmer active inverted>
+          <Loader>Loading</Loader>
+        </Dimmer>
+      );
     }
 
     return (

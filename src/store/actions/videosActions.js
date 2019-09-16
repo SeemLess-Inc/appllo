@@ -1,15 +1,17 @@
 // TODO: Switch to live fetch once we have a stable API endpoint
 
-function getVideos() {
-  return fetch("/data/videos1.json")
+function getVideosJSON() {
+  const url = "/data/videos1.json"
+//  const url = "/data/videos2.json"
+  return fetch(url)
     .then(handleErrors)
     .then(res => res.json());
 }
 
-export function fetchVideos() {
+export function getVideos() {
   return dispatch => {
     dispatch(fetchVideosBegin());
-    return getVideos()
+    return getVideosJSON()
       .then(json => {
         dispatch(fetchVideosSuccess(json.videos));
         return json.videos;
