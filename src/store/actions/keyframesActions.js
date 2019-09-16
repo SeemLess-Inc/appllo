@@ -1,9 +1,11 @@
 // TODO: Switch to live fetch once we have a stable API endpoint
+/*
 function getKeyframes() {
   return fetch("/keyframes")
     .then(handleErrors)
     .then(res => res.json());
 }
+*/
 
 // TODO: Temporary to test redux is working
 function fakeGetKeyframes() {
@@ -83,13 +85,14 @@ export function fetchKeyframes() {
 }
 
 // Handle HTTP errors since fetch won't.
+/*
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
   }
   return response;
 }
-
+*/
 export const FETCH_KEYFRAMES_BEGIN   = 'FETCH_KEYFRAMES_BEGIN';
 export const FETCH_KEYFRAMES_SUCCESS = 'FETCH_KEYFRAMES_SUCCESS';
 export const FETCH_KEYFRAMES_ERROR = 'FETCH_KEYFRAMES_ERROR';

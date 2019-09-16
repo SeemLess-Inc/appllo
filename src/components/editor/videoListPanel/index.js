@@ -24,7 +24,7 @@ class VideosListPanel extends React.Component {
       <Grid>
         <Grid.Row>
           <Grid.Column width={14}>
-            <Header size="medium">Videos (8)</Header>
+            <Header size="medium">Videos ({videos.length})</Header>
           </Grid.Column>
           <Grid.Column width={2} textAlign="right">
             <Icon name="upload" />

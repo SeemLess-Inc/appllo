@@ -1,10 +1,11 @@
 // TODO: Switch to live fetch once we have a stable API endpoint
+/*
 function getVideos() {
   return fetch("/videos")
     .then(handleErrors)
     .then(res => res.json());
 }
-
+*/
 // TODO: Temporary to test redux is working
 function fakeGetVideos() {
   return new Promise(resolve => {
@@ -84,13 +85,14 @@ export function fetchVideos() {
 }
 
 // Handle HTTP errors since fetch won't.
+/*
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
   }
   return response;
 }
-
+*/
 export const FETCH_VIDEOS_BEGIN   = 'FETCH_VIDEOS_BEGIN';
 export const FETCH_VIDEOS_SUCCESS = 'FETCH_VIDEOS_SUCCESS';
 export const FETCH_VIDEOS_ERROR = 'FETCH_VIDEOS_ERROR';
