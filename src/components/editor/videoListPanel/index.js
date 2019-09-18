@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getVideos } from "../../../store/actions/videosActions";
-import { Header, Icon, Grid, Item, Divider, Dimmer, Loader } from "semantic-ui-react";
+import { Header, Grid, Item, Divider, Dimmer, Loader } from "semantic-ui-react";
+import UploadVideoPanel from "./UploadVideoPanel";
 import VideoListItem from "./VideoListItem";
 
 class VideosListPanel extends React.Component {
@@ -27,11 +28,11 @@ class VideosListPanel extends React.Component {
     return (
       <Grid>
         <Grid.Row>
-          <Grid.Column width={14}>
+          <Grid.Column width={12}>
             <Header size="medium">Videos ({videos.length})</Header>
           </Grid.Column>
-          <Grid.Column width={2} textAlign="right">
-            <Icon name="upload" />
+          <Grid.Column width={4} textAlign="right">
+            <UploadVideoPanel></UploadVideoPanel>
           </Grid.Column>
         </Grid.Row>
         <Divider />
