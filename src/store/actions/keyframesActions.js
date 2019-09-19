@@ -1,8 +1,11 @@
-// TODO: Switch to live fetch once we have a stable API endpoint
+export const FETCH_KEYFRAMES_BEGIN = "FETCH_KEYFRAMES_BEGIN";
+export const FETCH_KEYFRAMES_SUCCESS = "FETCH_KEYFRAMES_SUCCESS";
+export const FETCH_KEYFRAMES_ERROR = "FETCH_KEYFRAMES_ERROR";
 
+// TODO: Switch to live fetch once we have a stable API endpoint
 function getKeyframesJSON() {
-  const url = "/data/keyframes.json"
-// const url = "/netra.json"
+  const url = "/data/keyframes.json";
+  // const url = "/netra.json"
   return fetch(url)
     .then(handleErrors)
     .then(res => res.json());
@@ -16,9 +19,7 @@ export function getKeyframes() {
         dispatch(fetchKeyframesSuccess(json.keyframes));
         return json.keyframes;
       })
-      .catch(error =>
-        dispatch(fetchKeyframesError(error))
-      );
+      .catch(error => dispatch(fetchKeyframesError(error)));
   };
 }
 
@@ -29,10 +30,6 @@ function handleErrors(response) {
   }
   return response;
 }
-
-export const FETCH_KEYFRAMES_BEGIN   = 'FETCH_KEYFRAMES_BEGIN';
-export const FETCH_KEYFRAMES_SUCCESS = 'FETCH_KEYFRAMES_SUCCESS';
-export const FETCH_KEYFRAMES_ERROR = 'FETCH_KEYFRAMES_ERROR';
 
 export const fetchKeyframesBegin = () => ({
   type: FETCH_KEYFRAMES_BEGIN

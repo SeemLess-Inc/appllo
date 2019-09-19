@@ -1,12 +1,15 @@
 import React from "react";
+import {connect} from 'react-redux'
+import { uploadVideoAction } from '../../../store/actions/uploadVideoAction'
 import { Modal, Button, Icon, Header, Segment } from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 
 class UploadVideoPanel extends React.Component {
   constructor() {
     super();
-    this.onDrop = files => {
+    this.onDrop = (files) => {
       this.setState({ files });
+      this.props.uploadVideoAction({files});
     };
     this.state = {
       files: []
@@ -16,7 +19,7 @@ class UploadVideoPanel extends React.Component {
   render() {
     const files = this.state.files.map(file => (
       <li key={file.name}>
-        {file.name} - {file.size} bytes
+        {file.name} ({file.size} bytes)
       </li>
     ));
 
@@ -61,4 +64,7 @@ class UploadVideoPanel extends React.Component {
   }
 }
 
-export default UploadVideoPanel;
+export default connect(
+  (state) => ({videosToUpload: state.videosToUpload}),    // mapStateToProps
+  {uploadVideoAction}    // mapDispatchToProps
+)(UploadVideoPanel)

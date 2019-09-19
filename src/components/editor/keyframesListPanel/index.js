@@ -54,10 +54,12 @@ class KeyframesListPanel extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
   keyframes: state.keyframes.items,
   loading: state.keyframes.loading,
   error: state.keyframes.error
 });
-
-export default connect(mapStateToProps)(KeyframesListPanel);
+export default connect(
+  mapStateToProps
+)(KeyframesListPanel);

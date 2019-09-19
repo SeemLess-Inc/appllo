@@ -1,8 +1,11 @@
-// TODO: Switch to live fetch once we have a stable API endpoint
+export const FETCH_VIDEOS_BEGIN = "FETCH_VIDEOS_BEGIN";
+export const FETCH_VIDEOS_SUCCESS = "FETCH_VIDEOS_SUCCESS";
+export const FETCH_VIDEOS_ERROR = "FETCH_VIDEOS_ERROR";
 
+// TODO: Switch to live fetch once we have a stable API endpoint
 function getVideosJSON() {
-  const url = "/data/videos1.json"
-//  const url = "/data/videos2.json"
+  const url = "/data/videos1.json";
+  //  const url = "/data/videos2.json"
   return fetch(url)
     .then(handleErrors)
     .then(res => res.json());
@@ -16,9 +19,7 @@ export function getVideos() {
         dispatch(fetchVideosSuccess(json.videos));
         return json.videos;
       })
-      .catch(error =>
-        dispatch(fetchVideosError(error))
-      );
+      .catch(error => dispatch(fetchVideosError(error)));
   };
 }
 
@@ -29,10 +30,6 @@ function handleErrors(response) {
   }
   return response;
 }
-
-export const FETCH_VIDEOS_BEGIN   = 'FETCH_VIDEOS_BEGIN';
-export const FETCH_VIDEOS_SUCCESS = 'FETCH_VIDEOS_SUCCESS';
-export const FETCH_VIDEOS_ERROR = 'FETCH_VIDEOS_ERROR';
 
 export const fetchVideosBegin = () => ({
   type: FETCH_VIDEOS_BEGIN

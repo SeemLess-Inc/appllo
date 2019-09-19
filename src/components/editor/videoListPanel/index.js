@@ -53,5 +53,6 @@ const mapStateToProps = state => ({
   loading: state.videos.loading,
   error: state.videos.error
 });
-
-export default connect(mapStateToProps)(VideosListPanel);
+export default connect(
+  mapStateToProps
+)(VideosListPanel);
