@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import videos from "./videosReducer";
+import videos from "./videoLibraryReducer";
 import keyframes from './keyframesReducer'
 import videosToUpload from './videosToUploadReducer'
 
