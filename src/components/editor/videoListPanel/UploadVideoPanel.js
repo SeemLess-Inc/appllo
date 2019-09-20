@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux'
-import { uploadVideoAction } from '../../../store/actions/uploadVideoAction'
+import { uploadVideos } from '../../../store/actions/uploadVideoActions'
 import { Modal, Button, Icon, Header, Segment } from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 
@@ -9,7 +9,7 @@ class UploadVideoPanel extends React.Component {
     super();
     this.onDrop = (files) => {
       this.setState({ files });
-      this.props.uploadVideoAction({files});
+      this.props.uploadVideos( files );
     };
     this.state = {
       files: []
@@ -66,5 +66,5 @@ class UploadVideoPanel extends React.Component {
 
 export default connect(
   (state) => ({videosToUpload: state.videosToUpload}),    // mapStateToProps
-  {uploadVideoAction}    // mapDispatchToProps
+  {uploadVideos}    // mapDispatchToProps
 )(UploadVideoPanel)
