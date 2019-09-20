@@ -2,31 +2,75 @@ import React from "react";
 import { Item, Accordion, Checkbox } from "semantic-ui-react";
 import KeyframeHumansForm from "./KeyframeHumansForm";
 import KeyframeBrandContentForm from "./KeyframeBrandContentForm";
-import KeyframeAssetAttributionForm from "./KeyframeAssetAttributionForm";
+import KeyframeContextForm from './KeyframeContextForm'
+import KeyframeContextHierarchyForm from './KeyframeContextHierarchyForm'
+//import KeyframeAssetAttributionForm from "./KeyframeAssetAttributionForm";
 
 function KeyframeItem({ keyframe }) {
-  const humansContent = <KeyframeHumansForm />;
-  const brandContent = <KeyframeBrandContentForm />;
-  const assetContent = <KeyframeAssetAttributionForm />;
-  const keyframePanels = [
-    { key: "panel-1a", title: "HUMANS", content: { content: humansContent } },
-    {
-      key: "panel-1b",
+
+  // Inspect data
+  const src = keyframe[1];
+  const hasBrands = src.brands.length;
+  const hasContext = src.context.length;
+  const hasContextHierarchy = src.context_hierarchy.length;
+  const hasHumans = src.humans.length;
+
+  // Format Output
+  const title = "Keyframe"; //+ keyframe[0]
+  const startTime = src["start time"];
+  const endTime = src["end time"];
+  let tagSummary = "";
+
+  // Content Panels
+  const humansContent = <KeyframeHumansForm data={src.humans}/>;
+  const brandContent = <KeyframeBrandContentForm data={src.brands}/>;
+  const contextContent = <KeyframeContextForm data={src.context}/>;
+  const context_hierarchyContent = <KeyframeContextHierarchyForm data={src.context_hierarchy}/>;
+
+  const keyframePanels = [];
+  // Brands Panel
+  if (hasBrands) {
+    tagSummary += hasBrands + " Brands, "
+    keyframePanels.push({
+      key: "panel-1a",
       title: "BRAND CONTENT",
       content: { content: brandContent }
-    },
-    {
+    });
+  }
+  // Context Panel
+  if (hasContext) {
+    tagSummary += hasContext + " Context, "
+    keyframePanels.push({
+      key: "panel-1b",
+      title: "CONTEXT",
+      content: { content: contextContent }
+    });
+  }
+  // Context Heirerchy Panel
+  if (hasContextHierarchy) {
+    tagSummary += hasContextHierarchy + " Context Hierarchy, "
+    keyframePanels.push({
       key: "panel-1c",
-      title: "ASSET ATTRIBUTION",
-      content: { content: assetContent }
-    }
-  ];
+      title: "CONTEXT HIERARCHY",
+      content: { content: context_hierarchyContent }
+    });
+  }
+  // Humans Panel
+  if (hasHumans) {
+    tagSummary += hasHumans + " Humans, "
+    keyframePanels.push({
+      key: "panel-1d",
+      title: "HUMANS",
+      content: { content: humansContent }
+    });
+  }
 
+  // Root Panel
   const KeyframeContent = <Accordion.Accordion panels={keyframePanels} />;
   const rootPanels = [
     {
       key: "panel-tags",
-      title: keyframe.description,
+      title: tagSummary,
       content: { content: KeyframeContent }
     }
   ];
@@ -35,8 +79,9 @@ function KeyframeItem({ keyframe }) {
     <Item>
       <Checkbox label=" " />
       <Item.Content>
-        <Item.Header>{keyframe.title}</Item.Header>
-        <Item.Meta>{keyframe.timespan}</Item.Meta>
+        <Item.Header>{title}</Item.Header>
+        <Item.Meta>Start: {startTime}</Item.Meta>
+        <Item.Meta>End: {endTime}</Item.Meta>
         <Accordion defaultActiveIndex={1} panels={rootPanels}></Accordion>
       </Item.Content>
     </Item>

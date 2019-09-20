@@ -1,14 +1,15 @@
-import axios from "axios";
+//import axios from "axios";
 
 export const UPLOAD_VIDEOS_BEGIN = "UPLOAD_VIDEOS_BEGIN";
 export const UPLOAD_VIDEOS_SUCCESS = "UPLOAD_VIDEOS_SUCCESS";
 export const UPLOAD_VIDEOS_ERROR = "UPLOAD_VIDEOS_ERROR";
 
+/*
 const URL_S3 = "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
 const URL_UPLOAD ="";
 const URL_PROCESS ="https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/Production/";
 const URL_VIDEO = URL_S3 + "Three+Active+Happy+Adult+Girlfriends+Stock+Footage+Video.mp4";
-
+*/
 
 /*
   From Tom: Basically you'll have endpoints to:
@@ -29,16 +30,17 @@ export function uploadVideos(files) {
 }
 
 function uploadVideosToS3(files) {
-  let file = files[0];
 
+  /*
   // Split the filename to get the name and type
+  let file = files[0];
   let fileParts = files[0].name.split(".");
   let fileName = fileParts[0];
   let fileType = fileParts[1];
-
   console.log("Preparing the upload");
 
 //  debugger;
+*/
 
   // FAKE API RESPONSE
   const url = "/data/netra.json";
@@ -83,7 +85,7 @@ function uploadVideosToS3(files) {
 */
 }
 
-function processVideoInS3() {
+//function processVideoInS3() {
   /*
   curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/Production/ 
   -d '{ "video_url": "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/Three+Active+Happy+Adult+Girlfriends+Stock+Footage+Video.mp4" }'
@@ -93,7 +95,7 @@ function processVideoInS3() {
   */
   /*
    */
-}
+//}
 
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {

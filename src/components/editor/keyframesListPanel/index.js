@@ -46,7 +46,7 @@ class KeyframesListPanel extends React.Component {
         <Grid.Row style={{ margin: 14 }}>
           <Item.Group divided>
             {keyframes.map(keyframe => {
-              return <KeyframeItem keyframe={keyframe} key={keyframe.id} />;
+              return <KeyframeItem keyframe={keyframe} key={keyframe[0]} />;
             })}
           </Item.Group>
         </Grid.Row>

@@ -6,7 +6,7 @@ class VideoApp extends Component {
     state = {
         video: {
             src: "https://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/Three+Active+Happy+Adult+Girlfriends+Stock+Footage+Video.mp4",
-            poster: "http://www.example.com/path/to/video_poster.jpg"
+//            poster: "http://www.example.com/path/to/video_poster.jpg"
         }
     }
  
@@ -46,8 +46,8 @@ class VideoApp extends Component {
                     controls={true}
                     src={this.state.video.src}
                     poster={this.state.video.poster}
-                    width="auto"
-                    height="auto"
+//                    width="auto"
+//                    height="auto"
                     onReady={this.onPlayerReady.bind(this)}
                     onPlay={this.onVideoPlay.bind(this)}
                     onPause={this.onVideoPause.bind(this)}

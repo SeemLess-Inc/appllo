@@ -7,17 +7,23 @@ export function getKeyframes() {
     dispatch(fetchKeyframesBegin());
     return getKeyframesJSON()
       .then(json => {
-        dispatch(fetchKeyframesSuccess(json.keyframes));
-        return json.keyframes;
+        const keyframes = parseKeyframesJSON(json)
+        dispatch(fetchKeyframesSuccess(keyframes));
+        return keyframes;
       })
       .catch(error => dispatch(fetchKeyframesError(error)));
   };
 }
 
+function parseKeyframesJSON(json){
+  // Convert Object to an Array
+  return Object.entries(json)
+}
+
 // TODO: Switch to live fetch once we have a stable API endpoint
 function getKeyframesJSON() {
-  const url = "/data/keyframes.json";
-  // const url = "/netra.json"
+//  const url = "/data/keyframes.json";
+  const url = "/data/netra.json";
   return fetch(url)
     .then(handleErrors)
     .then(res => res.json());

@@ -1,7 +1,8 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 
-function KeyframeBrandContentForm(props) {
+function KeyframeContextForm(props) {
+
   // Inspect data
 //  const src = props.data;
 //  const totalItems = src.length;
@@ -9,10 +10,11 @@ function KeyframeBrandContentForm(props) {
   return (
     <Form>
       <Form.Group grouped>
-        <h4>Brand Content List TBD</h4>
+        <Form.Checkbox label="iMac-with-laptop.png" name="0" value="0" />
+        <Form.Checkbox label="Apple-shopping-bag" name="1" value="1" />
       </Form.Group>
     </Form>
   );
 }
 
-export default KeyframeBrandContentForm;
+export default KeyframeContextForm;
