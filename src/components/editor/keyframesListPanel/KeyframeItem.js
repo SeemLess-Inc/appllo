@@ -8,11 +8,20 @@ import KeyframeContextHierarchyForm from './KeyframeContextHierarchyForm'
 
 function KeyframeItem({ keyframe }) {
 
+  // util
+  function isObjectEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
   // Inspect data
   const src = keyframe[1];
   const hasBrands = src.brands.length;
   const hasContext = src.context.length;
-  const hasContextHierarchy = src.context_hierarchy.length;
+  const hasContextHierarchy = !isObjectEmpty(src.context_hierarchy);
   const hasHumans = src.humans.length;
 
   // Format Output
@@ -48,7 +57,7 @@ function KeyframeItem({ keyframe }) {
   }
   // Context Heirerchy Panel
   if (hasContextHierarchy) {
-    tagSummary += hasContextHierarchy + " Context Hierarchy, "
+//    tagSummary += " Context Hierarchy, "
     keyframePanels.push({
       key: "panel-1c",
       title: "CONTEXT HIERARCHY",
