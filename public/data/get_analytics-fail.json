@@ -1,4 +1,6 @@
 {
+  "statusCode": 200,
+  "body": {
     "https://storage.googleapis.com/netra_video_processing/videos/video_name_1568235917.1208997/image.543600.jpg": {
       "message": "Image successfully added to processing queue, results will be sent to callback_url shortly.",
       "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1568235917.1208997/image.543600.jpg",
@@ -96,4 +98,4 @@
       "request_id": "aa4uwhmk0fr6n1e"
     }
   }
-  
+}

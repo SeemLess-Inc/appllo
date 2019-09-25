@@ -1,14 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getVideos } from "../../../store/actions/videoLibraryActions";
 import { Header, Grid, Item, Divider, Dimmer, Loader } from "semantic-ui-react";
 import UploadVideoPanel from "./UploadVideoPanel";
 import VideoListItem from "./VideoListItem";
 
 class VideosListPanel extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(getVideos());
-  }
 
   render() {
     const { error, loading, videos } = this.props;
