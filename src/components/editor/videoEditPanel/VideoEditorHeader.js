@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Header, Grid, Divider, Button, Container } from "semantic-ui-react";
-import VideoApp from "./VideoApp";
+import { Header, Grid, Divider, Button } from "semantic-ui-react";
 
-const VideoEditor = props => {
+const VideoEditorHeader = props => {
   // Create an object to render
   const o = {};
   o.id = props.currentVideo.id;
@@ -19,15 +18,13 @@ const VideoEditor = props => {
   */
 
   // Show/Hide video and disable Save button
-  let saveButton, videoApp;
+  let saveButton;
   if (o.id === "") {
     o.title = "Choose a video from the list";
     o.uploadedDate = "";
     saveButton = <Button disabled>Save</Button>;
-    videoApp = <div></div>;
   } else {
     saveButton = <Button>Save</Button>;
-    videoApp = <VideoApp></VideoApp>;
   }
 
   return (
@@ -44,11 +41,6 @@ const VideoEditor = props => {
         </Grid.Column>
       </Grid.Row>
       <Divider />
-      <Grid.Row>
-        <Grid.Column width={16}>
-          <Container>{videoApp}</Container>
-        </Grid.Column>
-      </Grid.Row>
     </Grid>
   );
 };
@@ -61,4 +53,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps
   //  mapDispatchToProps
-)(VideoEditor);
+)(VideoEditorHeader);

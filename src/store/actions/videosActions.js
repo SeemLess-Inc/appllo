@@ -41,8 +41,8 @@ export function listVideos() {
 }
 
 function getVideosJSON() {
-  // const url = ENDPOINT;
-   const url = "/data/list.json";
+   const url = ENDPOINT;
+   // const url = "/data/list.json";
   // const url = "/data/videos1.json";
   return fetch(url, {
     method: "GET",
