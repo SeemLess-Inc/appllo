@@ -2,7 +2,7 @@ import {
   FETCH_VIDEOS_BEGIN,
   FETCH_VIDEOS_SUCCESS,
   FETCH_VIDEOS_ERROR
-} from "../actions/videoLibraryActions";
+} from "../actions/videosActions";
 
 const initialState = {
   items: [],

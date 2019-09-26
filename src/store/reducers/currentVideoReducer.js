@@ -1,14 +1,14 @@
-import { SELECT_VIDEO } from "./../actions/selectVideoAction";
+import { SELECT_VIDEO } from "./../actions/currentVideoAction";
 
 const initialState = {
-  currentVideo: ""
-};
+  id: ""
+}
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case SELECT_VIDEO:
       return Object.assign({}, state, {
-        currentVideo: action.payload.currentVideo
+        id: action.payload.currentVideo
       });
     default:
       return state;

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { listVideos } from "../store/actions/videoLibraryActions";
+import { listVideos } from "../store/actions/videosActions";
 
 import { Grid } from "semantic-ui-react";
 

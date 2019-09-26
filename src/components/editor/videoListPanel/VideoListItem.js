@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { selectVideo } from '../../../store/actions/selectVideoAction'
+import { selectVideo } from '../../../store/actions/currentVideoAction'
 import { Item } from "semantic-ui-react";
 
 function VideoListItem (props) {
@@ -39,12 +39,12 @@ function VideoListItem (props) {
 // const reset = () => ({ type: 'RESET' })
 // const selectVideo = (id) => ({ type: 'SELECT_VIDEO', payload: id })
 
-
+/*
 const mapStateToProps = state => ({
   currentVideo: state.currentVideo
 });
 const mapDispatchToProps = { selectVideo }
-
+*/
 //export default VideoListItem;
 export default connect(
 //  mapStateToProps,
