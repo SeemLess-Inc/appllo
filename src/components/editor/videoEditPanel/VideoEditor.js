@@ -2,6 +2,12 @@ import React from "react";
 import { Header, Grid, Divider, Button, Container } from "semantic-ui-react";
 import VideoApp from './VideoApp'
 
+/*
+<Container>
+<VideoApp></VideoApp>
+</Container>
+*/
+
 const VideoEditor = () => (
   <Grid>
     <Grid.Row>
@@ -19,7 +25,6 @@ const VideoEditor = () => (
     <Grid.Row>
       <Grid.Column width={16}>
         <Container>
-        <VideoApp></VideoApp>
         </Container>
       </Grid.Column>
     </Grid.Row>

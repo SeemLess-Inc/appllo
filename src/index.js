@@ -8,3 +8,4 @@ import "./index.css";
 const store = configureStore();
 
 ReactDOM.render(<Root store={store} />, document.getElementById("root"));
+
