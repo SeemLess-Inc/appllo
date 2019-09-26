@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Header, Grid, Item, Divider, Dimmer, Loader } from "semantic-ui-react";
+import { Header, Grid, Item, Divider } from "semantic-ui-react";
 import UploadVideoPanel from "./UploadVideoPanel";
 import VideoListItem from "./VideoListItem";
 
 class VideosListPanel extends React.Component {
-
   render() {
     const { error, loading, videos } = this.props;
 
@@ -15,9 +14,13 @@ class VideosListPanel extends React.Component {
 
     if (loading) {
       return (
-        <Dimmer active inverted>
-          <Loader>Loading</Loader>
-        </Dimmer>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={16}>
+              <Header size="medium">Loading Videos</Header>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       );
     }
 
@@ -34,8 +37,8 @@ class VideosListPanel extends React.Component {
         <Divider />
         <Grid.Row style={{ margin: 14 }}>
           <Item.Group divided>
-            {videos.map(video => {
-              return <VideoListItem video={video} key={video.id} />;
+            {videos.map( (video, id) => {
+              return <VideoListItem video={video} key={id} />;
             })}
           </Item.Group>
         </Grid.Row>
@@ -49,6 +52,4 @@ const mapStateToProps = state => ({
   loading: state.videos.loading,
   error: state.videos.error
 });
-export default connect(
-  mapStateToProps
-)(VideosListPanel);
+export default connect(mapStateToProps)(VideosListPanel);

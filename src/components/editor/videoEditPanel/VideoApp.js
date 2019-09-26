@@ -3,39 +3,14 @@ import { connect } from "react-redux";
 import { Grid, Container } from "semantic-ui-react";
 import VideoPlayer from "react-video-js-player";
 
+const END_POINT =
+  "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
 class VideoApp extends Component {
+
+  video_src = END_POINT + this.props.currentVideo.id; // "ApiTest.mp4"
+  video_poster = "http://www.example.com/path/to/video_poster.jpg";
+
   player = {};
-  state = {
-    video: {
-      src:
-        "https://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/Three+Active+Happy+Adult+Girlfriends+Stock+Footage+Video.mp4"
-      //            poster: "http://www.example.com/path/to/video_poster.jpg"
-    }
-  };
-
-  /*
-  // Create an object to render
-  const o = {};
-  o.id = props.currentVideo.id;
-  o.title = props.currentVideo.id;
-  o.uploadedDate = props.currentVideo.hasOwnProperty("uploadedDate")
-    ? props.currentVideo.uploadedDate
-    : "Unknown date";
-  o.thumbnail = props.currentVideo.hasOwnProperty("thumbnail")
-    ? props.currentVideo.thumbnail
-    : "./video.png";
-  o.state = "Uploaded";
-
-  // Show/Hide video and disable Save button
-  let videoApp;
-  if (o.id === "") {
-    o.title = "Choose a video from the list";
-    o.uploadedDate = "";
-    videoApp = <div></div>;
-  } else {
-    videoApp = <VideoApp></VideoApp>;
-  }
-*/
 
   onPlayerReady(player) {
     console.log("Player is ready: ", player);
@@ -74,8 +49,8 @@ class VideoApp extends Component {
             <Container>
               <VideoPlayer
                 controls={true}
-                src={this.state.video.src}
-                poster={this.state.video.poster}
+                src={this.video_src}
+                //poster={this.video_poster}
                 //width="auto"
                 //height="auto"
                 //onReady={this.onPlayerReady.bind(this)}

@@ -6,7 +6,7 @@ import { Item } from "semantic-ui-react";
 function VideoListItem (props) {
 
   // Create an object to render
-  const o ={}
+  let o = {}
   o.id = props.video
   o.title = props.video
   o.thumbnail = "./video.png"
@@ -15,12 +15,6 @@ function VideoListItem (props) {
 
   // Invoking the actions via props.dispatch()
   const selectNewVideo = () => props.dispatch(selectVideo(props.video));
-/*
-  function selectVideo(e) {
-    console.log("choose: " + o.id)
-   this.props.selectVideo(o.id)
-  }    
-  */
 
   return (
     <Item onClick={selectNewVideo}>
@@ -33,11 +27,6 @@ function VideoListItem (props) {
     </Item>
   );
 }
-
-// const increment = () => ({ type: 'INCREMENT' })
-// const decrement = () => ({ type: 'DECREMENT' })
-// const reset = () => ({ type: 'RESET' })
-// const selectVideo = (id) => ({ type: 'SELECT_VIDEO', payload: id })
 
 /*
 const mapStateToProps = state => ({
