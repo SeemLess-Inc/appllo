@@ -2,12 +2,12 @@ export const FETCH_KEYFRAMES_BEGIN = "FETCH_KEYFRAMES_BEGIN";
 export const FETCH_KEYFRAMES_SUCCESS = "FETCH_KEYFRAMES_SUCCESS";
 export const FETCH_KEYFRAMES_ERROR = "FETCH_KEYFRAMES_ERROR";
 
-// const ENDPOINT = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/get_analytics/";
+const ENDPOINT = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/get_analytics/";
 
-export function getKeyframes() {
+export function getKeyframes( videoID ) {
   return dispatch => {
     dispatch(fetchKeyframesBegin());
-    return getKeyframesJSON()
+    return getKeyframesJSON( videoID )
       .then(json => {
         const keyframes = parseKeyframesJSON(json);
         dispatch(fetchKeyframesSuccess(keyframes));
@@ -23,18 +23,12 @@ function parseKeyframesJSON(json) {
 }
 
 // TODO: Switch to live fetch once we have a stable API endpoint
-function getKeyframesJSON() {
-//  const filename = "ApiTest.mp4";
-//  const url = ENDPOINT + filename;
-  const url = "/data/netra.json";
+function getKeyframesJSON( videoID ) {
+  const url = ENDPOINT + videoID;
+//  const url = "/data/netra.json";
   return fetch(url, {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    mode: "no-cors",
-    cache: 'default'
+    mode: "cors",
   })
     .then(handleErrors)
     .then(res => res.json());

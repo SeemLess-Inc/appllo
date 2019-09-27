@@ -2,8 +2,7 @@ export const FETCH_VIDEOS_BEGIN = "FETCH_VIDEOS_BEGIN";
 export const FETCH_VIDEOS_SUCCESS = "FETCH_VIDEOS_SUCCESS";
 export const FETCH_VIDEOS_ERROR = "FETCH_VIDEOS_ERROR";
 
-const ENDPOINT =
-  "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/list";
+const ENDPOINT = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/list";
 
 /*
 async function go() {

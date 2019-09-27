@@ -13,8 +13,16 @@ import {
 import KeyframeItem from "./KeyframeItem";
 
 class KeyframesListPanel extends React.Component {
+
   componentDidMount() {
-    this.props.dispatch(getKeyframes());
+  //  this.props.dispatch(getKeyframes());
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentVideo.id !== this.props.currentVideo.id) {
+//      console.log( "Updated: " + this.props.currentVideo.id)
+      this.props.dispatch(getKeyframes( this.props.currentVideo.id ));
+    }
   }
 
   render() {
@@ -56,6 +64,7 @@ class KeyframesListPanel extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  currentVideo: state.currentVideo,
   keyframes: state.keyframes.items,
   loading: state.keyframes.loading,
   error: state.keyframes.error
