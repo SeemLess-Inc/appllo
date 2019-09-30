@@ -33,6 +33,7 @@ class UploadVideoPanel extends React.Component {
             </Button.Content>
           </Button>
         }
+        closeIcon
         centered={false}
         size="tiny"
       >
@@ -48,7 +49,7 @@ class UploadVideoPanel extends React.Component {
                       <Icon name="video file outline" />
                       <p>Drag and drop a video file</p>
                       <p>or</p>
-                      <p>Click to choose</p>
+                      <p>Click for File Browser</p>
                     </Header>
                   </Segment>
                 </div>

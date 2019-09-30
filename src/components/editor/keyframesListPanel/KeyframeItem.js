@@ -86,8 +86,8 @@ function KeyframeItem({ keyframe }) {
 */
   return (
     <Item>
-      <Checkbox label=" " />
-      <Item.Content>
+      <Checkbox />
+      <Item.Content style={{paddingLeft: '1em'}}>
         <Item.Header>{title}</Item.Header>
         <Item.Meta>Start: {startTime}</Item.Meta>
         <Item.Meta>End: {endTime}</Item.Meta>

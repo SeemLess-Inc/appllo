@@ -41,25 +41,25 @@ Example data:
 
   // Inspect data
   const humans = props.data;
-//  const totalItems = humans.length;
+  //  const totalItems = humans.length;
   const human = humans[0];
 
   // Age Options
   const optionsAge = [];
   netraAges.forEach(function(item, i) {
-    optionsAge.push({ key: i, value: item.toLowerCase(), text: item })
+    optionsAge.push({ key: i, value: item.toLowerCase(), text: item });
   });
 
   // Ethnicity Options
   const optionsRace = [];
   netraEthnicity.forEach(function(item, i) {
-    optionsRace.push({ key: i, value: item.toLowerCase(), text: item })
+    optionsRace.push({ key: i, value: item.toLowerCase(), text: item });
   });
 
   // Gender Options
   const optionsGender = [];
   netraGenders.forEach(function(item, i) {
-    optionsGender.push({ key: i, value: item.toLowerCase(), text: item })
+    optionsGender.push({ key: i, value: item.toLowerCase(), text: item });
   });
 
   return (
