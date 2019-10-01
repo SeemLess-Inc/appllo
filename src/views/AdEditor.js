@@ -10,6 +10,7 @@ import KeyframesList from "../components/editor/keyframesListPanel";
 class AdEditor extends React.Component {
 
   componentDidMount() {
+    document.title = "Seemless.tv: Ad Editor";
     // Start by getting a list of all videos in the library
     this.props.dispatch(listVideos());
   }
