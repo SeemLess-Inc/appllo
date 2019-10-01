@@ -7,7 +7,7 @@ import KeyframeContextForm from "./KeyframeContextForm";
 //import KeyframeAssetAttributionForm from "./KeyframeAssetAttributionForm";
 
 function KeyframeItem({ keyframe }) {
-/*
+  /*
   // util
   function isObjectEmpty(obj) {
     for (var key in obj) {
@@ -16,24 +16,29 @@ function KeyframeItem({ keyframe }) {
     return true;
   }
 */
+  function formatTime(timestamp) {
+    const a = timestamp.split(" ");
+    return a[1];
+  }
+
   // Inspect data
   const src = keyframe[1];
   const hasBrands = src.brands.length;
   const hasContext = src.context.length;
-//  const hasContextHierarchy = !isObjectEmpty(src.context_hierarchy);
+  //  const hasContextHierarchy = !isObjectEmpty(src.context_hierarchy);
   const hasHumans = src.humans.length;
 
   // Format Output
   const title = "Keyframe"; //+ keyframe[0]
-  const startTime = src["start time"];
-  const endTime = src["end time"];
+  const startTime = formatTime(src["start time"]);
+  const endTime = formatTime(src["end time"]);
 
   // Content Panels
   const humansContent = <KeyframeHumansForm data={src.humans} />;
   const brandContent = <KeyframeBrandContentForm data={src.brands} />;
   const contextContent = <KeyframeContextForm data={src.context} />;
 
-//  const context_hierarchyContent = ( <KeyframeContextHierarchyForm data={src.context_hierarchy} /> );
+  //  const context_hierarchyContent = ( <KeyframeContextHierarchyForm data={src.context_hierarchy} /> );
 
   const keyframePanels = [];
   // Brands Panel
@@ -87,11 +92,16 @@ function KeyframeItem({ keyframe }) {
   return (
     <Item>
       <Checkbox />
-      <Item.Content style={{paddingLeft: '1em'}}>
+      <Item.Content style={{ paddingLeft: "1em" }}>
         <Item.Header>{title}</Item.Header>
         <Item.Meta>Start: {startTime}</Item.Meta>
         <Item.Meta>End: {endTime}</Item.Meta>
-        <Accordion fluid exclusive={false} defaultActiveIndex={[]} panels={keyframePanels}></Accordion>
+        <Accordion
+          fluid
+          exclusive={false}
+          defaultActiveIndex={[]}
+          panels={keyframePanels}
+        ></Accordion>
       </Item.Content>
     </Item>
   );
