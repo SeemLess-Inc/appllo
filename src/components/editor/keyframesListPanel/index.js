@@ -47,7 +47,7 @@ class KeyframesListPanel extends React.Component {
             <Header size="medium">Keyframes</Header>
           </Grid.Column>
           <Grid.Column width={2} textAlign="right">
-            <Icon name="plus circle" />
+            <Icon name="plus circle" size='large' />
           </Grid.Column>
         </Grid.Row>
         <Divider />

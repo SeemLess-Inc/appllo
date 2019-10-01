@@ -20,14 +20,12 @@ const TopMenu = () => (
       </Menu.Item>
     </Menu.Menu>
     <Menu.Menu position="right">
-      <Menu.Item fitted>
-        <Icon name="cog" />
+    <Menu.Item fitted>
+        <Icon name="cog" size='large' />
       </Menu.Item>
-      <Dropdown item icon="user circle outline" simple direction="left">
-        <Dropdown.Menu>
-          <Dropdown.Item>Menu item</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <Menu.Item fitted>
+        <Icon name="user circle outline" size='large' />
+      </Menu.Item>
     </Menu.Menu>
   </Menu>
 );
