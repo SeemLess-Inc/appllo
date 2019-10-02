@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, Dropdown, Icon } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 
 /* eslint-disable */
 const TopMenu = () => (

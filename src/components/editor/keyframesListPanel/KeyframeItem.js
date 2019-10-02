@@ -1,5 +1,9 @@
 import React from "react";
-import { Item, Accordion, Checkbox } from "semantic-ui-react";
+import {
+  Item,
+  Accordion,
+  Checkbox,
+} from "semantic-ui-react";
 import KeyframeHumansForm from "./KeyframeHumansForm";
 import KeyframeBrandContentForm from "./KeyframeBrandContentForm";
 import KeyframeContextForm from "./KeyframeContextForm";

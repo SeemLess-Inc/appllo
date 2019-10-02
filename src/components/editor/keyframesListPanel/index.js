@@ -20,7 +20,6 @@ class KeyframesListPanel extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.currentVideo.id !== this.props.currentVideo.id) {
-//      console.log( "Updated: " + this.props.currentVideo.id)
       this.props.dispatch(getKeyframes( this.props.currentVideo.id ));
     }
   }

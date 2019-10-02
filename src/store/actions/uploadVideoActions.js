@@ -1,15 +1,14 @@
-//import axios from "axios";
+import axios from "axios";
 
 export const UPLOAD_VIDEOS_BEGIN = "UPLOAD_VIDEOS_BEGIN";
 export const UPLOAD_VIDEOS_SUCCESS = "UPLOAD_VIDEOS_SUCCESS";
 export const UPLOAD_VIDEOS_ERROR = "UPLOAD_VIDEOS_ERROR";
 
-/*
-const URL_S3 = "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
-const URL_UPLOAD ="";
-const URL_PROCESS ="https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/Production/";
-const URL_VIDEO = URL_S3 + "Three+Active+Happy+Adult+Girlfriends+Stock+Footage+Video.mp4";
-*/
+//const URL_S3 = "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
+const URL_UPLOAD =
+  "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload";
+const URL_ANALYSE =
+  "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/analyse";
 
 /*
   From Tom: Basically you'll have endpoints to:
@@ -17,10 +16,10 @@ const URL_VIDEO = URL_S3 + "Three+Active+Happy+Adult+Girlfriends+Stock+Footage+V
  2. GET the Netra JSON for that video
 */
 
-export function uploadVideos(files) {
+export function uploadVideos(fileList) {
   return dispatch => {
-    dispatch(uploadVideosBegin(files));
-    return uploadVideosToS3(files)
+    dispatch(uploadVideosBegin(fileList));
+    return uploadVideosToS3(fileList)
       .then(json => {
         dispatch(uploadVideosSuccess(json));
         return json;
@@ -29,85 +28,53 @@ export function uploadVideos(files) {
   };
 }
 
-function uploadVideosToS3(files) {
+function readUploadedFileAsText(inputFile) {
+  const temporaryFileReader = new FileReader();
 
-  /*
-  // Split the filename to get the name and type
-  let file = files[0];
-  let fileParts = files[0].name.split(".");
-  let fileName = fileParts[0];
-  let fileType = fileParts[1];
-  console.log("Preparing the upload");
+  return new Promise((resolve, reject) => {
+    temporaryFileReader.onerror = () => {
+      temporaryFileReader.abort();
+      reject(new DOMException("Problem parsing input file."));
+    };
 
-//  debugger;
-*/
-
-  // FAKE API RESPONSE
-  const url = "/data/netra.json";
-  return fetch(url)
-    .then(handleErrors)
-    .then(res => res.json());
-
-/*
-// LIVE API CALL based on https://medium.com/@khelif96/uploading-files-from-a-react-app-to-aws-s3-the-right-way-541dd6be689
-
-  axios
-    .post( URL_UPLOAD, {
-      fileName: fileName,
-      fileType: fileType
-    })
-    .then(response => {
-      var returnData = response.data.data.returnData;
-      var signedRequest = returnData.signedRequest;
-      var url = returnData.url;
-      this.setState({ url: url });
-      console.log("Recieved a signed request " + signedRequest);
-
-      var options = {
-        headers: {
-          "Content-Type": fileType
-        }
-      };
-      axios
-        .put(signedRequest, file, options)
-        .then(result => {
-          console.log("Response from s3");
-          this.setState({ success: true });
-        })
-        .catch(error => {
-          alert("ERROR " + JSON.stringify(error));
-        });
-
-    })
-    .catch(error => {
-      alert(JSON.stringify(error));
-    });
-*/
+    temporaryFileReader.onload = () => {
+      resolve(temporaryFileReader.result);
+    };
+    temporaryFileReader.readAsText(inputFile);
+  });
 }
 
-//function processVideoInS3() {
-  /*
-  curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/Production/ 
-  -d '{ "video_url": "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/Three+Active+Happy+Adult+Girlfriends+Stock+Footage+Video.mp4" }'
+// https://blog.shovonhasan.com/using-promises-with-filereader/
+// https://codesandbox.io/s/lrjxj8w867
+async function uploadVideosToS3(fileList) {
+  const file = fileList[0];
+  const file_name = file.name;
 
-  Currently https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/Production/ is the URL to upload and process a video
-  The video_url parameter is for an uploaded video in our S3 bucket.
-  */
-  /*
-   */
-//}
+  try {
+    const fileContents = await readUploadedFileAsText(file);
+    console.log("Uploading " + file_name + " to " + URL_UPLOAD);
 
-// Handle HTTP errors since fetch won't.
-function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
+    // curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload -d '{ "file_name": "test.mp4", "content": "c2FtcGxlIHRleHQ=" }'
+    axios
+      .post(URL_UPLOAD, {
+        file_name: file_name,
+        content: fileContents
+      })
+      .then(response => {
+        debugger;
+      })
+      .catch(error => {
+        alert(JSON.stringify(error));
+      });
+  } catch (e) {
+    console.log(e);
   }
-  return response;
 }
 
-export const uploadVideosBegin = files => ({
+// Action Creators
+export const uploadVideosBegin = fileList => ({
   type: UPLOAD_VIDEOS_BEGIN,
-  payload: { files }
+  payload: { fileList }
 });
 
 export const uploadVideosSuccess = keyframes => ({
