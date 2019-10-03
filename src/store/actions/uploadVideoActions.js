@@ -40,7 +40,8 @@ function readUploadedFileAsText(inputFile) {
     temporaryFileReader.onload = () => {
       resolve(temporaryFileReader.result);
     };
-    temporaryFileReader.readAsText(inputFile);
+//    temporaryFileReader.readAsText(inputFile);
+    temporaryFileReader.readAsDataURL(inputFile);
   });
 }
 
