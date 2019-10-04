@@ -5,24 +5,45 @@ import { Item } from "semantic-ui-react";
 
 function VideoListItem (props) {
 
-  // Create an object to render
-  let o = {}
-  o.id = props.video
-  o.title = props.video
-  o.thumbnail = "./video.png"
-  o.uploadedDate = "Unknown date"
-  o.state = "Uploaded"
+/*
+video.
+  analytics: "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/get_analytics/ApiTest.mp4.json"
+  duration: ""
+  id: "ApiTest.mp4"
+  src: "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/ApiTest.mp4"
+  thumbnail: ""
+  title: "ApiTest.mp4"
+  uploadedDate: ""
+*/
+
+let o = props.video
+
+let videoState;
+if (props.video.analytics === ""){
+  videoState = "Uploaded"
+}
+else{
+  videoState = "Analyzed"
+}
+
+let videoThumbnail;
+if (props.video.thumbnail === ""){
+  videoThumbnail = "./video.png"
+}
+else{
+  videoThumbnail = props.video.thumbnail
+}
 
   // Invoking the actions via props.dispatch()
   const selectNewVideo = () => props.dispatch(selectVideo(props.video));
 
   return (
     <Item onClick={selectNewVideo}>
-      <Item.Image src={o.thumbnail} size="tiny" />
+      <Item.Image src={videoThumbnail} size="tiny" />
       <Item.Content>
         <Item.Header as="a">{o.title}</Item.Header>
         <Item.Meta>{o.uploadedDate}</Item.Meta>
-        <Item.Extra>{o.state}</Item.Extra>
+        <Item.Extra>{videoState}</Item.Extra>
       </Item.Content>
     </Item>
   );

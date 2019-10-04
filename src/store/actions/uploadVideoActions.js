@@ -7,8 +7,7 @@ export const UPLOAD_VIDEOS_ERROR = "UPLOAD_VIDEOS_ERROR";
 //const URL_S3 = "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
 const URL_UPLOAD =
   "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload";
-const URL_ANALYSE =
-  "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/analyse";
+// const URL_ANALYSE = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/analyse";
 
 /*
   From Tom: Basically you'll have endpoints to:
@@ -40,7 +39,7 @@ function readUploadedFileAsText(inputFile) {
     temporaryFileReader.onload = () => {
       resolve(temporaryFileReader.result);
     };
-//    temporaryFileReader.readAsText(inputFile);
+    //    temporaryFileReader.readAsText(inputFile);
     temporaryFileReader.readAsDataURL(inputFile);
   });
 }
@@ -56,13 +55,24 @@ async function uploadVideosToS3(fileList) {
     console.log("Uploading " + file_name + " to " + URL_UPLOAD);
 
     // curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload -d '{ "file_name": "test.mp4", "content": "c2FtcGxlIHRleHQ=" }'
+    let postdata = {
+      file_name: file_name,
+      content: fileContents
+    };
+    let axiosConfig = {
+      /*
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*"
+      }
+      */
+    };
+
     axios
-      .post(URL_UPLOAD, {
-        file_name: file_name,
-        content: fileContents
-      })
+      .post(URL_UPLOAD, postdata, axiosConfig)
       .then(response => {
-        debugger;
+        console.log("Uploaded " + file_name + " to " + URL_UPLOAD);
+        //        debugger;
       })
       .catch(error => {
         alert(JSON.stringify(error));
