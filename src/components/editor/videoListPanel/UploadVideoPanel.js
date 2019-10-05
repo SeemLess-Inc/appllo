@@ -1,17 +1,23 @@
 import React from "react";
-import {connect} from 'react-redux'
-import { uploadVideos } from '../../../store/actions/uploadVideoActions'
+import { connect } from "react-redux";
+import { uploadVideos } from "../../../store/actions/uploadVideoActions";
 import { Modal, Button, Icon, Header, Segment } from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 
 class UploadVideoPanel extends React.Component {
   constructor() {
     super();
-    this.onDrop = (files) => {
+
+    this.onDrop = files => {
       this.setState({ files });
-      this.props.uploadVideos( files );
+      this.props.uploadVideos(files);
+
+      // close the modal
+      this.setState({ modalOpen: false });
     };
+
     this.state = {
+      modalOpen: false,
       files: []
     };
   }
@@ -26,7 +32,12 @@ class UploadVideoPanel extends React.Component {
     return (
       <Modal
         trigger={
-          <Button animated="vertical">
+          <Button
+            animated="vertical"
+            onClick={() => {
+              this.setState({ modalOpen: true });
+            }}
+          >
             <Button.Content hidden>Upload</Button.Content>
             <Button.Content visible>
               <Icon name="upload" />
@@ -36,6 +47,10 @@ class UploadVideoPanel extends React.Component {
         closeIcon
         centered={false}
         size="tiny"
+        open={this.state.modalOpen}
+        onClose={() => {
+          this.setState({ modalOpen: false });
+        }}
       >
         <Modal.Header>Upload a video</Modal.Header>
         <Modal.Content>
@@ -66,6 +81,6 @@ class UploadVideoPanel extends React.Component {
 }
 
 export default connect(
-  (state) => ({videosToUpload: state.videosToUpload}),    // mapStateToProps
-  {uploadVideos}    // mapDispatchToProps
-)(UploadVideoPanel)
+  state => ({ videosToUpload: state.videosToUpload }), // mapStateToProps
+  { uploadVideos } // mapDispatchToProps
+)(UploadVideoPanel);
