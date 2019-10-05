@@ -5,6 +5,7 @@ import { Modal, Button, Icon, Header, Segment } from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 
 class UploadVideoPanel extends React.Component {
+
   constructor() {
     super();
 

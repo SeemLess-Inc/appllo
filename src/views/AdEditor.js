@@ -8,11 +8,22 @@ import KeyframesList from "../components/editor/keyframesListPanel";
 //import './App.css';
 
 class AdEditor extends React.Component {
-
   componentDidMount() {
     document.title = "Seemless.tv: Ad Editor";
     // Start by getting a list of all videos in the library
     this.props.dispatch(listVideos());
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.videosToUpload.items.length > 0 &&
+      this.props.videosToUpload.items.length === 0
+    ) {
+      // Wait 2 secs then update all videos in the library
+      setTimeout(() => {
+        this.props.dispatch(listVideos());
+      }, 2000);
+    }
   }
 
   render() {
@@ -33,6 +44,7 @@ class AdEditor extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentVideo: state.currentVideo
+  currentVideo: state.currentVideo,
+  videosToUpload: state.videosToUpload
 });
 export default connect(mapStateToProps)(AdEditor);

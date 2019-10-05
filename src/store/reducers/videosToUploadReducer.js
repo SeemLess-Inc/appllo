@@ -18,7 +18,8 @@ export default function videoUploadReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
+        items: action.payload.items
       };
 
     case UPLOAD_VIDEOS_SUCCESS:
@@ -27,7 +28,7 @@ export default function videoUploadReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.videos
+        items: []//action.payload.videos
       };
 
     case UPLOAD_VIDEOS_ERROR:

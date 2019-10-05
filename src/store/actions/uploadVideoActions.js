@@ -83,14 +83,14 @@ async function uploadVideosToS3(fileList) {
 }
 
 // Action Creators
-export const uploadVideosBegin = fileList => ({
+export const uploadVideosBegin = items => ({
   type: UPLOAD_VIDEOS_BEGIN,
-  payload: { fileList }
+  payload: { items }
 });
 
-export const uploadVideosSuccess = keyframes => ({
+export const uploadVideosSuccess = fileList => ({
   type: UPLOAD_VIDEOS_SUCCESS,
-  payload: { keyframes }
+  payload: { fileList }
 });
 
 export const uploadVideosError = error => ({
