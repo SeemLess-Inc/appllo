@@ -29,7 +29,7 @@ export function analyseVideo(video) {
 
 async function analyseVideoAtNetra(video) {
   const postdata = {
-    file_name: video.src
+    file_name: video.id
   };
   const axiosConfig = {};
   try {
