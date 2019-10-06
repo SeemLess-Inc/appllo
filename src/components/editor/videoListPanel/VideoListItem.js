@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { selectVideo } from '../../../store/actions/currentVideoAction'
+import { analyseVideo } from '../../../store/actions/analyseVideoActions'
 import { Item } from "semantic-ui-react";
 
 function VideoListItem (props) {
@@ -21,6 +22,8 @@ let o = props.video
 let videoState;
 if (props.video.analytics === ""){
   videoState = "Uploaded"
+  // request analysis
+  props.dispatch(analyseVideo(props.video));
 }
 else{
   videoState = "Analyzed"
