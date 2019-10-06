@@ -1,0 +1,1732 @@
+{
+    "https://i.ibb.co/0X20W5r/1400.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:37",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 68,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 97,
+                "tag_location": [
+                    44,
+                    23,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/1fPqD89/1610.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:37",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 90,
+                "gender": "female",
+                "gender_confidence": 97,
+                "human_confidence": 90,
+                "tag_location": [
+                    41,
+                    24,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/64tRb0r/950.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:45",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 90,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 83,
+                "label": "font"
+            }
+        ],
+        "context_hierarchy": {
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/6mGW10k/703.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:44",
+        "brands": [
+            {
+                "brand_category_id": 182,
+                "brand_category_name": "Variety Store",
+                "brand_id": 11779,
+                "confidence": 66,
+                "label": "Target",
+                "tag_location": [
+                    1052,
+                    473,
+                    114,
+                    142
+                ]
+            }
+        ],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 90,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 83,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 96,
+                "tag_location": [
+                    57,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/7jxLPp9/915.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:14",
+        "brands": [
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    1024,
+                    493,
+                    156,
+                    162
+                ]
+            },
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    473,
+                    358,
+                    115,
+                    131
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "NSFW",
+                "confidence": 52,
+                "label": "NSFW"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 80,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 91,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 88,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    55,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/8rc83S3/885.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:31",
+        "brands": [
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    993,
+                    479,
+                    240,
+                    191
+                ]
+            },
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    473,
+                    367,
+                    116,
+                    115
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 78,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 90,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 83,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 96,
+                "tag_location": [
+                    57,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/8zMmMSP/1340.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:48",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 71,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    41,
+                    21,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/CWyjMZn/335.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:37",
+        "brands": [],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 85,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 87,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 94,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    58,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/Fhs5tZd/1550.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:25",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "30-39",
+                "ethnicity": "white",
+                "ethnicity_confidence": 84,
+                "gender": "female",
+                "gender_confidence": 97,
+                "human_confidence": 89,
+                "tag_location": [
+                    43,
+                    22,
+                    7,
+                    12
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/LzyxjzV/1310.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:14",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "30-39",
+                "ethnicity": "white",
+                "ethnicity_confidence": 84,
+                "gender": "female",
+                "gender_confidence": 97,
+                "human_confidence": 99,
+                "tag_location": [
+                    43,
+                    21,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/NVwRBDx/1520.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:28",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "30-39",
+                "ethnicity": "white",
+                "ethnicity_confidence": 75,
+                "gender": "female",
+                "gender_confidence": 96,
+                "human_confidence": 99,
+                "tag_location": [
+                    41,
+                    22,
+                    7,
+                    12
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/Qjt0FPs/1640.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:53",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 91,
+                "gender": "female",
+                "gender_confidence": 96,
+                "human_confidence": 98,
+                "tag_location": [
+                    40,
+                    22,
+                    7,
+                    12
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/RPhK8RD/1700.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:25",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 78,
+                "gender": "female",
+                "gender_confidence": 85,
+                "human_confidence": 99,
+                "tag_location": [
+                    41,
+                    22,
+                    7,
+                    12
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/VwGF0vg/398.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:45",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 88,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 83,
+                "label": "font"
+            },
+            {
+                "category": "Business & Advertising (Business)",
+                "confidence": 53,
+                "label": "brand"
+            }
+        ],
+        "context_hierarchy": {
+            "Restaurants & Retail": {
+                "Retail": {
+                    "Brand": [
+                        "brand"
+                    ]
+                }
+            },
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/WKcC2rK/275.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:15",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 88,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 96,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    57,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/WVGPFYb/1040.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:14",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "13-19",
+                "ethnicity": "white",
+                "ethnicity_confidence": 93,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    46,
+                    28,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/Y8xgB1W/1370.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:53",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 80,
+                "gender": "female",
+                "gender_confidence": 98,
+                "human_confidence": 99,
+                "tag_location": [
+                    43,
+                    23,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/YpyBd6F/763.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:15",
+        "brands": [
+            {
+                "brand_category_id": 182,
+                "brand_category_name": "Variety Store",
+                "brand_id": 11779,
+                "confidence": 57,
+                "label": "Target",
+                "tag_location": [
+                    1027,
+                    472,
+                    165,
+                    134
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 52,
+                "label": "people"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Person": [
+                        "people"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 92,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 81,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 97,
+                "tag_location": [
+                    55,
+                    15,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/ZXc52sP/1580.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:51",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 87,
+                "gender": "female",
+                "gender_confidence": 87,
+                "human_confidence": 99,
+                "tag_location": [
+                    40,
+                    22,
+                    7,
+                    12
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/cw3qP6K/488.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:45",
+        "brands": [
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    1019,
+                    492,
+                    163,
+                    111
+                ]
+            },
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    458,
+                    316,
+                    154,
+                    108
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "NSFW",
+                "confidence": 70,
+                "label": "NSFW"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 87,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 80,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 60,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 96,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/dBjg5gm/583.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:46",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 88,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 83,
+                "label": "font"
+            },
+            {
+                "category": "Business & Advertising (Business)",
+                "confidence": 51,
+                "label": "brand"
+            }
+        ],
+        "context_hierarchy": {
+            "Restaurants & Retail": {
+                "Retail": {
+                    "Brand": [
+                        "brand"
+                    ]
+                }
+            },
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/fX47SzD/2148.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:23",
+        "brands": [],
+        "context": [
+            {
+                "category": "Science & Engineering (Sky)",
+                "confidence": 65,
+                "label": "sky"
+            }
+        ],
+        "context_hierarchy": {
+            "Sciences": {
+                "Sky": {
+                    "Sky": [
+                        "sky"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/gy9dTkH/1220.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:24",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 86,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 76,
+                "label": "font"
+            }
+        ],
+        "context_hierarchy": {
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/kSb2ddg/733.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:22",
+        "brands": [
+            {
+                "brand_category_id": 182,
+                "brand_category_name": "Variety Store",
+                "brand_id": 11779,
+                "confidence": 66,
+                "label": "Target",
+                "tag_location": [
+                    1052,
+                    473,
+                    114,
+                    141
+                ]
+            }
+        ],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 89,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 90,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    55,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/mJg9vvT/578.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:29",
+        "brands": [
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    996,
+                    382,
+                    198,
+                    234
+                ]
+            },
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    460,
+                    317,
+                    153,
+                    107
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "NSFW",
+                "confidence": 61,
+                "label": "NSFW"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 86,
+                "label": "sitting"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 61,
+                "label": "people"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Person": [
+                        "people"
+                    ],
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 92,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 82,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 98,
+                "tag_location": [
+                    55,
+                    15,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/mTWqY8K/305.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:35",
+        "brands": [],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 52,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 84,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 95,
+                "gender": "female",
+                "gender_confidence": 96,
+                "human_confidence": 99,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/nD0kGS9/673.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:33",
+        "brands": [
+            {
+                "brand_category_id": 182,
+                "brand_category_name": "Variety Store",
+                "brand_id": 11779,
+                "confidence": 65,
+                "label": "Target",
+                "tag_location": [
+                    1052,
+                    473,
+                    114,
+                    142
+                ]
+            }
+        ],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 81,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 68,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 96,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/nmxCh8q/855.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:19",
+        "brands": [
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    992,
+                    479,
+                    241,
+                    191
+                ]
+            },
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    473,
+                    357,
+                    116,
+                    131
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 83,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 81,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 68,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 96,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/pZ4VY5k/1670.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:48",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 80,
+                "gender": "female",
+                "gender_confidence": 93,
+                "human_confidence": 90,
+                "tag_location": [
+                    42,
+                    23,
+                    6,
+                    10
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/s6RTmQJ/90.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:14",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 94,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 88,
+                "label": "font"
+            },
+            {
+                "category": "Education (Education)",
+                "confidence": 69,
+                "label": "presentation"
+            },
+            {
+                "category": "Business & Advertising (Business)",
+                "confidence": 54,
+                "label": "brand"
+            }
+        ],
+        "context_hierarchy": {
+            "Education": {
+                "Education": {
+                    "Presentation": [
+                        "presentation"
+                    ]
+                }
+            },
+            "Restaurants & Retail": {
+                "Retail": {
+                    "Brand": [
+                        "brand"
+                    ]
+                }
+            },
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/sV18zPV/945.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:51",
+        "brands": [
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    464,
+                    364,
+                    143,
+                    115
+                ]
+            },
+            {
+                "brand_category_id": 130,
+                "brand_category_name": "Fitness Apparel",
+                "brand_id": 10491,
+                "confidence": 100,
+                "label": "Nike",
+                "tag_location": [
+                    1024,
+                    493,
+                    157,
+                    161
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 81,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 92,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 89,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 98,
+                "tag_location": [
+                    55,
+                    15,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/ssrdvsS/1460.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:31",
+        "brands": [],
+        "context": [],
+        "context_hierarchy": {},
+        "humans": [
+            {
+                "age": "30-39",
+                "ethnicity": "white",
+                "ethnicity_confidence": 85,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    41,
+                    21,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/wBWz4KH/365.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:41",
+        "brands": [],
+        "context": [
+            {
+                "category": "NSFW",
+                "confidence": 59,
+                "label": "NSFW"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 81,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 79,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 55,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 97,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/wCxbLBQ/395.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:31",
+        "brands": [],
+        "context": [
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 79,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 78,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    63,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 67,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 98,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/wdDS2SC/518.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:22",
+        "brands": [
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    1018,
+                    492,
+                    164,
+                    111
+                ]
+            },
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    458,
+                    317,
+                    154,
+                    107
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "NSFW",
+                "confidence": 71,
+                "label": "NSFW"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 81,
+                "label": "sitting"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 59,
+                "label": "people"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Person": [
+                        "people"
+                    ],
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 94,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "13-19",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 85,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 94,
+                "tag_location": [
+                    56,
+                    13,
+                    8,
+                    15
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/xYfS1L7/1827.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:49",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 96,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 84,
+                "label": "font"
+            },
+            {
+                "category": "Education (Education)",
+                "confidence": 76,
+                "label": "presentation"
+            },
+            {
+                "category": "Animals (Wild Animals)",
+                "confidence": 51,
+                "label": "biology"
+            },
+            {
+                "category": "Business & Advertising (Business)",
+                "confidence": 51,
+                "label": "brand"
+            }
+        ],
+        "context_hierarchy": {
+            "Animals": {
+                "Wild Animals": {
+                    "Biology": [
+                        "biology"
+                    ]
+                }
+            },
+            "Education": {
+                "Education": {
+                    "Presentation": [
+                        "presentation"
+                    ]
+                }
+            },
+            "Restaurants & Retail": {
+                "Retail": {
+                    "Brand": [
+                        "brand"
+                    ]
+                }
+            },
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    },
+    "https://i.ibb.co/ygfjPZG/548.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:41",
+        "brands": [
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 100,
+                "label": "Whole Foods",
+                "tag_location": [
+                    1018,
+                    492,
+                    164,
+                    111
+                ]
+            },
+            {
+                "brand_category_id": 173,
+                "brand_category_name": "Supermarket",
+                "brand_id": 10787,
+                "confidence": 85,
+                "label": "Whole Foods",
+                "tag_location": [
+                    482,
+                    305,
+                    117,
+                    117
+                ]
+            }
+        ],
+        "context": [
+            {
+                "category": "NSFW",
+                "confidence": 74,
+                "label": "NSFW"
+            },
+            {
+                "category": "People & Relationships (People)",
+                "confidence": 85,
+                "label": "sitting"
+            }
+        ],
+        "context_hierarchy": {
+            "Humans": {
+                "People": {
+                    "Sitting": [
+                        "sitting"
+                    ]
+                }
+            }
+        },
+        "humans": [
+            {
+                "age": "20-29",
+                "ethnicity": "white",
+                "ethnicity_confidence": 91,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    64,
+                    13,
+                    7,
+                    13
+                ]
+            },
+            {
+                "age": "20-29",
+                "ethnicity": "asian",
+                "ethnicity_confidence": 92,
+                "gender": "female",
+                "gender_confidence": 99,
+                "human_confidence": 99,
+                "tag_location": [
+                    55,
+                    13,
+                    7,
+                    13
+                ]
+            }
+        ]
+    },
+    "https://i.ibb.co/yhwq6Ds/765.jpg": {
+        "start time": "2019-08-05 21:47:03",
+        "end time": "2019-08-05 21:47:23",
+        "brands": [],
+        "context": [
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 86,
+                "label": "text"
+            },
+            {
+                "category": "Text & Signage (Letters / Numbers / Words)",
+                "confidence": 79,
+                "label": "font"
+            }
+        ],
+        "context_hierarchy": {
+            "Text & Signage": {
+                "Letters, Numbers, Words": {
+                    "Text": [
+                        "text",
+                        "font"
+                    ]
+                }
+            }
+        },
+        "humans": []
+    }
+}

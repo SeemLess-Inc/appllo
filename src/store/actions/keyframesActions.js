@@ -27,8 +27,14 @@ export function getKeyframes(video) {
 }
 
 function parseKeyframesJSON(json) {
+  let keyframesJSON = json.body
+  
+  // trim first 2 entries
+  delete keyframesJSON.callback_url
+  delete keyframesJSON.video_url
+
   // Convert Object to an Array
-  return Object.entries(json.body);
+  return Object.entries(keyframesJSON);
 }
 
 // TODO: Switch to live fetch once we have a stable API endpoint

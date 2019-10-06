@@ -1,0 +1,470 @@
+{
+  "callback_url": "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/analyse_callback",
+  "video_url": "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/ApiTest2.mp4",
+  "3.04": {
+    "frame_time": "3.04",
+    "context": [{ "confidence": 85, "label": "NSFW" }],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.1353600.jpg",
+    "psy": ""
+  },
+  "0.04": {
+    "frame_time": "0.04",
+    "context": [{ "confidence": 59, "label": "NSFW" }],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [21, 26, 8, 15],
+        "ethnicity_confidence": 56
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 91,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [34, 33, 8, 15],
+        "ethnicity_confidence": 92
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 54,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [70, 16, 8, 15],
+        "ethnicity_confidence": 71
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.633600.jpg",
+    "psy": ""
+  },
+  "5.04": {
+    "frame_time": "5.04",
+    "context": [{ "confidence": 51, "label": "NSFW" }],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.903600.jpg",
+    "psy": ""
+  },
+  "7.04": {
+    "frame_time": "7.04",
+    "context": [{ "confidence": 89, "label": "NSFW" }],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "30-39",
+        "human_confidence": 78,
+        "gender_confidence": 97,
+        "ethnicity": "white",
+        "tag_location": [37, 19, 8, 15],
+        "ethnicity_confidence": 95
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.993600.jpg",
+    "psy": ""
+  },
+  "6.04": {
+    "frame_time": "6.04",
+    "context": [],
+    "context_hierarchy": {},
+    "brands": [
+      {
+        "confidence": 52,
+        "brand_category_id": 129,
+        "label": "Sun Life",
+        "brand_id": 12954,
+        "tag_location": [0, 0, 0, 0],
+        "brand_category_name": "Financial Services"
+      }
+    ],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "30-39",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [36, 30, 8, 15],
+        "ethnicity_confidence": 84
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [57, 25, 8, 15],
+        "ethnicity_confidence": 72
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 98,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [25, 25, 8, 15],
+        "ethnicity_confidence": 78
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.363600.jpg",
+    "psy": ""
+  },
+  "8.04": {
+    "frame_time": "8.04",
+    "context": [{ "confidence": 81, "label": "NSFW" }],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 94,
+        "gender_confidence": 98,
+        "ethnicity": "white",
+        "tag_location": [39, 21, 8, 15],
+        "ethnicity_confidence": 90
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.1083600.jpg",
+    "psy": ""
+  },
+  "10.04": {
+    "frame_time": "10.04",
+    "context": [],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "30-39",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [37, 28, 8, 15],
+        "ethnicity_confidence": 96
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [53, 25, 8, 15],
+        "ethnicity_confidence": 77
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 98,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [26, 29, 7, 13],
+        "ethnicity_confidence": 92
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.273600.jpg",
+    "psy": ""
+  },
+  "9.04": {
+    "frame_time": "9.04",
+    "context": [],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [38, 21, 8, 15],
+        "ethnicity_confidence": 93
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [49, 31, 8, 15],
+        "ethnicity_confidence": 92
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 97,
+        "gender_confidence": 97,
+        "ethnicity": "white",
+        "tag_location": [26, 27, 7, 12],
+        "ethnicity_confidence": 92
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.93600.jpg",
+    "psy": ""
+  },
+  "4.04": {
+    "frame_time": "4.04",
+    "context": [],
+    "context_hierarchy": {},
+    "brands": [
+      {
+        "confidence": 60,
+        "brand_category_id": 129,
+        "label": "Sun Life",
+        "brand_id": 12954,
+        "tag_location": [0, 0, 0, 0],
+        "brand_category_name": "Financial Services"
+      }
+    ],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [21, 26, 8, 15],
+        "ethnicity_confidence": 68
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 89,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [34, 32, 10, 18],
+        "ethnicity_confidence": 92
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.723600.jpg",
+    "psy": ""
+  },
+  "14.04": {
+    "frame_time": "14.04",
+    "context": [],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [23, 28, 8, 15],
+        "ethnicity_confidence": 35
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 91,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [34, 32, 10, 18],
+        "ethnicity_confidence": 91
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.813600.jpg",
+    "psy": ""
+  },
+  "1.04": {
+    "frame_time": "1.04",
+    "context": [
+      { "confidence": 51, "label": "NSFW" },
+      { "confidence": 55, "label": "class" },
+      { "confidence": 51, "label": "community" }
+    ],
+    "context_hierarchy": {
+      "Education": { "Education": { "Classroom": ["class"] } },
+      "Humans": { "People": { "Community": ["community"] } }
+    },
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 98,
+        "gender_confidence": 99,
+        "ethnicity": "hispanic or latino",
+        "tag_location": [21, 26, 8, 15],
+        "ethnicity_confidence": 46
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 95,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [34, 33, 8, 15],
+        "ethnicity_confidence": 90
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.543600.jpg",
+    "psy": ""
+  },
+  "12.04": {
+    "frame_time": "12.04",
+    "context": [
+      { "confidence": 83, "label": "NSFW" },
+      { "confidence": 51, "label": "community" }
+    ],
+    "context_hierarchy": {
+      "Humans": { "People": { "Community": ["community"] } }
+    },
+    "brands": [],
+    "humans": [],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.1263600.jpg",
+    "psy": ""
+  },
+  "13.04": {
+    "frame_time": "13.04",
+    "context": [
+      { "confidence": 64, "label": "community" },
+      { "confidence": 64, "label": "lunch" },
+      { "confidence": 55, "label": "meal" }
+    ],
+    "context_hierarchy": {
+      "Food & Drink": { "Food": { "Lunch": ["lunch"], "Meal": ["meal"] } },
+      "Humans": { "People": { "Community": ["community"] } }
+    },
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [34, 32, 10, 18],
+        "ethnicity_confidence": 94
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 98,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [20, 23, 8, 15],
+        "ethnicity_confidence": 38
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.453600.jpg",
+    "psy": ""
+  },
+  "15.04": {
+    "frame_time": "15.04",
+    "context": [],
+    "context_hierarchy": {},
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 74,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [39, 23, 7, 12],
+        "ethnicity_confidence": 71
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.1173600.jpg",
+    "psy": ""
+  },
+  "11.04": {
+    "frame_time": "11.04",
+    "context": [{ "confidence": 62, "label": "NSFW" }],
+    "context_hierarchy": {},
+    "brands": [
+      {
+        "confidence": 57,
+        "brand_category_id": 129,
+        "label": "Sun Life",
+        "brand_id": 12954,
+        "tag_location": [0, 0, 0, 0],
+        "brand_category_name": "Financial Services"
+      }
+    ],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 98,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [38, 23, 8, 15],
+        "ethnicity_confidence": 98
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 98,
+        "gender_confidence": 98,
+        "ethnicity": "white",
+        "tag_location": [25, 28, 8, 15],
+        "ethnicity_confidence": 88
+      },
+      {
+        "gender": "female",
+        "age": "30-39",
+        "human_confidence": 77,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [48, 31, 8, 15],
+        "ethnicity_confidence": 97
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.183600.jpg",
+    "psy": ""
+  },
+  "2.04": {
+    "frame_time": "2.04",
+    "context": [{ "confidence": 55, "label": "class" }],
+    "context_hierarchy": {
+      "Education": { "Education": { "Classroom": ["class"] } }
+    },
+    "brands": [],
+    "humans": [
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [37, 23, 8, 15],
+        "ethnicity_confidence": 84
+      },
+      {
+        "gender": "female",
+        "age": "20-29",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [51, 26, 8, 15],
+        "ethnicity_confidence": 90
+      },
+      {
+        "gender": "female",
+        "age": "13-19",
+        "human_confidence": 99,
+        "gender_confidence": 99,
+        "ethnicity": "white",
+        "tag_location": [25, 26, 7, 12],
+        "ethnicity_confidence": 87
+      }
+    ],
+    "image_url": "https://storage.googleapis.com/netra_video_processing/videos/video_name_1570358288.3586576/image.3600.jpg",
+    "psy": ""
+  }
+}

@@ -22,7 +22,7 @@ class AdEditor extends React.Component {
       // Wait 2 secs then update all videos in the library
       setTimeout(() => {
         this.props.dispatch(listVideos());
-      }, 2000);
+      }, 4000);
     }
   }
 
