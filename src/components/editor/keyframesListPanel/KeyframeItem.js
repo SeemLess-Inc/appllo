@@ -4,64 +4,69 @@ import KeyframeHumansForm from "./KeyframeHumansForm";
 import KeyframeBrandContentForm from "./KeyframeBrandContentForm";
 import KeyframeContextForm from "./KeyframeContextForm";
 
-function KeyframeItem({ keyframe }) {
-  // Inspect data
-  const src = keyframe[1];
+// function KeyframeItem({ keyframe }) {
+class KeyframeItem extends React.Component {
 
-  const hasBrands = src.brands.length;
-  const hasContext = src.context.length;
-  const hasHumans = src.humans.length;
+  state = { checked: false };
+  toggle = () => this.setState(prevState => ({ checked: !prevState.checked }));
 
-  // Format Output
-  const title = "Keyframe: " + src.frame_time;
+  render() {
 
-  // Content Panels
-  const humansContent = <KeyframeHumansForm data={src.humans} />;
-  const brandContent = <KeyframeBrandContentForm data={src.brands} />;
-  const contextContent = <KeyframeContextForm data={src.context} />;
+    // Inspect data
+    const src = this.props.keyframe[1];
+    const hasBrands = src.brands.length;
+    const hasContext = src.context.length;
+    const hasHumans = src.humans.length;
 
-  const keyframePanels = [];
-  // Brands Panel
-  if (hasBrands) {
-    keyframePanels.push({
-      key: "panel-1a",
-      title: "BRAND CONTENT",
-      content: { content: brandContent }
-    });
+    // Format Output
+    const title = "Keyframe: " + src.frame_time;
+
+    // Content Panels
+    const humansContent = <KeyframeHumansForm data={src.humans} />;
+    const brandContent = <KeyframeBrandContentForm data={src.brands} />;
+    const contextContent = <KeyframeContextForm data={src.context} />;
+
+    const keyframePanels = [];
+    if (hasBrands) {
+      keyframePanels.push({
+        key: "panel-1a",
+        title: "BRAND CONTENT",
+        content: { content: brandContent }
+      });
+    }
+
+    if (hasContext) {
+      keyframePanels.push({
+        key: "panel-1b",
+        title: "CONTEXT",
+        content: { content: contextContent }
+      });
+    }
+
+    if (hasHumans) {
+      keyframePanels.push({
+        key: "panel-1d",
+        title: "HUMANS",
+        content: { content: humansContent }
+      });
+    }
+
+    return (
+      <Item>
+        <Checkbox onChange={this.toggle} checked={this.state.checked} />
+        <Item.Content style={{ paddingLeft: "1em" }}>
+          <Item.Header>{title}</Item.Header>
+          <Item.Meta>Time: {src.frame_time}</Item.Meta>
+          <Accordion
+            fluid
+            exclusive={false}
+            defaultActiveIndex={[]}
+            panels={keyframePanels}
+          ></Accordion>
+        </Item.Content>
+      </Item>
+    );
   }
-  // Context Panel
-  if (hasContext) {
-    keyframePanels.push({
-      key: "panel-1b",
-      title: "CONTEXT",
-      content: { content: contextContent }
-    });
-  }
-
-  // Humans Panel
-  if (hasHumans) {
-    keyframePanels.push({
-      key: "panel-1d",
-      title: "HUMANS",
-      content: { content: humansContent }
-    });
-  }
-
-  return (
-    <Item>
-      <Checkbox />
-      <Item.Content style={{ paddingLeft: "1em" }}>
-        <Item.Header>{title}</Item.Header>
-        <Item.Meta>Time: {src.frame_time}</Item.Meta>
-        <Accordion
-          fluid
-          exclusive={false}
-          defaultActiveIndex={[]}
-          panels={keyframePanels}
-        ></Accordion>
-      </Item.Content>
-    </Item>
-  );
 }
 
 export default KeyframeItem;
