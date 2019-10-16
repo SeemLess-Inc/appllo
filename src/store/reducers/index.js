@@ -2,8 +2,8 @@ import { combineReducers } from "redux";
 import videos from "./videosReducer";
 import keyframes from './keyframesReducer';
 import currentVideo from './currentVideoReducer';
-import videosToUpload from './videosToUploadReducer'
-import videoToAnalyse from './videoToAnalyseReducer'
+import videosToUpload from './uploadVideosReducer'
+import videoToAnalyse from './analyseVideoReducer'
 
 const rootReducer = combineReducers({
   videos, 

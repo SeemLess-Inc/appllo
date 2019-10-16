@@ -4,16 +4,7 @@ export const ANALYSE_VIDEO_BEGIN = "ANALYSE_VIDEO_BEGIN";
 export const ANALYSE_VIDEO_SUCCESS = "ANALYSE_VIDEO_SUCCESS";
 export const ANALYSE_VIDEO_ERROR = "ANALYSE_VIDEO_ERROR";
 
-//const URL_S3 = "http://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
-//const URL_UPLOAD = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload";
-const URL_ANALYSE =
-  "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/analyse";
-
-/*
-  From Tom: Basically you'll have endpoints to:
- 1. POST upload the video (this will currently also process it and reply with the Netra JSON all in one call if that makes it easier for you)
- 2. GET the Netra JSON for that video
-*/
+const URL_ANALYSE = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/analyse";
 
 export function analyseVideo(video) {
   return dispatch => {
@@ -37,7 +28,6 @@ async function analyseVideoAtNetra(video) {
       .post(URL_ANALYSE, postdata, axiosConfig)
       .then(response => {
         console.log("Analysed " + video.id + " to " + URL_ANALYSE);
-        //        debugger;
       })
       .catch(error => {
 //        alert(JSON.stringify(error));
