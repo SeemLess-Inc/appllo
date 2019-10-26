@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getKeyframes } from "../../../store/actions/keyframesActions";
+import {
+  getKeyframes,
+  updateKeyframeUserApproved
+} from "../../../store/actions/keyframesActions";
 import {
   Header,
   Grid,
@@ -13,15 +16,16 @@ import {
 import KeyframeItem from "./KeyframeItem";
 
 class KeyframesListPanel extends React.Component {
-
-  componentDidMount() {
-  //  this.props.dispatch(getKeyframes());
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.currentVideo.id !== this.props.currentVideo.id) {
-      this.props.dispatch(getKeyframes( this.props.currentVideo ));
+      this.props.dispatch(getKeyframes(this.props.currentVideo));
     }
+  }
+
+  toggleUserAccepted = (src) => {
+    let id = src[0];
+    let newValue = !src[1].userApproved;
+    this.props.dispatch(updateKeyframeUserApproved(id, newValue));
   }
 
   render() {
@@ -46,14 +50,20 @@ class KeyframesListPanel extends React.Component {
             <Header size="medium">Keyframes</Header>
           </Grid.Column>
           <Grid.Column width={2} textAlign="right">
-            <Icon name="plus circle" size='large' />
+            <Icon name="plus circle" size="large" />
           </Grid.Column>
         </Grid.Row>
         <Divider />
         <Grid.Row style={{ margin: 14 }}>
           <Item.Group divided>
             {keyframes.map(keyframe => {
-              return <KeyframeItem keyframe={keyframe} key={keyframe[0]} />;
+              return (
+                <KeyframeItem
+                  keyframe={keyframe}
+                  onToggle={this.toggleUserAccepted}
+                  key={keyframe[0]}
+                />
+              );
             })}
           </Item.Group>
         </Grid.Row>
@@ -69,5 +79,6 @@ const mapStateToProps = state => ({
   error: state.keyframes.error
 });
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+//  { getKeyframes, updateKeyframeUserApproved } // mapDispatchToProps
 )(KeyframesListPanel);

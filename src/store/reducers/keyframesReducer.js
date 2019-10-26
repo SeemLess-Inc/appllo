@@ -1,7 +1,8 @@
 import {
   FETCH_KEYFRAMES_BEGIN,
   FETCH_KEYFRAMES_SUCCESS,
-  FETCH_KEYFRAMES_ERROR
+  FETCH_KEYFRAMES_ERROR,
+  UPDATE_KEYFRAME_USER_APPROVED
 } from "../actions/keyframesActions";
 
 const initialState = {
@@ -43,6 +44,20 @@ export default function keyframesReducer(state = initialState, action) {
         loading: false,
         error: action.payload.error,
         items: []
+      };
+
+    case UPDATE_KEYFRAME_USER_APPROVED:
+      let newItems = state.items.map(function(vo) {
+        // set the value of userApproved in the Keyframes array
+        if (vo[0] === action.payload.id) {
+          vo[1].userApproved = action.payload.value;
+        }
+        return vo;
+      });
+      return {
+        ...state,
+        loading: false,
+        items: newItems
       };
 
     default:

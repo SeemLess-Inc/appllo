@@ -4,14 +4,14 @@ import KeyframeHumansForm from "./KeyframeHumansForm";
 import KeyframeBrandContentForm from "./KeyframeBrandContentForm";
 import KeyframeContextForm from "./KeyframeContextForm";
 
-// function KeyframeItem({ keyframe }) {
 class KeyframeItem extends React.Component {
 
-  state = { checked: false };
-  toggle = () => this.setState(prevState => ({ checked: !prevState.checked }));
+  toggle = () => {
+    // Tell parent that keyframe has been toggled.
+    this.props.onToggle( this.props.keyframe );
+  }
 
   render() {
-
     // Inspect data
     const src = this.props.keyframe[1];
     const hasBrands = src.brands.length;
@@ -53,7 +53,7 @@ class KeyframeItem extends React.Component {
 
     return (
       <Item>
-        <Checkbox onChange={this.toggle} checked={this.state.checked} />
+        <Checkbox onChange={this.toggle} checked={src.userApproved} />
         <Item.Content style={{ paddingLeft: "1em" }}>
           <Item.Header>{title}</Item.Header>
           <Item.Meta>Time: {src.frame_time}</Item.Meta>

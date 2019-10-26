@@ -1,11 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Header, Grid, Divider, Button } from "semantic-ui-react";
+//import { saveKeyframes } from "../../../store/actions/saveKeyframesActions";
 
 class VideoEditorHeader extends React.Component {
-  state = {};
-  handleClick() {
-    console.log("TODO: Save Keyframe data");
+  constructor() {
+    super();
+
+    this.handleClick = () => {
+  //    this.props.saveKeyframes();
+    };
   }
 
   render() {
@@ -62,4 +66,7 @@ const mapStateToProps = state => ({
   loading: state.keyframes.loading,
   error: state.keyframes.error
 });
-export default connect(mapStateToProps)(VideoEditorHeader);
+export default connect(
+  mapStateToProps,
+//  { saveKeyframes } // mapDispatchToProps
+)(VideoEditorHeader);
