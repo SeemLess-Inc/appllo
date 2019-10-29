@@ -53,7 +53,6 @@ function parseKeyframesJSON(json) {
   return o2;
 }
 
-// TODO: Switch to live fetch once we have a stable API endpoint
 function getKeyframesJSON(videoID) {
   const url = ENDPOINT_GET + videoID;
   //  const url = "/data/netra.json";

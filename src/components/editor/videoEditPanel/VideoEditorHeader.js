@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Header, Grid, Divider, Button } from "semantic-ui-react";
-//import { saveKeyframes } from "../../../store/actions/saveKeyframesActions";
+import { saveKeyframes } from "../../../store/actions/saveKeyframesActions";
 
 class VideoEditorHeader extends React.Component {
   constructor() {
     super();
 
     this.handleClick = () => {
-  //    this.props.saveKeyframes();
+      this.props.saveKeyframes( this.props.keyframes, this.props.currentVideo.id + ".json" );
     };
   }
 
@@ -68,5 +68,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-//  { saveKeyframes } // mapDispatchToProps
+  { saveKeyframes } // mapDispatchToProps
 )(VideoEditorHeader);
