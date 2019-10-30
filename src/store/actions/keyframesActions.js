@@ -43,9 +43,10 @@ function parseKeyframesJSON(json) {
 
   // Convert Object to an Array
   let o1 = Object.entries(keyframesJSON);
+
   let o2 = o1.map(function(item) {
     // add userApproved boolean to metadata if it does not exist
-    if (!item[1].userApproved) {
+    if (item[1].userApproved === undefined) {
       item[1].userApproved = true;
     }
     return item;
