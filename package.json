@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^2.0.1"
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "gulp": "^4.0.2"
   }
 }
