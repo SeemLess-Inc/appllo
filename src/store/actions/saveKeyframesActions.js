@@ -27,10 +27,10 @@ async function uploadKeyframesData(keyframes, file_name) {
     console.log("Saving keyframes data");
     // convert Array back into JSON Object
     let content = Object.fromEntries(keyframes)
-    
+
     let postdata = {
       file_name: file_name,
-      content:  btoa(content)
+      content:  content
     };
     let axiosConfig = {
       /*
@@ -45,7 +45,6 @@ async function uploadKeyframesData(keyframes, file_name) {
       .post(URL_SAVE_KEYFRAMES, postdata, axiosConfig)
       .then(response => {
         console.log("Saved keyframes data ");
-        debugger;
       })
       .catch(error => {
         alert(JSON.stringify(error));
