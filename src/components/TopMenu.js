@@ -7,7 +7,12 @@ const TopMenu = () => (
   <Menu secondary>
     <Menu.Menu position="left">
       <Menu.Item fitted header as={Link} to="/">
-        <h2>Seemless.tv</h2>
+        <img
+          src="seemless_logo_red.svg"
+          alt="Seemless.tv"
+          height="20px"
+          width="400px"
+        />
       </Menu.Item>{" "}
     </Menu.Menu>
     <Menu.Menu position="center">
@@ -20,11 +25,11 @@ const TopMenu = () => (
       </Menu.Item>
     </Menu.Menu>
     <Menu.Menu position="right">
-    <Menu.Item fitted>
-        <Icon name="cog" size='large' />
+      <Menu.Item fitted>
+        <Icon name="cog" size="large" />
       </Menu.Item>
       <Menu.Item fitted>
-        <Icon name="user circle outline" size='large' />
+        <Icon name="user circle outline" size="large" />
       </Menu.Item>
     </Menu.Menu>
   </Menu>
