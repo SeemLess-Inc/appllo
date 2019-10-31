@@ -6,14 +6,14 @@ import { Menu, Icon } from "semantic-ui-react";
 const TopMenu = () => (
   <Menu secondary>
     <Menu.Menu position="left">
-      <Menu.Item fitted header as={Link} to="/">
+      <div fitted header as={Link} to="/">
         <img
-          src="seemless_logo_red.svg"
+          src="seemless_logo_red.png"
           alt="Seemless.tv"
-          height="20px"
-          width="400px"
+          height="35px"
+          width="200px"
         />
-      </Menu.Item>{" "}
+      </div>{" "}
     </Menu.Menu>
     <Menu.Menu position="center">
       <Menu.Item fitted as={Link} to="/dashboard">
@@ -26,10 +26,10 @@ const TopMenu = () => (
     </Menu.Menu>
     <Menu.Menu position="right">
       <Menu.Item fitted>
-        <Icon name="cog" size="large" />
+        <Icon name="cog" size="large" color="grey" />
       </Menu.Item>
       <Menu.Item fitted>
-        <Icon name="user circle outline" size="large" />
+        <Icon name="user circle outline" size="large" color="grey" />
       </Menu.Item>
     </Menu.Menu>
   </Menu>
