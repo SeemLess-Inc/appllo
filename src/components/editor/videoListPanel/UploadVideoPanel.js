@@ -5,7 +5,6 @@ import { Modal, Button, Icon, Header, Segment } from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 
 class UploadVideoPanel extends React.Component {
-
   constructor() {
     super();
 
@@ -53,7 +52,7 @@ class UploadVideoPanel extends React.Component {
           this.setState({ modalOpen: false });
         }}
       >
-        <Modal.Header>Upload a video</Modal.Header>
+        <Modal.Header>Upload a video: <em>Demo accepts videos under 35Mb</em></Modal.Header>
         <Modal.Content>
           <Dropzone onDrop={this.onDrop}>
             {({ getRootProps, getInputProps }) => (
