@@ -4,14 +4,7 @@ import {
   getKeyframes,
   updateKeyframeUserApproved
 } from "../../../store/actions/keyframesActions";
-import {
-  Header,
-  Grid,
-  Icon,
-  Divider,
-  Item,
-  Loader
-} from "semantic-ui-react";
+import { Header, Grid, Icon, Divider, Item, Loader } from "semantic-ui-react";
 import KeyframeItem from "./KeyframeItem";
 
 class KeyframesListPanel extends React.Component {
@@ -30,6 +23,25 @@ class KeyframesListPanel extends React.Component {
   render() {
     const { error, loading, keyframes } = this.props;
 
+    var renderList;
+    if (keyframes.length === 0) {
+      renderList = <p>No suitable keyframes available</p>;
+    } else {
+      renderList = (
+        <Item.Group divided>
+          {keyframes.map(keyframe => {
+            return (
+              <KeyframeItem
+                keyframe={keyframe}
+                onToggle={this.toggleUserAccepted}
+                key={keyframe[0]}
+              />
+            );
+          })}
+        </Item.Group>
+      );
+    }
+
     if (error === true) {
       return <div>Error! {error.message}</div>;
     } else if (loading === true) {
@@ -46,19 +58,7 @@ class KeyframesListPanel extends React.Component {
             </Grid.Column>
           </Grid.Row>
           <Divider />
-          <Grid.Row style={{ margin: 14 }}>
-            <Item.Group divided>
-              {keyframes.map(keyframe => {
-                return (
-                  <KeyframeItem
-                    keyframe={keyframe}
-                    onToggle={this.toggleUserAccepted}
-                    key={keyframe[0]}
-                  />
-                );
-              })}
-            </Item.Group>
-          </Grid.Row>
+          <Grid.Row style={{ margin: 14 }}>{renderList}</Grid.Row>
         </Grid>
       );
     }
