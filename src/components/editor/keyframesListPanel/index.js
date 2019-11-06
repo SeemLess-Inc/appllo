@@ -10,7 +10,6 @@ import {
   Icon,
   Divider,
   Item,
-  Dimmer,
   Loader
 } from "semantic-ui-react";
 import KeyframeItem from "./KeyframeItem";
@@ -22,53 +21,47 @@ class KeyframesListPanel extends React.Component {
     }
   }
 
-  toggleUserAccepted = (src) => {
+  toggleUserAccepted = src => {
     let id = src[0];
     let newValue = !src[1].userApproved;
     this.props.dispatch(updateKeyframeUserApproved(id, newValue));
-  }
+  };
 
   render() {
     const { error, loading, keyframes } = this.props;
 
-    if (error) {
+    if (error === true) {
       return <div>Error! {error.message}</div>;
-    }
-
-    if (loading) {
+    } else if (loading === true) {
+      return <Loader active>Loading</Loader>;
+    } else {
       return (
-        <Dimmer active inverted>
-          <Loader>Loading</Loader>
-        </Dimmer>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={14}>
+              <Header size="medium">Keyframes</Header>
+            </Grid.Column>
+            <Grid.Column width={2} textAlign="right">
+              <Icon name="plus circle" size="large" />
+            </Grid.Column>
+          </Grid.Row>
+          <Divider />
+          <Grid.Row style={{ margin: 14 }}>
+            <Item.Group divided>
+              {keyframes.map(keyframe => {
+                return (
+                  <KeyframeItem
+                    keyframe={keyframe}
+                    onToggle={this.toggleUserAccepted}
+                    key={keyframe[0]}
+                  />
+                );
+              })}
+            </Item.Group>
+          </Grid.Row>
+        </Grid>
       );
     }
-
-    return (
-      <Grid>
-        <Grid.Row>
-          <Grid.Column width={14}>
-            <Header size="medium">Keyframes</Header>
-          </Grid.Column>
-          <Grid.Column width={2} textAlign="right">
-            <Icon name="plus circle" size="large" />
-          </Grid.Column>
-        </Grid.Row>
-        <Divider />
-        <Grid.Row style={{ margin: 14 }}>
-          <Item.Group divided>
-            {keyframes.map(keyframe => {
-              return (
-                <KeyframeItem
-                  keyframe={keyframe}
-                  onToggle={this.toggleUserAccepted}
-                  key={keyframe[0]}
-                />
-              );
-            })}
-          </Item.Group>
-        </Grid.Row>
-      </Grid>
-    );
   }
 }
 
@@ -79,6 +72,6 @@ const mapStateToProps = state => ({
   error: state.keyframes.error
 });
 export default connect(
-  mapStateToProps,
-//  { getKeyframes, updateKeyframeUserApproved } // mapDispatchToProps
+  mapStateToProps
+  //  { getKeyframes, updateKeyframeUserApproved } // mapDispatchToProps
 )(KeyframesListPanel);
