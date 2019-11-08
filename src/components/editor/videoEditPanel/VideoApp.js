@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Grid, Container } from "semantic-ui-react";
+import { Grid, Container, Header, Icon, Segment } from "semantic-ui-react";
 import VideoPlayer from "react-video-js-player";
+import Dropzone from "react-dropzone";
 
 // const END_POINT = "https://elasticbeanstalk-eu-west-1-060643667111.s3-eu-west-1.amazonaws.com/";
 class VideoApp extends Component {
@@ -46,6 +47,24 @@ class VideoApp extends Component {
         <Grid.Row>
           <Grid.Column width={16}>
             <Container>
+            {/* <Dropzone onDrop={this.onDrop}> //CAN we display this as a default in the center area before any video is selected on the left.
+            {({ getRootProps, getInputProps }) => (
+              <section className="container">
+                <div {...getRootProps({ className: "dropzone" })}>
+                  <Segment placeholder>
+                    <input {...getInputProps()} />
+                    <Header icon>
+                      <Icon small name="video file outline" />
+                      <p>Drag and drop a video file</p>
+                      <p>or</p>
+                      <p>Click for File Browser</p>
+                      <em>Demo accepts videos under 35Mb</em>
+                    </Header>
+                  </Segment>
+                </div>
+              </section>
+            )}
+          </Dropzone> */}
               <VideoPlayer
                 controls={true}
                 src={this.video_src}
