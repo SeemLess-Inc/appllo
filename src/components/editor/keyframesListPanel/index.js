@@ -42,7 +42,7 @@ class KeyframesListPanel extends React.Component {
       );
     }
 
-    if (error === true) {
+    if (error !== null) {
       return <div>Error! {error.message}</div>;
     } else if (loading === true) {
       return <Loader active>Loading</Loader>;

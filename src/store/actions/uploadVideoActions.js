@@ -51,19 +51,12 @@ async function uploadVideosToS3(fileList) {
       content: fileContents
     };
     let axiosConfig = {
-      /*
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-        "Access-Control-Allow-Origin": "*"
-      }
-      */
     };
 
     axios
       .post(URL_UPLOAD, postdata, axiosConfig)
       .then(response => {
         console.log("Uploaded " + file_name + " to " + URL_UPLOAD);
-        //        debugger;
       })
       .catch(error => {
         alert(JSON.stringify(error));
