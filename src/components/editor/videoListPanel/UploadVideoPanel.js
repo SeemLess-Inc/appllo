@@ -52,7 +52,7 @@ class UploadVideoPanel extends React.Component {
           this.setState({ modalOpen: false });
         }}
       >
-        <Modal.Header>Upload a video: <em>Demo accepts videos under 35Mb</em></Modal.Header>
+        <Modal.Header>Upload a video:</Modal.Header>
         <Modal.Content>
           <Dropzone onDrop={this.onDrop}>
             {({ getRootProps, getInputProps }) => (
@@ -61,10 +61,11 @@ class UploadVideoPanel extends React.Component {
                   <Segment placeholder>
                     <input {...getInputProps()} />
                     <Header icon>
-                      <Icon name="video file outline" />
+                      <Icon small name="video file outline" />
                       <p>Drag and drop a video file</p>
                       <p>or</p>
                       <p>Click for File Browser</p>
+                      <em>Demo accepts videos under 35Mb</em>
                     </Header>
                   </Segment>
                 </div>
