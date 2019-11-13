@@ -27,7 +27,7 @@ class UploadVideoDropzone extends React.Component {
               <Segment placeholder>
                 <input {...getInputProps()} />
                 <Header icon>
-                  <Icon small name="video file outline" />
+                  <Icon name="video file outline" />
                   <p>Drag and drop a video file</p>
                   <p>or</p>
                   <p>Click for File Browser</p>

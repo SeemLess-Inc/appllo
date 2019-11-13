@@ -1,19 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, Icon } from "semantic-ui-react";
+import { Menu, Icon, Image } from "semantic-ui-react";
 
 /* eslint-disable */
 const TopMenu = () => (
   <Menu secondary>
     <Menu.Menu position="left">
-      <div fitted header as={Link} to="/">
-        <img
-          src="seemless_logo_red.png"
-          alt="Seemless.tv"
-          height="35px"
-          width="200px"
-        />
-      </div>{" "}
+      <Image as={Link} to="/"
+        src="seemless_logo_red.png"
+        alt="Seemless.tv"
+        height="35px"
+        width="200px"
+      />
     </Menu.Menu>
     <Menu.Menu position="center">
       <Menu.Item fitted as={Link} to="/dashboard">
