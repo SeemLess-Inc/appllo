@@ -4,6 +4,7 @@ import VideoEditorHeader from "./VideoEditorHeader";
 import VideoApp from "./VideoApp";
 import Framer from "./Framer";
 import AdAssets from "./AdAssets";
+import UploadVideoDropzone from "./UploadVideoDropzone"
 
 class VideoEditorPanel extends React.Component {
   render() {
@@ -17,7 +18,11 @@ class VideoEditorPanel extends React.Component {
         </div>
       );
     } else {
-      videoPanels = null;
+      videoPanels = (
+        <div>
+          <UploadVideoDropzone />
+        </div>
+      )
     }
 
     return (
