@@ -4,11 +4,14 @@ export const UPLOAD_VIDEOS_BEGIN = "UPLOAD_VIDEOS_BEGIN";
 export const UPLOAD_VIDEOS_SUCCESS = "UPLOAD_VIDEOS_SUCCESS";
 export const UPLOAD_VIDEOS_ERROR = "UPLOAD_VIDEOS_ERROR";
 
-const URL_UPLOAD = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload";
+const URL_GET_UPLOAD_URL =
+  "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload_get_url";
+//const URL_UPLOAD = "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload";
 
 export function uploadVideos(fileList) {
   return dispatch => {
     dispatch(uploadVideosBegin(fileList));
+
     return uploadVideosToS3(fileList)
       .then(json => {
         dispatch(uploadVideosSuccess(json));
@@ -18,52 +21,41 @@ export function uploadVideos(fileList) {
   };
 }
 
-function readUploadedFileAsText(inputFile) {
-  const temporaryFileReader = new FileReader();
-
-  return new Promise((resolve, reject) => {
-    temporaryFileReader.onerror = () => {
-      temporaryFileReader.abort();
-      reject(new DOMException("Problem parsing input file."));
-    };
-
-    temporaryFileReader.onload = () => {
-      resolve(temporaryFileReader.result);
-    };
-    //    temporaryFileReader.readAsText(inputFile);
-    temporaryFileReader.readAsDataURL(inputFile);
-  });
-}
-
 // https://blog.shovonhasan.com/using-promises-with-filereader/
 // https://codesandbox.io/s/lrjxj8w867
 async function uploadVideosToS3(fileList) {
+
   const file = fileList[0];
   const file_name = file.name;
 
-  try {
-    const fileContents = await readUploadedFileAsText(file);
-    console.log("Uploading " + file_name + " to " + URL_UPLOAD);
+  // async get an S3 upload URL from
+  // curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload_get_url
 
-    // curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload -d '{ "file_name": "test.mp4", "content": "c2FtcGxlIHRleHQ=" }'
-    let postdata = {
-      file_name: file_name,
-      content: fileContents
-    };
-    let axiosConfig = {
-    };
+  var params = { file_name: file_name }
+  const res = await axios.post(URL_GET_UPLOAD_URL, params);
 
-    axios
-      .post(URL_UPLOAD, postdata, axiosConfig)
-      .then(response => {
-        console.log("Uploaded " + file_name + " to " + URL_UPLOAD);
-      })
-      .catch(error => {
-        alert(JSON.stringify(error));
-      });
-  } catch (e) {
-    console.log(e);
-  }
+  // Taking the URL and using it directly works e.g.
+  // curl -X PUT -T "testfile.txt" "https://elasticbeanstalk-eu-west-1-060643667111.s3.amazonaws.com/Three%20Active%20Happy%20Adult%20Girlfriends%20Stock%20Footage%20Video.mp4?AWSAccessKeyId=ASIAQ4HVE5ST7UH5BWMW&Signature=OSaFluNgmk6S0jdtwadhqDynJQA%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCWV1LXdlc3QtMSJHMEUCIDQIBKONJXNkSSyEkbDOLpBG2M5h6RXC%2BBzczIGEx5iJAiEA4F11pmzfJ7OamLP25TPQ2AhRSwhHsOwWdNgyyD%2BCHMkq0AEIGxAAGgwwNjA2NDM2NjcxMTEiDNmGwBJhYEi%2B7BmUOSqtAe0UDylwim%2BOCASSrSj%2BOlLsic4ZbXp6gFovhOHLMM8XqW3T6bBgk0Lo6FpPonkIZBTedIicGiepDC3V9XeUMvle2LR2H4nbr%2FW2VOtsmn87Arl%2B4qVws7QIe2XjbFYBCad2SHe5F%2BQpgFK5vZ%2F3GXk60jz1HaSNR4fmZ34h9GFEUquLMCYkYTdZlBwFb15s1xiJvtiholsswW75TB727757OLjJwcMWcX1cIzYrMLXcq%2B4FOuABF%2FSoVADVy3LZ8EEIxhC8OL4OX1vBaFDXv5urLhr%2F5neQTDFPlg6O8CafT9q8UfO2lROh3zBCuYdhMP%2Fq%2BlU9VpM5HQw5r7KyAn0OOjQemirjnhp2dBZD44fbRFcOnuVSuKCqYBOV4GSxmKKH37T5KtNjejNJ3T9Dq1WgHLIo%2BFKjEfYJ2tD%2Frp9zv1h0Sp8iX70xDkHFgsql8mrMmwU1z%2BOfiJdYewxTJ02mzSNSfys%2F%2FIgs4AVbKjMEv03w9r5iF%2BDtAZR%2F7KSComg3GWg9usZAyIrOCGWVvPGvDx1%2FFUw%3D&Expires=1573585021"
+
+  const config = {
+    method: "PUT",
+    mode: "cors",
+    cache: "no-cache",
+    headers: new Headers({
+      "Content-Type": "video/mp4"
+    }),
+    body: file,
+  };
+
+  fetch(res.data.upload_url, config)
+    .then(
+      response => {
+      }
+    )
+    .catch(
+      error => {
+      }
+    )
 }
 
 // Action Creators
