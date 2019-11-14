@@ -12,10 +12,30 @@ export function uploadVideos(fileList) {
   return dispatch => {
     dispatch(uploadVideosBegin(fileList));
 
-    return uploadVideosToS3(fileList)
-      .then(json => {
-        dispatch(uploadVideosSuccess(json));
-        return json;
+    uploadVideosToS3(fileList)
+      .then(response => {
+        // response.body is a readable stream. Calling getReader() gives us exclusive access to the stream's content
+        var reader = response.body.getReader();
+        var bytesSent = 0;
+
+        // read() returns a promise that resolves when a value has been received
+        return reader.read().then(function processResult(result) {
+          // Result objects contain two properties:
+          // done  - true if the stream has already given you all its data.
+          // value - some data. Always undefined when done is true.
+          if (result.done) {
+            console.log("Fetch complete");
+            dispatch(uploadVideosSuccess(response));
+            return;
+          }
+
+          // result.value for fetch streams is a Uint8Array
+          bytesSent += result.value.length;
+          console.log("Sent", bytesSent, "bytes of data so far");
+
+          // Read some more, and call this function again
+          return reader.read().then(processResult);
+        });
       })
       .catch(error => dispatch(uploadVideosError(error)));
   };
@@ -24,14 +44,13 @@ export function uploadVideos(fileList) {
 // https://blog.shovonhasan.com/using-promises-with-filereader/
 // https://codesandbox.io/s/lrjxj8w867
 async function uploadVideosToS3(fileList) {
-
   const file = fileList[0];
   const file_name = file.name;
 
   // async get an S3 upload URL from
   // curl -X POST https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload_get_url
 
-  var params = { file_name: file_name }
+  var params = { file_name: file_name };
   const res = await axios.post(URL_GET_UPLOAD_URL, params);
 
   // Taking the URL and using it directly works e.g.
@@ -44,18 +63,10 @@ async function uploadVideosToS3(fileList) {
     headers: new Headers({
       "Content-Type": "video/mp4"
     }),
-    body: file,
+    body: file
   };
 
-  fetch(res.data.upload_url, config)
-    .then(
-      response => {
-      }
-    )
-    .catch(
-      error => {
-      }
-    )
+  return fetch(res.data.upload_url, config);
 }
 
 // Action Creators

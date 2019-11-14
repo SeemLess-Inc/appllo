@@ -8,6 +8,7 @@ import UploadVideoDropzone from "./UploadVideoDropzone"
 
 class VideoEditorPanel extends React.Component {
   render() {
+
     let videoPanels;
     if (this.props.currentVideo.id !== "") {
       videoPanels = (
