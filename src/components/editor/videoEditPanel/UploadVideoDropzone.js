@@ -20,7 +20,12 @@ class UploadVideoDropzone extends React.Component {
 
   render() {
     return (
-      <Dropzone onDrop={this.onDrop}>
+      <Dropzone
+        accept="video/mp4"
+        maxFiles={1}
+        multiple={false}
+        onDrop={this.onDrop}
+      >
         {({ getRootProps, getInputProps }) => (
           <section className="container">
             <div {...getRootProps({ className: "dropzone" })}>
