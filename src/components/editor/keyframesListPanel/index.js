@@ -58,7 +58,7 @@ class KeyframesListPanel extends React.Component {
             </Grid.Column>
           </Grid.Row>
           <Divider />
-          <Grid.Row style={{ margin: 14 }}>{renderList}</Grid.Row>
+          <Grid.Row style={{ margin: 14, overflow: 'auto', maxHeight: 550 }}>{renderList}</Grid.Row>
         </Grid>
       );
     }
