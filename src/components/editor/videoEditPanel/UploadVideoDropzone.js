@@ -31,7 +31,7 @@ class UploadVideoDropzone extends React.Component {
                   <p>Drag and drop a video file</p>
                   <p>or</p>
                   <p>Click for File Browser</p>
-                  <em>Demo accepts videos under 35Mb</em>
+                  <em>Demo accepts videos in mp4 format under 35Mb</em>
                 </Header>
               </Segment>
             </div>
