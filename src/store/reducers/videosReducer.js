@@ -27,7 +27,7 @@ export default function videosReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.videos
+        items: action.payload.videos.sort((a, b) => b.uploadedDate.localeCompare(a.uploadedDate))
       };
 
     case FETCH_VIDEOS_ERROR:

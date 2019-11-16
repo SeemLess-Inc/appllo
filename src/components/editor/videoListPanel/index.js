@@ -51,13 +51,14 @@ class VideosListPanel extends React.Component {
             </Grid.Column>
           </Grid.Row>
           <Divider />
-          <Grid.Row style={{ margin: 14, overflow: 'auto', maxHeight: 550 }}>
+          <Grid.Row style={{ margin: 14, overflow: "auto", maxHeight: 550 }}>
+            {videoIsUploading}
+            <Divider></Divider>
             <Item.Group divided>
               {videos.items.map((video, id) => {
                 return <VideoListItem video={video} key={id} />;
               })}
             </Item.Group>
-            {videoIsUploading}
           </Grid.Row>
         </Grid>
       );
