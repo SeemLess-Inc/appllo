@@ -18,10 +18,10 @@ video.
 */
 
 let o = props.video
-
 let videoState;
+
 if (props.video.analytics === ""){
-  videoState = "Uploaded"
+  videoState = "Analysis in progress"
   // request analysis
   props.dispatch(analyseVideo(props.video));
 }

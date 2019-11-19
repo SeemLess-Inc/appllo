@@ -15,11 +15,20 @@ class AdEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    
+    if (
+      prevProps.videoToAnalyse.video !== null && this.props.videoToAnalyse.video === null
+    ) {
+      // If we have a successful analysis submission then wait 15 secs then update all videos in the library
+      setTimeout(() => {
+        this.props.dispatch(listVideos());
+      }, 15000);
+    }
     if (
       prevProps.videosToUpload.items.length > 0 &&
       this.props.videosToUpload.items.length === 0
     ) {
-      // Wait 2 secs then update all videos in the library
+      // If we have a successful new upload then wait 4 secs then update all videos in the library
       setTimeout(() => {
         this.props.dispatch(listVideos());
       }, 4000);
@@ -45,6 +54,7 @@ class AdEditor extends React.Component {
 
 const mapStateToProps = state => ({
   currentVideo: state.currentVideo,
-  videosToUpload: state.videosToUpload
+  videosToUpload: state.videosToUpload,
+  videoToAnalyse: state.videoToAnalyse
 });
 export default connect(mapStateToProps)(AdEditor);
