@@ -29,12 +29,7 @@ class UploadVideoPanel extends React.Component {
         {({ getRootProps, getInputProps }) => (
           <div {...getRootProps({ className: "dropzone" })}>
             <input {...getInputProps()} />
-            <Button animated="vertical">
-              <Button.Content hidden>Upload</Button.Content>
-              <Button.Content visible>
-                <Icon name="upload" />
-              </Button.Content>
-            </Button>
+            <Button icon='upload' size='tiny' color='blue' basic circular compact/>
           </div>
         )}
       </Dropzone>

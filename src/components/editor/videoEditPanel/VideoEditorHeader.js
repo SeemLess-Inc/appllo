@@ -30,31 +30,33 @@ class VideoEditorHeader extends React.Component {
     // Show/Hide video and disable Save button
     let saveButton;
     if (o.id === "" || this.props.error === true) {
-      o.title = "Choose a video from the list";
-      o.uploadedDate = "";
-      saveButton = <Button disabled>Save</Button>;
+      o.title = "No video selected";
+      o.uploadedDate = "–";
+      saveButton = <div/>;
     } else if (this.props.loading === true) {
       o.title = "Loading Keyframes";
-      o.uploadedDate = "";
-      saveButton = <Button disabled>Save</Button>;
+      o.uploadedDate = "–";
+      saveButton = <Button disabled color='olive'>Save</Button>;
     } else {
-      saveButton = <Button onClick={this.handleClick}>Save</Button>;
+      saveButton = <Button color='olive' onClick={this.handleClick}>Save</Button>;
     }
 
     return (
-      <Grid>
-        <Grid.Row>
+      <Grid stackable columns={2} verticalAlign='top'>
+        <Grid.Row className='top-action-container'>
           <Grid.Column width={12}>
-            <Header size="medium">
+            <Header sub>Video Editor
+            <Header size="medium" style={{marginTop: '10px'}}>
               {o.title}
               <Header.Subheader>{o.uploadedDate}</Header.Subheader>
+              </Header>
             </Header>
           </Grid.Column>
           <Grid.Column width={4} textAlign="right">
             {saveButton}
           </Grid.Column>
         </Grid.Row>
-        <Divider />
+        {/* <Divider /> */}
       </Grid>
     );
   }

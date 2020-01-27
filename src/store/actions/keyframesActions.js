@@ -2,6 +2,8 @@ export const FETCH_KEYFRAMES_BEGIN = "FETCH_KEYFRAMES_BEGIN";
 export const FETCH_KEYFRAMES_SUCCESS = "FETCH_KEYFRAMES_SUCCESS";
 export const FETCH_KEYFRAMES_ERROR = "FETCH_KEYFRAMES_ERROR";
 export const UPDATE_KEYFRAME_USER_APPROVED = "UPDATE_KEYFRAME_USER_APPROVED";
+export const SELECT_KEYFRAME = "SELECT_KEYFRAME";
+export const SEEK_TO_KEYFRAME = "SEEK_TO_KEYFRAME";
 
 const ENDPOINT_GET =
   "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/get_analytics/";
@@ -18,11 +20,13 @@ export function getKeyframes(video) {
     return dispatch => {
       const keyframes = [];
       dispatch(fetchKeyframesSuccess(keyframes));
+      dispatch(selectKeyframe());
       return keyframes;
     };
   } else {
     return dispatch => {
       dispatch(fetchKeyframesBegin());
+      dispatch(selectKeyframe());
       return getKeyframesJSON(video.id)
         .then(json => {
           const keyframes = parseKeyframesJSON(json);
@@ -91,4 +95,14 @@ export const fetchKeyframesSuccess = keyframes => ({
 export const fetchKeyframesError = error => ({
   type: FETCH_KEYFRAMES_ERROR,
   payload: { error }
+});
+
+export const selectKeyframe = (currentKeyframe) => ({
+  type: SELECT_KEYFRAME,
+  payload: { currentKeyframe }
+});
+
+export const seekToKeyFrame = (seconds) => ({
+  type: SEEK_TO_KEYFRAME,
+  payload: { seconds }
 });

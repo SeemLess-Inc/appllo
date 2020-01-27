@@ -29,10 +29,10 @@ class UploadVideoDropzone extends React.Component {
         {({ getRootProps, getInputProps }) => (
           <section className="container">
             <div {...getRootProps({ className: "dropzone" })}>
-              <Segment placeholder>
+              <Segment placeholder style={{marginBottom: '20px', height: '380px'}}>
                 <input {...getInputProps()} />
                 <Header icon>
-                  <Icon name="video file outline" />
+                  <Icon name="video file outline" color="grey" />
                   <p>Drag and drop a video file</p>
                   <p>or</p>
                   <p>Click for File Browser</p>

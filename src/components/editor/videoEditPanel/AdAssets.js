@@ -1,18 +1,19 @@
 import React from "react";
-import { Icon, Grid, Menu, Divider } from "semantic-ui-react";
+import { Button, Grid, Menu, Divider, Header, Segment } from "semantic-ui-react";
 
 const AdAssets = () => (
   <Grid>
     <Grid.Row>
       <Grid.Column>
         <Menu secondary>
-          <Menu.Item fitted header as="h3">
-            Ad Assets
-          </Menu.Item>
+        <Header fitted sub header as="h3">
+            Assets
+          </Header>
           <Menu.Menu position="right">
-            <Icon size='large' name="plus circle" />
+          <Button icon='plus' size='tiny' color='blue' basic circular compact/>
           </Menu.Menu>
         </Menu>
+        <Segment style={{height: '100px'}}></Segment>
         <Divider />
       </Grid.Column>
     </Grid.Row>

@@ -1,0 +1,22 @@
+.video-tag {
+    color: #9ab;
+    transform: rotate(-135deg);
+    text-shadow: -1px 2px 1px rgba(0,0,0,.5);
+}
+.video-tag.active {
+    opacity: 1;
+    color: rgb(2, 232, 253);
+}
+.ui.button.video-tag-button {
+    background: none !important;
+    bottom: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    opacity: 1;
+}
+
+.ui.button.video-tag-button i {
+    opacity: 1;
+}

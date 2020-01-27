@@ -4,10 +4,14 @@ import {
   getKeyframes,
   updateKeyframeUserApproved
 } from "../../../store/actions/keyframesActions";
-import { Header, Grid, Icon, Divider, Item, Loader } from "semantic-ui-react";
+import {Header, Grid, Divider, Item, Loader, Button, TabPane, Tab} from "semantic-ui-react";
 import KeyframeItem from "./KeyframeItem";
+import "../styles.css"
+import "./index.css"
 
 class KeyframesListPanel extends React.Component {
+  state = { activeIndex: 0 }
+
   componentDidUpdate(prevProps) {
     if (prevProps.currentVideo.id !== this.props.currentVideo.id) {
       this.props.dispatch(getKeyframes(this.props.currentVideo));
@@ -20,15 +24,22 @@ class KeyframesListPanel extends React.Component {
     this.props.dispatch(updateKeyframeUserApproved(id, newValue));
   };
 
+  handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
+
   render() {
-    const { error, loading, keyframes } = this.props;
+    const { error, loading, keyframes, currentVideo } = this.props;
+    const { activeIndex } = this.state
+
+    const addKeyframeButton = currentVideo.id
+      ? <Button icon='plus' size='tiny' color='blue' basic circular compact onClick={() => (alert('Coming soon'))} />
+      : <div/>;
 
     var renderList;
     if (keyframes.length === 0) {
       renderList = <p>No suitable keyframes available</p>;
     } else {
       renderList = (
-        <Item.Group divided>
+        <Item.Group divided className='divided-items-ellipsis'>
           {keyframes.map(keyframe => {
             return (
               <KeyframeItem
@@ -48,17 +59,26 @@ class KeyframesListPanel extends React.Component {
       return <Loader active>Loading</Loader>;
     } else {
       return (
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={14}>
-              <Header size="medium">Keyframes</Header>
+        <Grid stackable columns={2} verticalAlign='middle'>
+          <Grid.Row className='top-action-container'>
+            <Grid.Column>
+              <Header sub>Keyframes</Header>
             </Grid.Column>
-            <Grid.Column width={2} textAlign="right">
-              <Icon name="plus circle" size="large" />
+            <Grid.Column textAlign="right">
+              {addKeyframeButton}
             </Grid.Column>
+              <Tab
+              className='keyframe-tabs'
+              menu={{ secondary: true, pointing: true }}
+              panes={[{ menuItem: 'Netra' }, { menuItem: 'Custom' }]}
+              activeIndex={activeIndex}
+              onTabChange={this.handleTabChange}
+              />
           </Grid.Row>
-          <Divider />
-          <Grid.Row style={{ margin: 14, overflow: 'auto', maxHeight: 550 }}>{renderList}</Grid.Row>
+          <Grid.Row className='mini-vertical-scroll scroll-panes'>{ (activeIndex === 0)
+            ? renderList
+            : <p>Coming Soon</p>
+          }</Grid.Row>
         </Grid>
       );
     }
@@ -67,7 +87,7 @@ class KeyframesListPanel extends React.Component {
 
 const mapStateToProps = state => ({
   currentVideo: state.currentVideo,
-  keyframes: state.keyframes.items,
+  keyframes: state.keyframes.items.sort((a, b) => a[1].frame_time - b[1].frame_time ),
   loading: state.keyframes.loading,
   error: state.keyframes.error
 });

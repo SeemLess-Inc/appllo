@@ -5,7 +5,7 @@ import { Grid } from "semantic-ui-react";
 import VideosList from "../components/editor/videoListPanel";
 import VideoEditorPanel from "../components/editor/videoEditPanel";
 import KeyframesList from "../components/editor/keyframesListPanel";
-//import './App.css';
+import './AdEditor.css';
 
 class AdEditor extends React.Component {
   componentDidMount() {
@@ -37,7 +37,7 @@ class AdEditor extends React.Component {
 
   render() {
     return (
-      <Grid.Row>
+      <Grid.Row className='light-dividers'>
         <Grid.Column width={4}>
           <VideosList />
         </Grid.Column>

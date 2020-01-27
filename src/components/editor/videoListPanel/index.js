@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Header, Grid, Item, Divider, Loader } from "semantic-ui-react";
+import { Header, Grid, Item, Divider, Loader, Tab } from "semantic-ui-react";
 import UploadVideoPanel from "./UploadVideoPanel";
 import VideoListItem from "./VideoListItem";
 import VideoListItemloading from "./VideoListItemLoading";
+import "../styles.css"
 
 class VideosListPanel extends React.Component {
+  state = { activeIndex: 0 }
+
   render() {
     const { videos, videosToUpload } = this.props;
 
@@ -18,7 +21,7 @@ class VideosListPanel extends React.Component {
         </Item.Group>
       );
     } else {
-      videoIsUploading = <p></p>;
+      videoIsUploading = <div />;
     }
 
     if (videos.error !== null) {
@@ -28,33 +31,38 @@ class VideosListPanel extends React.Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={16}>
-              <Header size="medium">Loading Videos</Header>
+              <Header sub>Video Uploads</Header>
             </Grid.Column>
           </Grid.Row>
           <Divider />
           <Grid.Row>
             <Grid.Column width={16}>
-              <Loader active>Loading</Loader>;
+              <p/>
+              <Loader active verticalAlign='middle'>Loading</Loader>
             </Grid.Column>
           </Grid.Row>
         </Grid>
       );
     } else {
       return (
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={12}>
-              <Header size="medium">Videos ({videos.items.length})</Header>
+        <Grid stackable columns={2} verticalAlign='top'>
+          <Grid.Row className='top-action-container'>
+            <Grid.Column>
+              <Header sub>Video Uploads ({videos.items.length})</Header>
             </Grid.Column>
-            <Grid.Column width={4} textAlign="right">
-              <UploadVideoPanel></UploadVideoPanel>
+            <Grid.Column textAlign="right">
+              <UploadVideoPanel />
             </Grid.Column>
+            <Tab
+              className='keyframe-tabs'
+              menu={{ secondary: true, pointing: true }}
+              panes={[{ menuItem: 'Analyzed' }, { menuItem: 'Pending' }]}
+          />
           </Grid.Row>
-          <Divider />
-          <Grid.Row style={{ margin: 14, overflow: "auto", maxHeight: 550 }}>
+          <Grid.Row className='mini-vertical-scroll scroll-panes'>
             {videoIsUploading}
-            <Divider></Divider>
-            <Item.Group divided>
+            <Divider />
+            <Item.Group divided className='divided-items-ellipsis'>
               {videos.items.map((video, id) => {
                 return <VideoListItem video={video} key={id} />;
               })}

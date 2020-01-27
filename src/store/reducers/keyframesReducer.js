@@ -2,13 +2,17 @@ import {
   FETCH_KEYFRAMES_BEGIN,
   FETCH_KEYFRAMES_SUCCESS,
   FETCH_KEYFRAMES_ERROR,
-  UPDATE_KEYFRAME_USER_APPROVED
+  UPDATE_KEYFRAME_USER_APPROVED,
+  SELECT_KEYFRAME,
+  SEEK_TO_KEYFRAME
 } from "../actions/keyframesActions";
 
 const initialState = {
   items: [],
   loading: false,
-  error: null
+  error: null,
+  currentKeyframe: [null, {}],
+  seekToKeyframe: null
 };
 
 export default function keyframesReducer(state = initialState, action) {
@@ -59,6 +63,21 @@ export default function keyframesReducer(state = initialState, action) {
         loading: false,
         items: newItems
       };
+
+    case SELECT_KEYFRAME:
+      if (Array.isArray(action.payload.currentKeyframe)) {
+        return {
+          ...state,
+          currentKeyframe: action.payload.currentKeyframe,
+          seekToKeyframe: parseFloat(action.payload.currentKeyframe[1].frame_time)
+        };
+      }
+      return { ...state, currentKeyframe: [null, {}], seekToKeyframe: null };
+
+    case SEEK_TO_KEYFRAME:
+        return { ...state, seekToKeyframe: action.payload.seconds };
+
+
 
     default:
       // ALWAYS have a default case in a reducer

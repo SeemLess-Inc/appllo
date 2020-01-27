@@ -1,8 +1,11 @@
 import React from "react";
-import { Item, Accordion, Checkbox } from "semantic-ui-react";
+import {connect} from "react-redux";
+import { Item, Header, Accordion, Checkbox } from "semantic-ui-react";
+import {selectKeyframe} from "../../../store/actions/keyframesActions";
 import KeyframeHumansForm from "./KeyframeHumansForm";
 import KeyframeBrandContentForm from "./KeyframeBrandContentForm";
 import KeyframeContextForm from "./KeyframeContextForm";
+import "./KeyframeItem.css";
 
 class KeyframeItem extends React.Component {
 
@@ -12,7 +15,9 @@ class KeyframeItem extends React.Component {
   }
 
   render() {
+    const { currentKeyframeId } = this.props
     // Inspect data
+    const id = this.props.keyframe[0];
     const src = this.props.keyframe[1];
     const hasBrands = src.brands.length;
     const hasContext = src.context.length;
@@ -25,6 +30,7 @@ class KeyframeItem extends React.Component {
     const humansContent = <KeyframeHumansForm data={src.humans} />;
     const brandContent = <KeyframeBrandContentForm data={src.brands} />;
     const contextContent = <KeyframeContextForm data={src.context} />;
+    const selectNewKeyframe = () => this.props.dispatch(selectKeyframe(this.props.keyframe));
 
     const keyframePanels = [];
     if (hasBrands) {
@@ -52,21 +58,26 @@ class KeyframeItem extends React.Component {
     }
 
     return (
-      <Item>
+      <Item className={currentKeyframeId === id && "active"}>
         <Checkbox onChange={this.toggle} checked={src.userApproved} />
-        <Item.Content style={{ paddingLeft: "1em" }}>
-          <Item.Header>{title}</Item.Header>
+        <Item.Content style={{ paddingLeft: "1em" }} onClick={selectNewKeyframe}>
+          <Header size='tiny' as="a">{title}</Header>
           <Item.Meta>Time: {src.frame_time}</Item.Meta>
-          <Accordion
+          <Accordion className='pretty-accordion'
             fluid
             exclusive={false}
             defaultActiveIndex={[]}
             panels={keyframePanels}
-          ></Accordion>
+          />
         </Item.Content>
       </Item>
     );
   }
 }
 
-export default KeyframeItem;
+
+const mapStateToProps = state => ({
+  currentKeyframeId: state.keyframes.currentKeyframe[0]
+});
+
+export default connect(mapStateToProps)(KeyframeItem);

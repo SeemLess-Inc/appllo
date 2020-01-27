@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { selectVideo } from '../../../store/actions/currentVideoAction'
 import { analyseVideo } from '../../../store/actions/analyseVideoActions'
-import { Item } from "semantic-ui-react";
+import { Header, Item } from "semantic-ui-react";
 
 function VideoListItem (props) {
 
@@ -44,7 +44,7 @@ else{
     <Item onClick={selectNewVideo}>
       <Item.Image src={videoThumbnail} size="tiny" />
       <Item.Content>
-        <Item.Header as="a">{o.title}</Item.Header>
+        <Header size='tiny' as="a">{o.title}</Header>
         <Item.Meta>{o.uploadedDate}</Item.Meta>
         <Item.Extra>{videoState}</Item.Extra>
       </Item.Content>

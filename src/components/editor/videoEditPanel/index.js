@@ -4,6 +4,7 @@ import VideoEditorHeader from "./VideoEditorHeader";
 import VideoApp from "./VideoApp";
 import Framer from "./Framer";
 import AdAssets from "./AdAssets";
+import { Divider } from "semantic-ui-react";
 import UploadVideoDropzone from "./UploadVideoDropzone"
 
 class VideoEditorPanel extends React.Component {
@@ -22,6 +23,8 @@ class VideoEditorPanel extends React.Component {
       videoPanels = (
         <div>
           <UploadVideoDropzone />
+          <Framer />
+          <AdAssets />
         </div>
       )
     }
