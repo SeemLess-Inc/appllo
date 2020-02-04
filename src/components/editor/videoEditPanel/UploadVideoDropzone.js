@@ -22,6 +22,7 @@ class UploadVideoDropzone extends React.Component {
     super();
 
     this.onDrop = files => {
+	  this.closeModal();
       this.setState({ files });
       this.props.uploadVideos(files);
     };
