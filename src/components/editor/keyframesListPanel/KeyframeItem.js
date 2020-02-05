@@ -16,6 +16,7 @@ class KeyframeItem extends React.Component {
 
   render() {
     const { currentKeyframeId } = this.props
+    
     // Inspect data
     const id = this.props.keyframe[0];
     const src = this.props.keyframe[1];
@@ -60,9 +61,10 @@ class KeyframeItem extends React.Component {
     return (
       <Item className={currentKeyframeId === id && "active"}>
         <Checkbox onChange={this.toggle} checked={src.userApproved} />
+        <Item.Image src={'./video.png'} size='tiny' style={{ paddingLeft: "1em" }} />
         <Item.Content style={{ paddingLeft: "1em" }} onClick={selectNewKeyframe}>
           <Header size='tiny' as="a">{title}</Header>
-          <Item.Meta>Time: {src.frame_time}</Item.Meta>
+          <Item.Meta>Duration: {src.frame_time}</Item.Meta>
           <Accordion className='pretty-accordion'
             fluid
             exclusive={false}

@@ -63,3 +63,7 @@
 .top-action-container {
     min-height: 66px;
 }
+
+.ui.items > .item > .content > .header > .line-item {
+    margin: 4px 0 4px 0;
+}

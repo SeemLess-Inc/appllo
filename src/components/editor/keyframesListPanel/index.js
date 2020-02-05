@@ -59,12 +59,13 @@ class KeyframesListPanel extends React.Component {
       return <Loader active>Loading</Loader>;
     } else {
       return (
-        <Grid stackable columns={2} verticalAlign='middle'>
+        <Grid stackable columns={2}>
           <Grid.Row className='top-action-container'>
             <Grid.Column>
-              <Header sub>Keyframes</Header>
+              <Header sub color='grey'>Keyframes</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
+              <Button basic compact color='grey'>Export...</Button>
               {addKeyframeButton}
             </Grid.Column>
               <Tab

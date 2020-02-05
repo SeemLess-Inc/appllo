@@ -2,5 +2,5 @@
     padding-bottom: 0;
 }
 .pretty-accordion > .active.title + .content.active {
-    margin-left: 21px;
+    margin-left: 18px;
 }

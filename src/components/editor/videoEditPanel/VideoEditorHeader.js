@@ -36,16 +36,16 @@ class VideoEditorHeader extends React.Component {
     } else if (this.props.loading === true) {
       o.title = "Loading Keyframes";
       o.uploadedDate = "–";
-      saveButton = <Button disabled color='olive'>Save</Button>;
+      saveButton = <Button disabled color='grey'>Save</Button>;
     } else {
-      saveButton = <Button color='olive' onClick={this.handleClick}>Save</Button>;
+      saveButton = <Button color='blue' onClick={this.handleClick}>Save</Button>;
     }
 
     return (
       <Grid stackable columns={2} verticalAlign='top'>
         <Grid.Row className='top-action-container'>
           <Grid.Column width={12}>
-            <Header sub>Video Editor
+            <Header sub color='grey'>Video Editor
             <Header size="medium" style={{marginTop: '10px'}}>
               {o.title}
               <Header.Subheader>{o.uploadedDate}</Header.Subheader>

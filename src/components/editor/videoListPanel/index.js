@@ -31,7 +31,7 @@ class VideosListPanel extends React.Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={16}>
-              <Header sub>Video Uploads</Header>
+              <Header sub color='grey'>Video Uploads</Header>
             </Grid.Column>
           </Grid.Row>
           <Divider />

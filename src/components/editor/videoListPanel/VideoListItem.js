@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { selectVideo } from '../../../store/actions/currentVideoAction'
 import { analyseVideo } from '../../../store/actions/analyseVideoActions'
 import { Header, Item } from "semantic-ui-react";
+import '../styles.css';
 
 function VideoListItem (props) {
 
@@ -44,9 +45,9 @@ else{
     <Item onClick={selectNewVideo}>
       <Item.Image src={videoThumbnail} size="tiny" />
       <Item.Content>
-        <Header size='tiny' as="a">{o.title}</Header>
-        <Item.Meta>{o.uploadedDate}</Item.Meta>
-        <Item.Extra>{videoState}</Item.Extra>
+        <Header size='tiny' as="a" style={{lineHeight: '15px'}}>{o.title}</Header>
+        <Item.Meta style={{fontSize: '11px', lineHeight: '11px'}}>{o.uploadedDate}</Item.Meta>
+        <Item.Extra style={{fontSize: '11px', lineHeight: '13px'}}>{videoState}</Item.Extra>
       </Item.Content>
     </Item>
   );

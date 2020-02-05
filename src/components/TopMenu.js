@@ -13,21 +13,20 @@ const TopMenu = () => (
         width="200px"
       />
     </Menu.Menu>
-    <Menu.Menu position="center">
-      <Menu.Item fitted as={Link} to="/dashboard">
+
+    <Menu.Menu position="right">
+    <Menu.Item fitted as={Link} to="/dashboard" disabled>
         Dashboard
       </Menu.Item>
-      <Menu.Item>|</Menu.Item>
-      <Menu.Item fitted as={Link} to="/edit">
+      <Menu.Item  as={Link} to="/edit">
         Ad Editor
       </Menu.Item>
-    </Menu.Menu>
-    <Menu.Menu position="right">
       <Menu.Item fitted>
-        <Icon name="cog" size="large" color="grey" />
+        <Icon name="cog outline" size="large" color="grey" />
       </Menu.Item>
       <Menu.Item fitted>
-        <Icon name="user circle outline" size="large" color="grey" />
+        <Icon name="user circle outline" size="large" color="grey" style={{marginRight: '2px'}}/>
+        <Icon name="chevron down" size="small" color="grey" />
       </Menu.Item>
     </Menu.Menu>
   </Menu>
