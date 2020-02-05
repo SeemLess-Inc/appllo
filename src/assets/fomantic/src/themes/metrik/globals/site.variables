@@ -1,0 +1,6 @@
+/*******************************
+     Metrik Global Variables
+*******************************/
+
+@fontName : 'CircularStd-Medium';
+@importGoogleFonts : false;
