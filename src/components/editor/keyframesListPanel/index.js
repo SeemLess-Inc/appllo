@@ -32,10 +32,6 @@ class KeyframesListPanel extends React.Component {
     const { error, loading, keyframes, currentVideo } = this.props;
     const { activeIndex } = this.state
 
-    const addKeyframeButton = currentVideo.id
-      ? <Button icon='plus' size='tiny' color='blue' basic circular compact onClick={() => (alert('Coming soon'))} />
-      : <div/>;
-
     var renderList;
     if (keyframes.length === 0) {
       renderList = <p>No suitable keyframes available</p>;
@@ -68,7 +64,7 @@ class KeyframesListPanel extends React.Component {
             </Grid.Column>
             <Grid.Column textAlign="right">
               <Button basic compact color='grey'>Export...</Button>
-              {addKeyframeButton}
+              <Button icon='plus' size='tiny' color='blue' disabled={!(currentVideo.id)} basic circular compact onClick={() => (alert('Coming soon'))} />
             </Grid.Column>
               <Tab
               className='keyframe-tabs'
