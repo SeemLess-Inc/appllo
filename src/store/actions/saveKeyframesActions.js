@@ -3,6 +3,7 @@ import axios from "axios";
 export const SAVE_KEYFRAMES_BEGIN = "SAVE_KEYFRAMES_BEGIN";
 export const SAVE_KEYFRAMES_SUCCESS = "SAVE_KEYFRAMES_SUCCESS";
 export const SAVE_KEYFRAMES_ERROR = "SAVE_KEYFRAMES_ERROR";
+export const MARK_KEYFRAMES_DIRTY = "MARK_KEYFRAMES_DIRTY";
 
 const URL_SAVE_KEYFRAMES =
   "https://ujxx6kt1f2.execute-api.eu-west-1.amazonaws.com/prod/upload_analysis";
@@ -67,4 +68,9 @@ export const saveKeyframesSuccess = keyframes => ({
 export const saveKeyframesError = error => ({
   type: SAVE_KEYFRAMES_ERROR,
   payload: { error }
+});
+
+export const saveKeyframesMarkDirty = dirty => ({
+  type: MARK_KEYFRAMES_DIRTY,
+  payload: { dirty }
 });

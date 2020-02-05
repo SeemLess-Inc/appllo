@@ -51,15 +51,20 @@ export default function keyframesReducer(state = initialState, action) {
       };
 
     case UPDATE_KEYFRAME_USER_APPROVED:
+      let currentKeyframe = state.currentKeyframe;
       let newItems = state.items.map(function(vo) {
         // set the value of userApproved in the Keyframes array
         if (vo[0] === action.payload.id) {
           vo[1].userApproved = action.payload.value;
+          if (currentKeyframe[0] === vo[0]) {
+            currentKeyframe[1].userApproved = action.payload.value;
+          }
         }
         return vo;
       });
       return {
         ...state,
+        currentKeyframe,
         loading: false,
         items: newItems
       };

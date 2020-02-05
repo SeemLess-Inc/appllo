@@ -1,9 +1,6 @@
 .divided-items-ellipsis {
     width: 100%;
 }
-.divided-items-ellipsis > .item > .content {
-    overflow: hidden;
-}
 .divided-items-ellipsis > .item .header {
     display: block !important;
     overflow: hidden !important;

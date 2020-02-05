@@ -1,4 +1,5 @@
 import {
+  MARK_KEYFRAMES_DIRTY,
   SAVE_KEYFRAMES_BEGIN,
   SAVE_KEYFRAMES_SUCCESS,
   SAVE_KEYFRAMES_ERROR
@@ -7,6 +8,8 @@ import {
 const initialState = {
   items: [],
   loading: false,
+  dirty: false,
+  success: null,
   error: null
 };
 
@@ -18,8 +21,8 @@ export default function saveKeyframesReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        error: null,
-        items: action.payload.items
+        success: null,
+        error: null
       };
 
     case SAVE_KEYFRAMES_SUCCESS:
@@ -28,6 +31,8 @@ export default function saveKeyframesReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        success: true,
+        dirty: false,
 //        items: []//action.payload.keyframesData
       };
 
@@ -42,8 +47,16 @@ export default function saveKeyframesReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        success: false,
         error: action.payload.error,
 //        items: []
+      };
+
+      case MARK_KEYFRAMES_DIRTY:
+      return {
+        ...state,
+        success: null,
+        dirty: action.payload.dirty
       };
 
     default:

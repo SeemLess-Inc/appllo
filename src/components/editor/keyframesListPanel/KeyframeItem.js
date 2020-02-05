@@ -8,10 +8,16 @@ import KeyframeContextForm from "./KeyframeContextForm";
 import "./KeyframeItem.css";
 
 class KeyframeItem extends React.Component {
+  constructor(props) {
+    super(props);
+    //To tell React to rerender on toggle
+    this.state = { userApproved: this.props.keyframe[1].userApproved };
+  }
 
   toggle = () => {
     // Tell parent that keyframe has been toggled.
     this.props.onToggle( this.props.keyframe );
+    this.setState({ userApproved: !this.props.keyframe[1].userApproved });
   }
 
   render() {

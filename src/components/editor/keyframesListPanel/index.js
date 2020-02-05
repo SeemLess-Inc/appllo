@@ -5,6 +5,7 @@ import {
   updateKeyframeUserApproved
 } from "../../../store/actions/keyframesActions";
 import {Header, Grid, Divider, Item, Loader, Button, TabPane, Tab} from "semantic-ui-react";
+import { saveKeyframesMarkDirty } from "../../../store/actions/saveKeyframesActions";
 import KeyframeItem from "./KeyframeItem";
 import "../styles.css"
 import "./index.css"
@@ -22,6 +23,7 @@ class KeyframesListPanel extends React.Component {
     let id = src[0];
     let newValue = !src[1].userApproved;
     this.props.dispatch(updateKeyframeUserApproved(id, newValue));
+    this.props.dispatch(saveKeyframesMarkDirty(true));
   };
 
   handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
