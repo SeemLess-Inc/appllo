@@ -1,0 +1,32 @@
+.container {
+    background-color:red;
+}
+
+.activeHeaderTag {
+    color: '#fff';
+    background-color: #4285f4;
+    width: 40px;
+    height: 40px;
+    justify-content: 'center';
+    align-items: 'center';
+    padding-top: 10px;
+    border-radius: 20px;
+    display: 'inline-block' 
+}
+
+.headertag {
+    color: '#000';
+    background-color: gray;
+    width: 40px;
+    height: 40px;
+    justify-content: 'center';
+    align-items: 'center';
+    padding-top: 20px;
+    border-radius: 20px;
+    display: 'inline-block' 
+}
+
+.uploadLabel {
+    display: 'inline-block'; 
+    margin-left: 10px
+}

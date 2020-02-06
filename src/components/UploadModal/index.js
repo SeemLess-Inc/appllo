@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { uploadVideos } from "../../store/actions/uploadVideoActions";
-import { Icon, Header, Segment, Button } from "semantic-ui-react";
+import { Icon, Header, Segment, Button, List} from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 import Modal from 'react-modal';
 const customStyles = {
@@ -51,8 +51,8 @@ class UploadModal extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false },()=>{
-        this.props.afterCloseModal()
+    this.setState({ modalIsOpen: false }, () => {
+      this.props.afterCloseModal()
     });
   }
 
@@ -81,7 +81,7 @@ class UploadModal extends React.Component {
   render() {
     const { currentStep } = this.state;
     return (
-        <Modal
+      <Modal
         isOpen={this.state.modalIsOpen}
         onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
@@ -96,13 +96,23 @@ class UploadModal extends React.Component {
         >
           {({ getRootProps, getInputProps }) => (
             <section className="container">
-              <h2>Upload video</h2><hr />
-              <div stle={{ display: 'inline-block', backgroundColor: 'red' }}>
-                <h3 style={{ color: '#fff', backgroundColor: currentStep >= 0 ? '#4285f4' : 'gray', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', paddingTop: 10, borderRadius: 20, display: 'inline-block' }} Align="center">1</h3>
-                <h3 style={{ display: 'inline-block', marginLeft: 10 }}>Upload thumbnail</h3>
-                <h3 style={{ color: '#fff', backgroundColor: currentStep >= 2 ? '#4285f4' : 'gray', marginLeft: 20, width: 40, height: 40, justifyContent: 'center', alignItems: 'center', paddingTop: 10, borderRadius: 20, display: 'inline-block' }} Align="center">2</h3>
-                <h3 style={{ display: 'inline-block', marginLeft: 10 }}>Upload video</h3>
-              </div>
+              <Header as='h2'>Upload video</Header><hr />
+              <List >
+                <Header as='h3' style={{ color: '#fff', backgroundColor: currentStep >= 0 ? '#4285f4' : 'gray', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', paddingTop: 10, borderRadius: 20, display: 'inline-block' }} Align="center">
+                  1
+                </Header>
+                {/* <Segment circular style={{width: 175, height: 175}}>
+
+                <Header as='h2'>
+       1
+      </Header> 
+                </Segment>*/}
+                <Header as='h3' style={{ display: 'inline-block',marginLeft: 10}}> Upload thumbnail </Header>
+                <Header as='h3' style={{ color: '#fff', backgroundColor: currentStep >= 2 ? '#4285f4' : 'gray', marginLeft: 20, width: 40, height: 40, justifyContent: 'center', alignItems: 'center', paddingTop: 10, borderRadius: 20, display: 'inline-block' }} Align="center">
+                  2
+                </Header>
+                <Header as='h3' style={{ display: 'inline-block',marginLeft: 10 }}> Upload video </Header>
+                </List>
               <div {...getRootProps({ className: "dropzone" })}>
                 <Segment placeholder style={{ marginBottom: '20px', height: '320px', backgroundColor: '#fff' }}>
 
@@ -113,10 +123,7 @@ class UploadModal extends React.Component {
                   </Header>
                 </Segment>
               </div>
-
-              <div style={{}}>
                 <Button type="submit" style={{ backgroundColor: '#4285f4', padding: 13, width: 100, color: '#fff', float: 'right' }} value="NEXT" onClick={this.onNext}>NEXT</Button>
-              </div>
             </section>
           )}
         </Dropzone>
