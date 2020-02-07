@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { uploadVideos } from "../../store/actions/uploadVideoActions";
-import { Icon, Header, Segment, Button, List} from "semantic-ui-react";
+import { Icon, Header, Segment, Button, Divider, Step } from "semantic-ui-react";
 import Dropzone from "react-dropzone";
 import Modal from 'react-modal';
-const customStyles = {
+import './styles.css';
+ const customStyles = {
   content: {
     top: '50%',
     left: '50%',
@@ -13,9 +14,9 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '50%',
-    borderColor: '1px'
+    borderColor: '#dedede'
   }
-};
+}; 
 
 class UploadModal extends React.Component {
   constructor() {
@@ -78,6 +79,35 @@ class UploadModal extends React.Component {
     }
   }
 
+  getStepHeading = (type, title) => {
+    if (type === 'active') {
+      return (
+        <Step active>
+          <Step.Content>
+            <Step.Title>{title}</Step.Title>
+          </Step.Content>
+        </Step>
+      )
+    } else if (type === 'completed') {
+      return (
+        <Step completed>
+          <Step.Content>
+            <Step.Title>{title}</Step.Title>
+          </Step.Content>
+        </Step>
+      )
+    } else {
+      return (
+        <Step>
+          <Step.Content>
+            <Step.Title>{title}</Step.Title>
+          </Step.Content>
+        </Step>
+      )
+    }
+
+  }
+
   render() {
     const { currentStep } = this.state;
     return (
@@ -86,7 +116,7 @@ class UploadModal extends React.Component {
         onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        //className="modalCss"
       >
         <Dropzone
           accept="video/mp4"
@@ -96,26 +126,15 @@ class UploadModal extends React.Component {
         >
           {({ getRootProps, getInputProps }) => (
             <section className="container">
-              <Header as='h2'>Upload video</Header><hr />
-              <List >
-                <Header as='h3' style={{ color: '#fff', backgroundColor: currentStep >= 0 ? '#4285f4' : 'gray', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', paddingTop: 10, borderRadius: 20, display: 'inline-block' }} Align="center">
-                  1
-                </Header>
-                {/* <Segment circular style={{width: 175, height: 175}}>
-
-                <Header as='h2'>
-       1
-      </Header> 
-                </Segment>*/}
-                <Header as='h3' style={{ display: 'inline-block',marginLeft: 10}}> Upload thumbnail </Header>
-                <Header as='h3' style={{ color: '#fff', backgroundColor: currentStep >= 2 ? '#4285f4' : 'gray', marginLeft: 20, width: 40, height: 40, justifyContent: 'center', alignItems: 'center', paddingTop: 10, borderRadius: 20, display: 'inline-block' }} Align="center">
-                  2
-                </Header>
-                <Header as='h3' style={{ display: 'inline-block',marginLeft: 10 }}> Upload video </Header>
-                </List>
+              <Divider horizontal>
+                <Header as='h2'>Upload video</Header>
+              </Divider>
+              <Step.Group ordered>
+                {this.getStepHeading(currentStep === 1 ? 'active' : 'completed', 'Upload thumbnail')}
+                {this.getStepHeading(currentStep > 1 ? 'active' : '', 'Upload video')}
+              </Step.Group>
               <div {...getRootProps({ className: "dropzone" })}>
-                <Segment placeholder style={{ marginBottom: '20px', height: '320px', backgroundColor: '#fff' }}>
-
+                <Segment placeholder className="dropZoneClass">
                   <Header icon>
                     <Icon name={currentStep === 2 ? "video file outline" : "file image outline"} color="grey" />
                     <input {...getInputProps()} />
@@ -123,7 +142,7 @@ class UploadModal extends React.Component {
                   </Header>
                 </Segment>
               </div>
-                <Button type="submit" style={{ backgroundColor: '#4285f4', padding: 13, width: 100, color: '#fff', float: 'right' }} value="NEXT" onClick={this.onNext}>NEXT</Button>
+              <Button primary type="submit" className="nextbutton" style={{ marginTop: 10 }} value="NEXT" onClick={this.onNext}>NEXT</Button>
             </section>
           )}
         </Dropzone>

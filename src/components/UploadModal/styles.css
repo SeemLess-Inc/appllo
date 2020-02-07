@@ -1,10 +1,10 @@
 .container {
-    background-color:red;
+    
 }
 
 .activeHeaderTag {
     color: '#fff';
-    background-color: #4285f4;
+    /* background-color: #4285f4; */
     width: 40px;
     height: 40px;
     justify-content: 'center';
@@ -26,7 +26,22 @@
     display: 'inline-block' 
 }
 
-.uploadLabel {
-    display: 'inline-block'; 
-    margin-left: 10px
+.dropZoneClass {
+    height: 320px;
+}
+
+.nextbutton {
+    float: right;
+    margin-top: 10;
+}
+
+.modalCss {
+    margin-top: 10%; 
+    margin-left: 25%;
+    right: auto;
+    bottom: auto; 
+    margin-right: -50%; 
+    transform: translate(-50%, -50%); 
+    width: 50%;
+    border: 3px solid gray 
 }
