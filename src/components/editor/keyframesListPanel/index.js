@@ -60,7 +60,7 @@ class KeyframesListPanel extends React.Component {
         <Grid stackable columns={2}>
           <Grid.Row className='top-action-container'>
             <Grid.Column>
-              <Header sub color='grey'>Keyframes</Header>
+              <Header sub color='grey'>Ad Placement</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
               <Button basic compact color='grey'>Export...</Button>
@@ -69,7 +69,7 @@ class KeyframesListPanel extends React.Component {
               <Tab
               className='keyframe-tabs'
               menu={{ secondary: true, pointing: true }}
-              panes={[{ menuItem: 'Netra' }, { menuItem: 'Custom' }]}
+              panes={[{ menuItem: 'Keyframes' }, { menuItem: 'Clips' }]}
               activeIndex={activeIndex}
               onTabChange={this.handleTabChange}
               />

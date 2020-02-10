@@ -31,7 +31,7 @@ class VideosListPanel extends React.Component {
         <Grid>
           <Grid.Row>
             <Grid.Column width={16}>
-              <Header sub color='grey'>Video Uploads</Header>
+              <Header sub color='grey'>Source Video</Header>
             </Grid.Column>
           </Grid.Row>
           <Divider />
@@ -48,7 +48,7 @@ class VideosListPanel extends React.Component {
         <Grid stackable columns={2} verticalAlign='top'>
           <Grid.Row className='top-action-container'>
             <Grid.Column>
-              <Header sub>Video Uploads ({videos.items.length})</Header>
+              <Header sub>Source Video ({videos.items.length})</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
               <UploadVideoPanel />

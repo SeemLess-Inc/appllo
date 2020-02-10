@@ -7,13 +7,13 @@ const AdAssets = () => (
       <Grid.Column>
         <Menu secondary>
         <Header fitted sub header as="h3">
-            Assets
+            Media Assets
           </Header>
           <Menu.Menu position="right">
-          <Button icon='plus' size='tiny' color='blue' basic circular compact/>
+          <Button basic circular icon='plus' size='tiny' color='blue'  compact onClick={() => (alert('Coming soon'))} />
           </Menu.Menu>
         </Menu>
-        <Segment style={{height: '100px'}}></Segment>
+        <Segment style={{height: '80px'}}></Segment>
         <Divider />
       </Grid.Column>
     </Grid.Row>

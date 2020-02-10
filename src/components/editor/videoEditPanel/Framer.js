@@ -15,8 +15,8 @@ const Framer = () => (
             <Menu.Item header>33:12 - 34:45</Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Segment style={{height: '100px'}}></Segment>
-        <Divider />
+        <Segment style={{height: '80px'}}></Segment>
+  
       </Grid.Column>
     </Grid.Row>
   </Grid>

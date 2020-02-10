@@ -51,7 +51,7 @@ class VideoEditorHeader extends React.Component {
         {successMessageClassName}
         <Grid.Row className='top-action-container'>
           <Grid.Column width={12}>
-            <Header sub color='grey'>Video Editor
+            <Header sub color='grey'>Video Monitor
             <Header size="medium" style={{marginTop: '10px'}}>
               {o.title}
               <Header.Subheader>{o.uploadedDate}</Header.Subheader>
