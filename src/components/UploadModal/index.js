@@ -79,6 +79,14 @@ class UploadModal extends React.Component {
     }
   }
 
+  getFileTypeForUpload = () => {
+    if (this.state.currentStep === 1) {
+      return "image/jpg, image/png"
+    } else {
+      return "video/mp4"
+    }
+  }
+
   getStepHeading = (type, title) => {
     if (type === 'active') {
       return (
@@ -119,7 +127,7 @@ class UploadModal extends React.Component {
         //className="modalCss"
       >
         <Dropzone
-          accept="video/mp4"
+          accept={this.getFileTypeForUpload()}
           maxFiles={1}
           multiple={false}
           onDrop={this.onDrop}
