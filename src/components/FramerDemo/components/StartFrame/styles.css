@@ -1,0 +1,32 @@
+.displayStartFrame {
+    position:absolute;
+    bottom:295px;
+}
+
+.start-duration {
+    color:#272c34;
+    font-size:15px;
+    position:absolute;
+    bottom:167px;
+    font-weight:bold
+}
+
+.markUpperCap {
+    position: absolute;
+    bottom:165px;
+    width:0px;
+    height:0px;
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-top:14px solid #f3c101;
+}
+
+.markBottomCap {
+    position: absolute;
+    bottom:62px;
+    width:0px;
+    height:0px;
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-bottom:14px solid #f3c101;
+}

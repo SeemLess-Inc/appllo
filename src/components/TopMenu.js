@@ -21,6 +21,10 @@ const TopMenu = () => (
       <Menu.Item fitted as={Link} to="/edit">
         Ad Editor
       </Menu.Item>
+      <Menu.Item>|</Menu.Item>
+      <Menu.Item fitted as={Link} to="/editorDemo">
+        Framer Demo
+      </Menu.Item>
     </Menu.Menu>
     <Menu.Menu position="right">
       <Menu.Item fitted>
