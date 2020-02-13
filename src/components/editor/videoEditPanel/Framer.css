@@ -1,0 +1,28 @@
+.videoFrames {
+    height: 70px;
+    border-radius: 6px;
+    /* padding: 10px */
+}
+
+.handle {
+    border-radius: 2px;
+    background-color: #f3c101;
+    height: 70px;
+    width: 5px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.noFrameLabel {
+    color:#fff
+}
+
+.savedFrameTitle {
+    color: #f3c101
+}
+
+.cutFrame {
+    height: '100%';
+}
+

@@ -23,7 +23,7 @@ const TopMenu = () => (
       </Menu.Item>
       <Menu.Item>|</Menu.Item>
       <Menu.Item fitted as={Link} to="/editorDemo">
-        Framer Demo
+        Framer demo
       </Menu.Item>
     </Menu.Menu>
     <Menu.Menu position="right">

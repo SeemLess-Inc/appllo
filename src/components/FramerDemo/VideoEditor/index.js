@@ -133,7 +133,7 @@ export default class VideoEditor extends React.Component {
         video.addEventListener('loadedmetadata', initCanvas, false);
         video.addEventListener('timeupdate', drawFrame, false);
         video.addEventListener('ended', onend, false);
-        document.getElementById('videoPlay').appendChild(video);
+        //document.getElementById('videoPlay').appendChild(video);
         if (this.files.length !== 0) {
             video.src = URL.createObjectURL(this.files[0]);
             video.ondurationchange = function () {
@@ -236,7 +236,7 @@ export default class VideoEditor extends React.Component {
                                 <input type="file" accept="video/*" />
                                 <Button primary onClick={this.cutFrame}>Cut Frame</Button>
                                 <Label id="progress"></Label>
-                                <Item id="videoPlay"></Item>
+                                {/* <Item id="videoPlay"></Item> */}
                                 <div id="videoFrames" className="videoFrames" style={{ width: Math.ceil(FRAME_WIDTH) }}>
                                     {
                                         array.length !== 0 &&
