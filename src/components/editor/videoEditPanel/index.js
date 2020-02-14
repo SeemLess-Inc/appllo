@@ -37,7 +37,7 @@ class VideoEditorPanel extends React.Component {
   };
 
   componentDidMount() {
-    FRAME_WIDTH = this.myEditor.current.offsetWidth - 5
+    FRAME_WIDTH = this.myEditor.current.offsetWidth - 10
     this.getClickPosition = this.getClickPosition.bind(this);
     window.addEventListener('scroll', this.listenToScroll);
 
