@@ -32,7 +32,7 @@ class Framer extends React.Component {
                 CURRENT_END_DURATION={this.props.CURRENT_END_DURATION}
                 draggedPoint={this.props.draggedPoint}
               />
-              <div id="videoFrames" className="videoFrames" style={{ height: 70, width: 2 * window.innerWidth / 4.2, padding: 0 }}>
+              <div id="videoFrames" className="videoFrames" style={{ height: 70, width: this.props.FRAME_WIDTH, padding: 0 }}>
                 {
                   this.props.array.length !== 0 &&
                   <Item style={{ position: 'absolute', left: 0}}>

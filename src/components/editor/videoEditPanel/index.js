@@ -17,6 +17,7 @@ class VideoEditorPanel extends React.Component {
 
   constructor(props) {
     super(props);
+    this.myEditor = React.createRef()
   }
 
   state = {
@@ -36,6 +37,7 @@ class VideoEditorPanel extends React.Component {
   };
 
   componentDidMount() {
+    FRAME_WIDTH = this.myEditor.current.offsetWidth - 5
     this.getClickPosition = this.getClickPosition.bind(this);
     window.addEventListener('scroll', this.listenToScroll);
 
@@ -246,13 +248,14 @@ class VideoEditorPanel extends React.Component {
       );
     } else {
       videoPanels = (
-        <div>
+        <div ref={this.myEditor}>
           <UploadVideoDropzone />
           <input type="file" accept="video/*" />
           <p id="progress"></p>
-          <div ref={el => (this.instance = el)} style={{}}>
+          <div ref={el => (this.instance = el)} style={{width:FRAME_WIDTH}}>
             <Framer
               array={array}
+              FRAME_WIDTH = {FRAME_WIDTH}
               startPoint={startPoint}
               onstartPointControlledDrag={this.onstartPointControlledDrag}
               handleStartPoint_Stop={this.handleStartPoint_Stop}
