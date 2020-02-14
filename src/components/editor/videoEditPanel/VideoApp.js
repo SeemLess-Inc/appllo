@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Grid, Container } from "semantic-ui-react";
 import { Player, ControlBar } from 'video-react';
+import { setPlayer } from "../../../store/actions/currentVideoAction";
 import { seekToKeyFrame } from "../../../store/actions/keyframesActions";
 import VideoKeyframeTag from "./VideoKeyframeTag";
 import "../../../../node_modules/video-react/dist/video-react.css"
@@ -14,7 +15,9 @@ class VideoApp extends Component {
   }
 
   componentDidMount() {
+    const { dispatch } = this.props;
     this.player.subscribeToStateChange(this.handleStateChange.bind(this));
+    dispatch(setPlayer(this.player));
   }
 
   componentDidUpdate() {

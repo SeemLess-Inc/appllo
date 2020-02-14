@@ -1,0 +1,60 @@
+.framer-scrubber {
+    height: 80px;
+    position: relative;
+    width: 100%;
+}
+.framer-scrubber .scrubber-area,
+.framer-scrubber .clipped {
+    border: 1.5px solid;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.framer-scrubber .scrubber-area {
+    background-color: #d3dcdd;
+    border-color: #bac7cf;
+    border-radius: 3px;
+}
+.framer-scrubber .clipped {
+    background-color: #c7f5fd;
+    border-color: #7be3ec;
+}
+.framer-scrubber .clip-bracket {
+    border: 3px solid #438cb5;
+    bottom: -3px;
+    position: absolute;
+    top: -3px;
+    width: 10px;
+}
+.framer-scrubber .clip-bracket.left {
+    border-right: none;
+}
+.framer-scrubber .clip-bracket.right {
+    border-left: none;
+    right: 0;
+}
+.framer-scrubber .clip-bracket .handle {
+     width: 17px;
+     background-color: #438cb5;
+     position: absolute;
+     top: -3px;
+     display: flex;
+     color: #fff;
+     cursor: col-resize;
+     padding: 0;
+     text-shadow: 1px 1px 0 #000;
+     opacity: 0;
+     bottom: -3px;
+     align-items: center;
+ }
+.framer-scrubber .clip-bracket.left .handle {
+    left: -17px;
+    border-radius: 5px 1px 1px 5px;
+}
+.framer-scrubber .clip-bracket.right .handle {
+    left: 9px;
+    border-radius: 1px 5px 5px 1px;
+}
+.framer-scrubber .clip-bracket .handle:hover {
+    opacity: 1;
+}

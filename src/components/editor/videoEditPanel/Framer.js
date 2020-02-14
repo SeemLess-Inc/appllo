@@ -1,5 +1,6 @@
 import React from "react";
-import { Menu, Grid, Divider, Header, Segment } from "semantic-ui-react";
+import { Menu, Grid, Header } from "semantic-ui-react";
+import FramerScrubber from "./FramerScrubber";
 
 const Framer = () => (
   <Grid>
@@ -15,8 +16,7 @@ const Framer = () => (
             <Menu.Item header>33:12 - 34:45</Menu.Item>
           </Menu.Menu>
         </Menu>
-        <Segment style={{height: '80px'}}></Segment>
-  
+        <FramerScrubber />
       </Grid.Column>
     </Grid.Row>
   </Grid>
