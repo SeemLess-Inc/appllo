@@ -24,7 +24,7 @@ const FramerScrubber = ({player, clip, dispatch}) => {
     const videoDuration = player.video.props.player.duration;
 
     dispatch(setClip({
-      start: (frameScrubberWidth / clippedLeft) * videoDuration,
+      start: clippedLeft ? (frameScrubberWidth / clippedLeft) * videoDuration : 0,
       end: (frameScrubberWidth / clippedRight) * videoDuration,
       duration: (frameScrubberWidth / clippedWidth) * videoDuration,
       videoDuration
