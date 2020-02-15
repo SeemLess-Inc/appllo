@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import {Icon, Segment} from "semantic-ui-react";
 import Draggable from 'react-draggable'; // Both at the same time
-import './Framer.css'
+import './FramerScrubber.css'
 import { setClip } from "../../../store/actions/currentVideoAction";
 
 const FramerScrubber = ({player, clip, dispatch}) => {
@@ -10,6 +10,7 @@ const FramerScrubber = ({player, clip, dispatch}) => {
   const [leftClip, setLeftClip] = useState(0);
   const framerScrubber = React.createRef();
   const clipped = React.createRef();
+  const playerVideoPropsSrc = (!!player && player.video.props.src);
   const leftHandleDrag = (e, {x}) => {
     setLeftClip(x);
   };
@@ -36,11 +37,14 @@ const FramerScrubber = ({player, clip, dispatch}) => {
     console.debug(clip);
   }, [clip]);
 
+  useEffect(() => {
+    setLeftClip(0);
+    setRightClip(0)
+  }, [playerVideoPropsSrc]);
+
   const draggableClipBracketAttr = {
     axis: 'x',
     handle: '.handle',
-    defaultPosition: {x: 0, y: 0},
-    position:null,
     bounds:'parent',
     grid:[1, 1],
     scale:1,
@@ -51,14 +55,22 @@ const FramerScrubber = ({player, clip, dispatch}) => {
     <div className='framer-scrubber' ref={framerScrubber}>
       <div className='scrubber-area' />
       <div className='clipped' ref={clipped} style={{left: leftClip, width: `calc(100% + ${rightClip}px - ${leftClip}px)`}}/>
-      <Draggable { ...draggableClipBracketAttr } onDrag={leftHandleDrag}>
+      <Draggable
+        { ...draggableClipBracketAttr }
+        onDrag={leftHandleDrag}
+        position={{x: leftClip, y: 0}}
+      >
         <div className='clip-bracket left'>
-          <div className='handle'><Icon name='chevron left'/></div>
+          <div className='handle'><Icon name='chevron right'/></div>
         </div>
       </Draggable>
-      <Draggable { ...draggableClipBracketAttr } onDrag={rightHandleDrag}>
+      <Draggable
+        { ...draggableClipBracketAttr }
+        onDrag={rightHandleDrag}
+        position={{x: rightClip, y: 0}}
+      >
         <div className='clip-bracket right'>
-          <div className='handle'><Icon name='chevron right'/></div>
+          <div className='handle'><Icon name='chevron left'/></div>
         </div>
       </Draggable>
     </div>

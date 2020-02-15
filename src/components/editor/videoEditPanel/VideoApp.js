@@ -21,7 +21,10 @@ class VideoApp extends Component {
   }
 
   componentDidUpdate() {
-    const { seekToKeyframe, dispatch } = this.props;
+    const { seekToKeyframe, dispatch, player } = this.props;
+    if (!player) {
+      dispatch(setPlayer(this.player))
+    }
     if (typeof seekToKeyframe === 'number') {
       this.player.play();
       this.player.pause();
@@ -87,6 +90,7 @@ const mapStateToProps = state => ({
   keyframes: state.keyframes.items,
   currentKeyframeId: state.keyframes.currentKeyframe[0],
   currentKeyframeFrameTime: state.keyframes.currentKeyframe[1].frame_time,
+  player: state.currentVideo.player,
   seekToKeyframe: state.keyframes.seekToKeyframe
 });
 

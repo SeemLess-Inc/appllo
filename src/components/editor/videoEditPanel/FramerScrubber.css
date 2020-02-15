@@ -25,6 +25,7 @@
     position: absolute;
     top: -3px;
     width: 10px;
+    z-index: 1;
 }
 .framer-scrubber .clip-bracket.left {
     border-right: none;
