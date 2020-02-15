@@ -20,7 +20,6 @@ export function saveKeyframes(keyframes, file_name) {
 }
 
 async function uploadKeyframesData(keyframes, file_name) {
-  //  debugger;
   //  const response = await axios.put(URL_SAVE_KEYFRAMES, keyframes);
   //  console.log(response);
   try {

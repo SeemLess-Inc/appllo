@@ -16,20 +16,24 @@ import './styles.css';
     width: '50%',
     borderColor: '#dedede'
   }
-}; 
+};
 
 class UploadModal extends React.Component {
   constructor() {
     super();
 
     this.onDrop = files => {
-      this.closeModal()
-      this.setState({ files });
-      this.props.uploadVideos(files);
+      if (this.state.currentStep === 1) {
+        this.setState({ thumbFile: files[0] });
+      }
+      else if (this.state.currentStep === 2) {
+        this.setState({ videoFile: files[0] });
+      }
     };
 
     this.state = {
-      files: [],
+      videoFile: '',
+      thumbFile: '',
       modalIsOpen: true,
       currentStep: 1
     };
@@ -42,6 +46,7 @@ class UploadModal extends React.Component {
       if (this.state.currentStep === 3) {
         this.setState({ currentStep: 1 }, () => {
           this.closeModal()
+          this.props.uploadVideos(this.state.videoFile, this.state.thumbFile);
         })
       }
     })
@@ -81,7 +86,7 @@ class UploadModal extends React.Component {
 
   getFileTypeForUpload = () => {
     if (this.state.currentStep === 1) {
-      return "image/jpg, image/png"
+      return "image/jpg, image/jpeg, image/png"
     } else {
       return "video/mp4"
     }

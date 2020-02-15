@@ -15,7 +15,7 @@ class AdEditor extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    
+
     if (
       prevProps.videoToAnalyse.video !== null && this.props.videoToAnalyse.video === null
     ) {
