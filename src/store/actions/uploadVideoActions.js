@@ -49,6 +49,7 @@ async function uploadVideosToS3(fileList) {
   const file_name = file.name; */
 
   const file = fileList;
+  //alert(JSON.stringify(file[1]))
   const reverseFile = file.reverse();
   console.log('reverse array: ' + JSON.stringify(reverseFile))
   const thumbnail_filename = file[0].name;
@@ -71,13 +72,13 @@ async function uploadVideosToS3(fileList) {
     mode: "cors",
     cache: "no-cache",
     headers: new Headers({
-      "Content-Type": "media-type"
+      "Content-Type": "video/mp4"
     }),
     body: file[1]
   };
 
   console.log('upload urls: ' + JSON.stringify(res.data.upload_urls));
-  return fetch(res.data.upload_urls[0], config);
+  return fetch(res.data.upload_urls[1], config);
 }
 
 // Action Creators
