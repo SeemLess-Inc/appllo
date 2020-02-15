@@ -5,7 +5,7 @@ import { Icon, Header, Segment, Button, Divider, Step } from "semantic-ui-react"
 import Dropzone from "react-dropzone";
 import Modal from 'react-modal';
 import './styles.css';
- const customStyles = {
+const customStyles = {
   content: {
     top: '50%',
     left: '50%',
@@ -29,6 +29,14 @@ class UploadModal extends React.Component {
       else if (this.state.currentStep === 2) {
         this.setState({ videoFile: files[0] });
       }
+      // this.setState({ currentStep: this.state.currentStep+1 },()=>{
+      //   if(this.state.currentStep === 3){
+      //     console.log(JSON.stringify(this.state.videoFile))
+      //     console.log(JSON.stringify(this.state.thumbFile))
+      //     this.closeModal()
+      //     this.props.uploadVideos(this.state.videoFile, this.state.thumbFile);
+      //   }
+      // });
     };
 
     this.state = {
@@ -46,6 +54,8 @@ class UploadModal extends React.Component {
       if (this.state.currentStep === 3) {
         this.setState({ currentStep: 1 }, () => {
           this.closeModal()
+          console.log(JSON.stringify(this.state.videoFile))
+          console.log(JSON.stringify(this.state.thumbFile))
           this.props.uploadVideos(this.state.videoFile, this.state.thumbFile);
         })
       }
@@ -129,7 +139,6 @@ class UploadModal extends React.Component {
         onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
         style={customStyles}
-        //className="modalCss"
       >
         <Dropzone
           accept={this.getFileTypeForUpload()}

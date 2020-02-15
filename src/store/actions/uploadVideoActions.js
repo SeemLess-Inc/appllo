@@ -56,7 +56,9 @@ export function uploadVideos(videoFile, thumbFile) {
 // https://codesandbox.io/s/lrjxj8w867
 async function getVideoUploadURLs(videoFile, thumbFile) {
   var params = { files: [ videoFile.name, thumbFile.name ] };
+  console.log('params: ' + JSON.stringify(params));
   const res = await axios.post(URL_GET_UPLOAD_URL, params);
+  console.log('params: ' + JSON.stringify(params));
   return res.data.upload_urls;
 }
 
@@ -68,9 +70,10 @@ async function uploadFileToS3(url, type, file) {
     headers: new Headers({
       "Content-Type": type
     }),
-    body: file
+    body: file[1]
   };
 
+  console.log('upload url: ' + JSON.stringify(url));
   return fetch(url, config);
 }
 

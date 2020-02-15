@@ -13,7 +13,7 @@
 
 .markUpperCap {
     position: absolute;
-    bottom:165px;
+    bottom:0px;
     width:0px;
     height:0px;
     border-left:7px solid transparent;
