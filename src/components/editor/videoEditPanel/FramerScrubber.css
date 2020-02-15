@@ -34,6 +34,20 @@
     border-left: none;
     right: 0;
 }
+.framer-scrubber .clip-bracket .clip-info {
+    position: absolute;
+    display: none;
+    width: 70px;
+    background: rgba(255,255,255,0.7);
+    padding: 7px 3px;
+    font-size: .86em;
+    text-align: center;
+    left: -35px;
+    top: -41px;
+}
+.framer-scrubber .clip-bracket:hover .clip-info {
+    display: block;
+}
 .framer-scrubber .clip-bracket .handle {
      width: 17px;
      background-color: #438cb5;

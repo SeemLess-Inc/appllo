@@ -4,10 +4,6 @@ import { Menu, Grid, Header, Icon } from "semantic-ui-react";
 import FramerScrubber from "./FramerScrubber";
 
 const Framer = ({clip, currentKeyframeId}) => {
-  const keyframeText = currentKeyframeId
-    ? `Keyframe ${currentKeyframeId}`
-    : <Icon name='minus' />;
-
   const clipDurationText = clip.duration
     ? `${clip.duration.toFixed(2)} sec`
     : <Icon name='minus' />;
@@ -25,7 +21,7 @@ const Framer = ({clip, currentKeyframeId}) => {
               Framer
             </Header>
             <Menu.Menu position="right">
-              <Menu.Item>{keyframeText}</Menu.Item>
+              <Menu.Item>Keyframe&nbsp;&nbsp;{currentKeyframeId || <Icon name='minus' />}</Menu.Item>
               <Menu.Item>{clipDurationText}</Menu.Item>
               <Menu.Item header>{clipStartEndText}</Menu.Item>
             </Menu.Menu>
