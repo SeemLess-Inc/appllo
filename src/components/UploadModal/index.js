@@ -24,7 +24,7 @@ class UploadModal extends React.Component {
 
     this.onDrop = files => {
       if (this.state.currentStep === 1) {
-        this.setState({ thumbFile: files[0] });
+        this.setState({ thumbFile: files[0],currentStep:this.state.currentStep+1 });
       }
       else if (this.state.currentStep === 2) {
         this.setState({ videoFile: files[0] });

@@ -1,4 +1,4 @@
-import { SELECT_VIDEO } from "./../actions/currentVideoAction";
+import {SELECT_VIDEO, SET_CLIP, SET_PLAYER} from "./../actions/currentVideoAction";
 
 /*
 video.
@@ -18,7 +18,14 @@ const initialState = {
   src: "",
   thumbnail: "./video.png",
   uploadedDate: "Unknown date",
-  analytics: ""
+  analytics: "",
+  player: null,
+  clip: {
+    start: null,
+    end: null,
+    duration: null,
+    videoDuration: null
+  }
   //  state: "Uploaded",
 };
 
@@ -34,8 +41,25 @@ export default function(state = initialState, action) {
         src: action.payload.currentVideo.src,
         thumbnail: action.payload.currentVideo.thumbnail,
         uploadedDate: action.payload.currentVideo.uploadedDate,
-        analytics: action.payload.currentVideo.analytics
+        analytics: action.payload.currentVideo.analytics,
+        player: null,
+        clip: {
+          start: null,
+          end: null,
+          duration: null,
+          videoDuration: null
+        }
       });
+    case SET_PLAYER:
+      return {
+        ...state,
+        player: action.payload.player
+      };
+      case SET_CLIP:
+      return {
+        ...state,
+        clip: action.payload.clip
+      };
     default:
       return state;
   }

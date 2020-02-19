@@ -9,7 +9,6 @@ import Home from "./Home";
 import Dashboard from "./Dashboard";
 import AdEditor from "./AdEditor";
 import Error404 from "./Error404";
-import editorDemo from "../components/FramerDemo/VideoEditor";
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -24,7 +23,6 @@ const Root = ({ store }) => (
           <Route path="/" exact component={Home} />
           <Route path="/edit/" component={AdEditor} />
           <Route path="/dashboard/" component={Dashboard} />
-          <Route path="/editorDemo" component={editorDemo} />
           <Route component={Error404} />
         </Switch>
       </Grid>

@@ -1,0 +1,22 @@
+.fading-container {
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-name: fade-and-transit-left;
+    position: absolute !important;
+    right: 100px;
+    top: 13px;
+    z-index: 2;
+}
+@keyframes fade-and-transit-left {
+    0%   {opacity:0.8; right:100px;}
+    5%   {opacity:1; right:100px;}
+    45%  {opacity:1; right:100px;}
+    49%  {opacity:1; right:88px;}
+    53%  {opacity:1; right:85px;}
+    55%  {opacity:1; right:85px;}
+    60%  {opacity:0.7; right:130px;}
+    65%  {opacity:0.2; right:160px;}
+    70%  {opacity:0; right:180px;}
+    71%  {opacity:0; right:100000px;}
+    100% {opacity:0; right:100000px;}
+}

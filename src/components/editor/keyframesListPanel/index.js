@@ -5,6 +5,7 @@ import {
   updateKeyframeUserApproved
 } from "../../../store/actions/keyframesActions";
 import {Header, Grid, Divider, Item, Loader, Button, TabPane, Tab} from "semantic-ui-react";
+import { saveKeyframesMarkDirty } from "../../../store/actions/saveKeyframesActions";
 import KeyframeItem from "./KeyframeItem";
 import "../styles.css"
 import "./index.css"
@@ -22,6 +23,7 @@ class KeyframesListPanel extends React.Component {
     let id = src[0];
     let newValue = !src[1].userApproved;
     this.props.dispatch(updateKeyframeUserApproved(id, newValue));
+    this.props.dispatch(saveKeyframesMarkDirty(true));
   };
 
   handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
@@ -29,10 +31,6 @@ class KeyframesListPanel extends React.Component {
   render() {
     const { error, loading, keyframes, currentVideo } = this.props;
     const { activeIndex } = this.state
-
-    const addKeyframeButton = currentVideo.id
-      ? <Button icon='plus' size='tiny' color='blue' basic circular compact onClick={() => (alert('Coming soon'))} />
-      : <div/>;
 
     var renderList;
     if (keyframes.length === 0) {
@@ -59,18 +57,19 @@ class KeyframesListPanel extends React.Component {
       return <Loader active>Loading</Loader>;
     } else {
       return (
-        <Grid stackable columns={2} verticalAlign='middle'>
+        <Grid stackable columns={2}>
           <Grid.Row className='top-action-container'>
             <Grid.Column>
-              <Header sub>Keyframes</Header>
+              <Header sub color='grey'>Ad Placement</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
-              {addKeyframeButton}
+              <Button basic compact color='grey'>Export...</Button>
+              <Button icon='plus' size='tiny' color='blue' disabled={!(currentVideo.id)} basic circular compact onClick={() => (alert('Coming soon'))} />
             </Grid.Column>
               <Tab
               className='keyframe-tabs'
               menu={{ secondary: true, pointing: true }}
-              panes={[{ menuItem: 'Netra' }, { menuItem: 'Custom' }]}
+              panes={[{ menuItem: 'Keyframes' }, { menuItem: 'Clips' }]}
               activeIndex={activeIndex}
               onTabChange={this.handleTabChange}
               />

@@ -4,19 +4,22 @@ import { Button, Grid, Menu, Divider, Header, Segment } from "semantic-ui-react"
 const AdAssets = () => (
   <Grid>
     <Grid.Row>
-      <Grid.Column>
-        <Menu secondary>
+      <Grid.Column width={4}>
         <Header fitted sub header as="h3">
-            Assets
-          </Header>
-          <Menu.Menu position="right">
-          <Button icon='plus' size='tiny' color='blue' basic circular compact/>
-          </Menu.Menu>
-        </Menu>
-        <Segment style={{height: '100px'}}></Segment>
-        <Divider />
+            Media Assets
+        </Header>
       </Grid.Column>
+      <Grid.Column width={12}>
+        
+    <Button floated='right' basic circular icon='plus' size='tiny' color='blue'  compact onClick={() => (alert('Coming soon'))} />
+      </Grid.Column>
+    </Grid.Row>    
+      <Grid.Row style={{padding: '0'}}>
+        <Grid.Column>    
+        <Segment style={{height: '80px'}}></Segment>
+        </Grid.Column>
     </Grid.Row>
+        <Divider />
   </Grid>
 );
 

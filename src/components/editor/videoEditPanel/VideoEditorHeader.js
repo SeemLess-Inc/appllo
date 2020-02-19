@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Header, Grid, Divider, Button } from "semantic-ui-react";
-import { saveKeyframes } from "../../../store/actions/saveKeyframesActions";
+import {Header, Grid, Button, Message} from "semantic-ui-react";
+import { saveKeyframes, saveKeyframesMarkDirty } from "../../../store/actions/saveKeyframesActions";
+import './VideoEditorHeader.css'
 
 class VideoEditorHeader extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleClick = () => {
       this.props.saveKeyframes( this.props.keyframes, this.props.currentVideo.id + ".json" );
@@ -14,6 +15,7 @@ class VideoEditorHeader extends React.Component {
 
   render() {
     // Create an object to render
+    const { dirty, saveKeyframesMarkDirty, loading, submitting, success } = this.props;
     const o = {};
     o.id = this.props.currentVideo.id;
     o.title = this.props.currentVideo.id;
@@ -28,24 +30,28 @@ class VideoEditorHeader extends React.Component {
   */
 
     // Show/Hide video and disable Save button
-    let saveButton;
+    let saveButton = <div/>;
     if (o.id === "" || this.props.error === true) {
+      saveKeyframesMarkDirty(false);
       o.title = "No video selected";
       o.uploadedDate = "–";
-      saveButton = <div/>;
-    } else if (this.props.loading === true) {
+    } else if (loading) {
+      saveKeyframesMarkDirty(false);
       o.title = "Loading Keyframes";
       o.uploadedDate = "–";
-      saveButton = <Button disabled color='olive'>Save</Button>;
     } else {
-      saveButton = <Button color='olive' onClick={this.handleClick}>Save</Button>;
+      saveButton = <Button color='blue' disabled={!dirty || submitting} loading={submitting} onClick={this.handleClick}>Save</Button>;
     }
+    const successMessageClassName = success
+      ? <Message size='mini' floating success className='fading-container'>Keyframe metadata successfully saved!</Message>
+      : <div />;
 
     return (
       <Grid stackable columns={2} verticalAlign='top'>
+        {successMessageClassName}
         <Grid.Row className='top-action-container'>
           <Grid.Column width={12}>
-            <Header sub>Video Editor
+            <Header sub color='grey'>Video Monitor
             <Header size="medium" style={{marginTop: '10px'}}>
               {o.title}
               <Header.Subheader>{o.uploadedDate}</Header.Subheader>
@@ -66,9 +72,12 @@ const mapStateToProps = state => ({
   currentVideo: state.currentVideo,
   keyframes: state.keyframes.items,
   loading: state.keyframes.loading,
+  dirty: state.saveKeyframes.dirty,
+  submitting: state.saveKeyframes.loading,
+  success: state.saveKeyframes.success,
   error: state.keyframes.error
 });
 export default connect(
   mapStateToProps,
-  { saveKeyframes } // mapDispatchToProps
+  { saveKeyframes, saveKeyframesMarkDirty } // mapDispatchToProps
 )(VideoEditorHeader);
