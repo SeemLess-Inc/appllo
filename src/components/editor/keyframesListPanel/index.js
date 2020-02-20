@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchClips } from "../../../store/actions/clipsActions";
 import {
   getKeyframes,
   updateKeyframeUserApproved
@@ -17,6 +18,7 @@ class KeyframesListPanel extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.currentVideo.id !== this.props.currentVideo.id) {
       this.props.dispatch(getKeyframes(this.props.currentVideo));
+      this.props.dispatch(fetchClips(this.props.currentVideo));
     }
   }
 

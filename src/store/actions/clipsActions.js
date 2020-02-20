@@ -2,6 +2,9 @@ export const CREATE_CLIP_BEGIN = "CREATE_CLIP_BEGIN";
 export const CREATE_CLIP_ERROR = "CREATE_CLIP_ERROR";
 export const CREATE_CLIP_SUCCESS = "CREATE_CLIP_SUCCESS";
 export const SELECT_CLIP = "SELECT_CLIP";
+export const FETCH_CLIPS_BEGIN = "FETCH_CLIPS_BEGIN";
+export const FETCH_CLIPS_ERROR = "FETCH_CLIPS_ERROR";
+export const FETCH_CLIPS_SUCCESS = "FETCH_CLIPS_SUCCESS";
 export const UPDATE_CLIP_BEGIN = "UPDATE_CLIP_BEGIN";
 export const UPDATE_CLIP_ERROR = "UPDATE_CLIP_ERROR";
 export const UPDATE_CLIP_SUCCESS = "UPDATE_CLIP_SUCCESS";
@@ -15,8 +18,11 @@ const postClip = (clip, clips) => new Promise((resolve, reject) => {
       })
     } else {
       resolve({
-        id: Math.floor(Math.random()*1000),
-        ...clip
+        status: 200,
+        data:{
+          id: Math.floor(Math.random()*1000),
+          ...clip
+        }
       })
     }
   }, 250)
@@ -24,16 +30,29 @@ const postClip = (clip, clips) => new Promise((resolve, reject) => {
 
 const putClip = clip => new Promise((resolve) => {
   setTimeout( () => {
-    resolve(clip)
+    resolve({
+      status: 200,
+      data: clip
+    })
   }, 250)
+});
+
+const getClips = video => new Promise((resolve) => {
+  setTimeout( () => {
+    resolve({status: 200, data:[]})
+  }, 550)
 });
 
 export const createClip = (clip, clips) => dispatch => {
   dispatch(createClipBegin());
+  if(!clip.name && clip.name !== 0) {
+    clip.name = `${clip.duration.toFixed(2)} sec 
+    (${clip.start ? clip.start.toFixed(2) : 0} - ${clip.end.toFixed(2)})`
+  }
   return postClip(clip, clips)
-    .then(response => {
-      dispatch(createClipSuccess(response));
-      return response;
+    .then(({data}) => {
+      dispatch(createClipSuccess(data));
+      return data;
     })
     .catch(error => dispatch(createClipError(error)));
 };
@@ -52,6 +71,30 @@ export const createClipSuccess = clip => ({
   payload: { clip }
 });
 
+export const fetchClips = (video) => dispatch => {
+  dispatch(fetchClipsBegin());
+  return getClips(video)
+    .then(({data}) => {
+      dispatch(fetchClipsSuccess(data));
+      return data;
+    })
+    .catch(error => dispatch(fetchClipsError(error)));
+};
+
+export const fetchClipsBegin = () => ({
+  type: FETCH_CLIPS_BEGIN
+});
+
+export const fetchClipsError = error => ({
+  type: FETCH_CLIPS_ERROR,
+  payload: { error }
+});
+
+export const fetchClipsSuccess = clips => ({
+  type: FETCH_CLIPS_SUCCESS,
+  payload: { clips }
+});
+
 export const selectClip = clip => ({
   type: SELECT_CLIP,
   payload: { clip }
@@ -60,9 +103,9 @@ export const selectClip = clip => ({
 export const updateClip = clip => dispatch => {
   dispatch(updateClipBegin());
   return putClip(clip)
-    .then(response => {
-      dispatch(updateClipSuccess(response));
-      return response;
+    .then(({data}) => {
+      dispatch(updateClipSuccess(data));
+      return data;
     })
     .catch(error => dispatch(updateClipError(error)));
 };
