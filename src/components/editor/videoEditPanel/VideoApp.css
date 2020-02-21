@@ -14,3 +14,6 @@
 .video-tags {
     position: relative;
 }
+.selectedKeyFrame {
+    margin-top: 10;
+}

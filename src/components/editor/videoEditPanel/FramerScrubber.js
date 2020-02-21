@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Icon, Segment } from "semantic-ui-react";
+import { Icon, Segment, Loader } from "semantic-ui-react";
 import Draggable from 'react-draggable'; // Both at the same time
-import './FramerScrubber.css'
+import './FramerScrubber.css';
 import { setClip } from "../../../store/actions/currentVideoAction";
 
-const FramerScrubber = ({ player, clip, dispatch, playerWidth }) => {
+const FramerScrubber = ({ player, clip, dispatch, playerWidth, array, selectKeyFrame, extracting }) => {
+  const [selectedKeyFrame, setSelectedKeyFrame] = useState(0);
   const [rightClip, setRightClip] = useState(0);
   const [leftClip, setLeftClip] = useState(0);
   const [start, setStart] = useState(0);
@@ -45,6 +46,10 @@ const FramerScrubber = ({ player, clip, dispatch, playerWidth }) => {
 
   };
 
+  /* useEffect(()=>{
+    console.debug(selectedKeyFrame);
+  }) */
+
   useEffect(() => {
     if (framerScrubber.current && clipped.current) {
       setStartEnd()
@@ -62,6 +67,11 @@ const FramerScrubber = ({ player, clip, dispatch, playerWidth }) => {
     setEnd(0);
   }, [playerVideoPropsSrc]);
 
+  const setKeyFrame = (index) => {
+    setSelectedKeyFrame(index)
+    selectKeyFrame(index)
+  }
+
   const draggableClipBracketAttr = {
     axis: 'x',
     handle: '.handle',
@@ -73,9 +83,39 @@ const FramerScrubber = ({ player, clip, dispatch, playerWidth }) => {
   };
 
   return !player ? <Segment style={{ height: '80px' }} /> : (
+    <div>
+      <div id="selectedKeyFrame" style={{marginLeft: ((selectedKeyFrame + 1) * (Math.floor(playerWidth / array.length)) - (playerWidth / array.length) - 75)}}>
+
+      </div>
       <div className='framer-scrubber' ref={framerScrubber}>
-        <div className='scrubber-area' id="videoFrames" style={{ width: playerWidth }} />
-        <div className='clipped' ref={clipped} style={{ left: leftClip, width: `calc(100% + ${rightClip}px - ${leftClip}px)` }} />
+        <div className='scrubber-area' id="videoFrames" style={{ width: `${playerWidth}` }}>
+          {
+            array.length !== 0 &&
+            array.map((item, index) => {
+              return (
+                <div
+                  className="keyFrame"
+                  onClick={() => setKeyFrame(index)}
+                  style={{left: ((index + 1) * (Math.floor(playerWidth / array.length)) - (playerWidth / array.length) - 5) }}
+                >
+                  <Icon
+                    name='tag'
+                    className={selectedKeyFrame === index ? 'video-tag-active' : 'video-tag'}
+                    size='small'
+                  />
+                  <div className="keyFrame-verticalLine" style={{backgroundColor: selectedKeyFrame === index ? 'teal' : 'grey'}}></div>
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className='clipped' ref={clipped} style={{ left: leftClip, width: `calc(100% + ${rightClip}px - ${leftClip}px)` }} >
+          {extracting &&
+            <div className="loader">
+              <Loader active inline />
+            </div>
+          }
+        </div>
         <Draggable
           {...draggableClipBracketAttr}
           onDrag={leftHandleDrag}
@@ -97,6 +137,7 @@ const FramerScrubber = ({ player, clip, dispatch, playerWidth }) => {
           </div>
         </Draggable>
       </div>
+    </div>
   )
 };
 

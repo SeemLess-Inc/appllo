@@ -77,16 +77,16 @@ class VideoEditorPanel extends React.Component {
       URL.revokeObjectURL(this.src);
     }
 
-    function onend(e) {
+    const onend = e => {
       var img;
       var playerWidth = document.getElementById("player").offsetWidth
-      for (var i = 0; i < array.length - 1; i++) {
+      for (var i = 0; i < array.length; i++) {
         img = new Image();
         var img = document.createElement("IMG");
         img.onload = revokeURL;
         img.src = URL.createObjectURL(array[i]);
         img.setAttribute("src", URL.createObjectURL(array[i]));
-        img.setAttribute("width", playerWidth / array.length);
+        img.setAttribute("width", Math.floor(playerWidth / array.length));
         img.setAttribute("height", "70");
         img.setAttribute("display", "inline-block");
         var videoFramDiv = document.getElementById('videoFrames');
@@ -123,6 +123,32 @@ class VideoEditorPanel extends React.Component {
       this.player.seek(seconds);
     };
   }
+
+  selectKeyFrame = (index) => {
+    function revokeURL(e) {
+      URL.revokeObjectURL(this.src);
+    }
+
+    var frameContainer = document.createElement("DIV");
+    frameContainer.setAttribute("height", "150");
+    frameContainer.setAttribute("width", "150");
+    frameContainer.style.marginTop = "10px";
+    frameContainer.style.marginBottom = "10px";
+    frameContainer.style.borderRadius = "4px";
+
+    var img = document.createElement("IMG");
+    img.onload = revokeURL;
+    img.src = URL.createObjectURL(array[index]);
+    img.setAttribute("src", URL.createObjectURL(array[index]));
+    img.setAttribute("width", "150");
+    img.setAttribute("height", "100");
+    img.style.borderRadius = "4px";
+    var selectedKeyFrameDiv = document.getElementById('selectedKeyFrame');
+    selectedKeyFrameDiv.innerHTML = '';
+    frameContainer.appendChild(img)
+    selectedKeyFrameDiv.appendChild(frameContainer);
+  }
+
   render() {
     const { currentVideo, keyframes } = this.props;
     let videoPanels;
@@ -133,9 +159,6 @@ class VideoEditorPanel extends React.Component {
           <Grid>
             <Grid.Row>
               <Grid.Column width={16}>
-              {extracting&&<Dimmer active>
-                <Loader active inline />
-              </Dimmer>}
                 <Container>
                   <div className='video-tags-container' ref={el => (this.instance = el)}>
                     <div className='video-tags'>
@@ -158,7 +181,12 @@ class VideoEditorPanel extends React.Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <Framer/>
+            <Framer 
+              extracting={extracting}
+              array={array}
+              playerWidth={this.props.player && document.getElementById("player").offsetWidth}
+              selectKeyFrame={(index) => this.selectKeyFrame(index)}
+            />
           <AdAssets />
         </div>
       );
@@ -166,7 +194,12 @@ class VideoEditorPanel extends React.Component {
       videoPanels = (
         <div>
           <UploadVideoDropzone />
-          <Framer />
+            <Framer 
+              extracting={extracting}
+              array={array}
+              playerWidth={this.props.player && document.getElementById("player").offsetWidth}
+              selectKeyFrame={(index) => this.selectKeyFrame(index)}
+            />
           <AdAssets />
         </div>
       )

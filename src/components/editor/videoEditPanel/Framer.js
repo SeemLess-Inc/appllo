@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { List, Button, Grid, Header, Icon } from "semantic-ui-react";
 import FramerScrubber from "./FramerScrubber";
 
-const Framer = ({clip, currentKeyframeId,playerWidth}) => {
+const Framer = ({clip, currentKeyframeId,playerWidth,array,selectKeyFrame,extracting}) => {
   const clipDurationText = clip.duration
     ? `${clip.duration.toFixed(2)}sec`
     : <Icon name='minus' />;
@@ -29,11 +29,10 @@ const Framer = ({clip, currentKeyframeId,playerWidth}) => {
           <Button floated='right' verticalAlign='top' basic compact color='blue'>Save Clip</Button>
           <Button floated='right' verticalAlign='top' basic compact color='grey'>Create Thumbnail</Button>
         </Grid.Column>
-
       </Grid.Row>
       <Grid.Row style={{padding: '0'}}>
         <Grid.Column>
-          <FramerScrubber playerWidth={playerWidth}/>
+          <FramerScrubber playerWidth={playerWidth} array={array} selectKeyFrame={(index)=>selectKeyFrame(index)} extracting={extracting}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>
