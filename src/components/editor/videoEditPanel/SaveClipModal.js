@@ -37,20 +37,20 @@ const SaveClipModal = (
     if (success) {
       onClose();
     }
-  }, [success]);
+  }, [onClose, success]);
 
   return (
-    <Modal size="tiny" dimmer='inverted' open={open} onClose={onClose}>
+    <Modal size="tiny" dimmer='inverted' open={open} onClose={onClose} style={{paddingBottom: '16px'}}>
       <Modal.Content>
         <Modal.Description>
-          <Header as="h3">Save Clip</Header>
+          <Header as="h3">Save Video Clip</Header>
           <Form>
             <Form.Field>
               <Form.Input
-                label='Video Clip Name'
+                label='Clip'
                 id='clipName'
                 error={!!error}
-                placeholder='Clip name'
+                placeholder='enter clip name'
                 value={clipName}
                 onChange={(e, { value }) =>
                   setClipName(value)
@@ -79,17 +79,19 @@ const SaveClipModal = (
             <Message.Header>{errorMessage(error)}</Message.Header>
           </Message>
         )}
-        <Button basic onClick={() => onClose()} disabled={loading}>Cancel</Button>
+        
         <Button
-          basic
+          floated='left'
           color="olive"
           onClick={() => {
             dispatch(createClip({...clip, name: clipName}, clips));
           }}
           loading={loading}
           disabled={loading}>Save New Clip</Button>
+          <Button floated='left' onClick={() => onClose()} disabled={loading}>Cancel</Button>
         {currentClip.id &&
         <Button
+          floated='left'
           color="olive"
           onClick={() => {
             dispatch(updateClip({ ...currentClip, ...clip, name: clipName }));
