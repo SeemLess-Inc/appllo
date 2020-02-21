@@ -5,7 +5,7 @@ import Draggable from 'react-draggable'; // Both at the same time
 import './FramerScrubber.css'
 import { setClip } from "../../../store/actions/currentVideoAction";
 
-const FramerScrubber = ({player, clip, dispatch}) => {
+const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   const [rightClip, setRightClip] = useState(0);
   const [leftClip, setLeftClip] = useState(0);
   const [start, setStart] = useState(0);
@@ -44,6 +44,30 @@ const FramerScrubber = ({player, clip, dispatch}) => {
     }));
 
   };
+  const resetClip = () => {
+    setLeftClip(0);
+    setRightClip(0);
+    setStart(0);
+    setEnd(0);
+  };
+  const setClipToCurrentClip = () => {
+    if(currentClip.id) {
+      const frameScrubberWidth = framerScrubber.current.offsetWidth;
+      const videoDuration = player.video.props.player.duration;
+
+      setLeftClip((currentClip.start / videoDuration) * frameScrubberWidth);
+      setRightClip(((currentClip.end / videoDuration) * frameScrubberWidth)  - frameScrubberWidth);
+      setStart(currentClip.start);
+      setEnd(currentClip.end);
+
+      dispatch(setClip({
+        start: currentClip.start,
+        end: currentClip.end,
+        duration: currentClip.duration,
+        videoDuration
+      }));
+    }
+  };
 
   useEffect(() => {
     if (framerScrubber.current && clipped.current) {
@@ -51,16 +75,9 @@ const FramerScrubber = ({player, clip, dispatch}) => {
     }
   }, [leftClip, rightClip]);
 
-  useEffect(() => {
-    console.debug(clip);
-  }, [clip]);
-
-  useEffect(() => {
-    setLeftClip(0);
-    setRightClip(0);
-    setStart(0);
-    setEnd(0);
-  }, [playerVideoPropsSrc]);
+  useEffect(() => { console.debug(clip) }, [clip]);
+  useEffect(() => { resetClip() }, [playerVideoPropsSrc]);
+  useEffect(() => { setClipToCurrentClip() }, [currentClip.id]);
 
   const draggableClipBracketAttr = {
     axis: 'x',
@@ -101,6 +118,7 @@ const FramerScrubber = ({player, clip, dispatch}) => {
 };
 
 const mapStateToProps = state => ({
+  currentClip: state.clips.currentClip,
   player: state.currentVideo.player,
   clip: state.currentVideo.clip
 });

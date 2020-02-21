@@ -23,6 +23,7 @@ const configureStore = () => {
 
     // Enable Logger in dev mode
     const logger = createLogger({
+      level: 'debug'
       // ...options: see https://github.com/evgenyrodionov/redux-logger
     });
     // Note: logger must be the last middleware in chain, otherwise it will log thunk and promise, not actual actions.

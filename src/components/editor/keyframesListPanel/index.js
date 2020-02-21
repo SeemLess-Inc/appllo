@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchClips } from "../../../store/actions/clipsActions";
 import {
   getKeyframes,
   updateKeyframeUserApproved
 } from "../../../store/actions/keyframesActions";
-import {Header, Grid, Divider, Item, Loader, Button, TabPane, Tab} from "semantic-ui-react";
+import { Header, Grid, Item, Loader, Button, Tab } from "semantic-ui-react";
 import { saveKeyframesMarkDirty } from "../../../store/actions/saveKeyframesActions";
 import KeyframeItem from "./KeyframeItem";
+import VideoClipItem from "./VideoClipItem";
 import "../styles.css"
 import "./index.css"
 
@@ -16,6 +18,7 @@ class KeyframesListPanel extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.currentVideo.id !== this.props.currentVideo.id) {
       this.props.dispatch(getKeyframes(this.props.currentVideo));
+      this.props.dispatch(fetchClips(this.props.currentVideo));
     }
   }
 
@@ -29,27 +32,8 @@ class KeyframesListPanel extends React.Component {
   handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
 
   render() {
-    const { error, loading, keyframes, currentVideo } = this.props;
+    const { error, loading, keyframes, currentVideo, clips } = this.props;
     const { activeIndex } = this.state
-
-    var renderList;
-    if (keyframes.length === 0) {
-      renderList = <p>No suitable keyframes available</p>;
-    } else {
-      renderList = (
-        <Item.Group divided className='divided-items-ellipsis'>
-          {keyframes.map(keyframe => {
-            return (
-              <KeyframeItem
-                keyframe={keyframe}
-                onToggle={this.toggleUserAccepted}
-                key={keyframe[0]}
-              />
-            );
-          })}
-        </Item.Group>
-      );
-    }
 
     if (error !== null) {
       return <div>Error! {error.message}</div>;
@@ -74,10 +58,18 @@ class KeyframesListPanel extends React.Component {
               onTabChange={this.handleTabChange}
               />
           </Grid.Row>
-          <Grid.Row className='mini-vertical-scroll scroll-panes'>{ (activeIndex === 0)
-            ? renderList
-            : <p>Coming Soon</p>
-          }</Grid.Row>
+          <Grid.Row className='mini-vertical-scroll scroll-panes'>
+            <Item.Group divided className='divided-items-ellipsis'>
+              { (!activeIndex)
+                ?  keyframes.length
+                  ? keyframes.map(keyframe => <KeyframeItem keyframe={keyframe} onToggle={this.toggleUserAccepted} key={keyframe[0]}/>)
+                  : <Item>No suitable keyframes available</Item>
+                : clips.length
+                  ? clips.map(clip => <VideoClipItem clip={clip} key={clip.id} />)
+                  : <Item>No suitable clips available</Item>
+              }
+            </Item.Group>
+          </Grid.Row>
         </Grid>
       );
     }
@@ -85,6 +77,7 @@ class KeyframesListPanel extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  clips: state.clips.items,
   currentVideo: state.currentVideo,
   keyframes: state.keyframes.items.sort((a, b) => a[1].frame_time - b[1].frame_time ),
   loading: state.keyframes.loading,
