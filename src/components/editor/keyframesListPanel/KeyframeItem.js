@@ -68,13 +68,13 @@ class KeyframeItem extends React.Component {
       <Item className={currentKeyframeId === id && "active"}>
         <Checkbox onChange={this.toggle} checked={src.userApproved} />
         <Item.Image src={'./video.png'} size='tiny' style={{ paddingLeft: "1em" }} />
-        <Item.Content style={{ paddingLeft: "1em" }} onClick={selectNewKeyframe}>
-          <Header size='tiny' as="a">{title}</Header>
-          <Item.Meta>Duration: {src.frame_time}</Item.Meta>
+        <Item.Content onClick={selectNewKeyframe}>
+          <Header size='tiny' as="a" style={{paddingTop: '6px', lineHeight: '11px'}}>{title}</Header>
+          <Item.Meta style={{fontSize: '11px', lineHeight: '11px'}}>Duration: {src.frame_time}</Item.Meta>
           <Accordion className='pretty-accordion'
             fluid
             exclusive={false}
-            defaultActiveIndex={[]}
+            defaultActiveIndex={[0, 1, 2]}
             panels={keyframePanels}
           />
         </Item.Content>

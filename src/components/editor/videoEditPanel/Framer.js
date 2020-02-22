@@ -41,7 +41,7 @@ const Framer = ({clip, currentClip}) => {
             color='blue'
             disabled={!clip.duration}
             onClick={() => {handleClickSaveClip()}}>Save Clip</Button>
-          <Button floated='right' verticalAlign='top' basic compact color='grey'>Create Thumbnail</Button>
+          <Button floated='right' verticalAlign='top' disabled basic compact color='grey'>Create Thumbnail</Button>
         </Grid.Column>
 
       </Grid.Row>

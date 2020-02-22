@@ -45,9 +45,9 @@ else{
     <Item onClick={selectNewVideo}>
       <Item.Image src={videoThumbnail} size="tiny" />
       <Item.Content>
-        <Header size='tiny' as="a" style={{lineHeight: '15px'}}>{o.title}</Header>
+        <Header size='tiny' as="a" style={{lineHeight: '11px', paddingTop: '6px'}}>{o.title}</Header>
         <Item.Meta style={{fontSize: '11px', lineHeight: '11px'}}>{o.uploadedDate}</Item.Meta>
-        <Item.Extra style={{fontSize: '11px', lineHeight: '13px'}}>{videoState}</Item.Extra>
+        <Item.Extra style={{fontSize: '11px', lineHeight: '11px'}}>{videoState}</Item.Extra>
       </Item.Content>
     </Item>
   );

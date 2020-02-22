@@ -42,12 +42,12 @@ class KeyframesListPanel extends React.Component {
     } else {
       return (
         <Grid stackable columns={2}>
-          <Grid.Row className='top-action-container'>
+          <Grid.Row className='top-action-container' style={{paddingBottom: '0'}}>
             <Grid.Column>
               <Header sub color='grey'>Ad Placement</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
-              <Button basic compact color='grey'>Export...</Button>
+              <Button basic compact disabled color='grey'>Export...</Button>
               <Button icon='plus' size='tiny' color='blue' disabled={!(currentVideo.id)} basic circular compact onClick={() => (alert('Coming soon'))} />
             </Grid.Column>
               <Tab
@@ -63,10 +63,10 @@ class KeyframesListPanel extends React.Component {
               { (!activeIndex)
                 ?  keyframes.length
                   ? keyframes.map(keyframe => <KeyframeItem keyframe={keyframe} onToggle={this.toggleUserAccepted} key={keyframe[0]}/>)
-                  : <Item>No suitable keyframes available</Item>
+                  : <Item>No keyframes available</Item>
                 : clips.length
                   ? clips.map(clip => <VideoClipItem clip={clip} key={clip.id} />)
-                  : <Item>No suitable clips available</Item>
+                  : <Item>No clips available</Item>
               }
             </Item.Group>
           </Grid.Row>

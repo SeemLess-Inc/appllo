@@ -33,6 +33,11 @@ class VideosListPanel extends React.Component {
             <Grid.Column width={16}>
               <Header sub color='grey'>Source Video</Header>
             </Grid.Column>
+            <Tab
+              className='keyframe-tabs'
+              menu={{ secondary: true, pointing: true }}
+              panes={[{ menuItem: 'Analyzed' }, { menuItem: 'Pending' }]}
+          />
           </Grid.Row>
           <Divider />
           <Grid.Row>
@@ -46,9 +51,9 @@ class VideosListPanel extends React.Component {
     } else {
       return (
         <Grid stackable columns={2} verticalAlign='top'>
-          <Grid.Row className='top-action-container'>
+          <Grid.Row className='top-action-container' style={{paddingBottom: '0'}}>
             <Grid.Column>
-              <Header sub>Source Video ({videos.items.length})</Header>
+              <Header sub color='grey'>Source Video ({videos.items.length})</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
               <UploadVideoPanel />

@@ -19,9 +19,11 @@
     width: .4em;
 }
 .scroll-panes {
-    max-height: 75vh;
+    min-height: 75vh;
+    max-height: 78vh;
     margin: 0 !important;
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 .scroll-panes > p {
     padding: 14px;
@@ -46,7 +48,7 @@
 
 } */
 .scroll-panes > .ui.divided.items > .item:first-child {
-    padding-top: 0 !important;
+    padding-top: 16px !important;
 }
 .scroll-panes > .ui.divided.items > .item.active {
     background: linear-gradient(180deg, #e5fafd, #e5fafe 73px, white 73.1px, white);
@@ -64,3 +66,4 @@
 .ui.items > .item > .content > .header > .line-item {
     margin: 4px 0 4px 0;
 }
+

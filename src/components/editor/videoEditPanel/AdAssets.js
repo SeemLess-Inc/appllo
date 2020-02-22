@@ -19,7 +19,7 @@ const AdAssets = () => (
         <Segment style={{height: '80px'}}></Segment>
         </Grid.Column>
     </Grid.Row>
-        <Divider />
+     
   </Grid>
 );
 

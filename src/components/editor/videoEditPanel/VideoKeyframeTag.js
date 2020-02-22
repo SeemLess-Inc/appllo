@@ -28,9 +28,9 @@ const VideoKeyframeTag = ({keyframe, player, currentKeyframeId, dispatch}) => {
       title={"Keyframe: " + keyframe[1].frame_time}
     ><Icon
       name='tag'
-      className={active('video-tag', 'video-tag active')}
+      className={active('video-tag active', 'video-tag')}
       size={active('big', 'large')}
-      color={active('teal', 'grey')} /></Button>
+       /></Button>
   )
 };
 
@@ -40,3 +40,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(VideoKeyframeTag);
+
+// color={active('teal', 'grey')}
