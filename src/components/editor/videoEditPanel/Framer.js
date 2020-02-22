@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { List, Button, Grid, Header, Icon } from "semantic-ui-react";
+import { List, Button, Grid, Header, Icon, Message } from "semantic-ui-react";
 import FramerScrubber from "./FramerScrubber";
 import SaveClipModal from "./SaveClipModal";
+import './Framer.css'
 
-const Framer = ({clip, currentClip}) => {
+const Framer = ({clip, createOrUpdateSuccess, currentKeyframeId}) => {
   const [isSaveClipModalOpen, setIsSaveClipModalOpen] = useState(false);
   const clipDurationText = clip.duration
     ? `${clip.duration.toFixed(2)} sec`
     : <Icon name='minus' />;
 
   const clipStartEndText = clip.duration
-    ? `${clip.start ? clip.start.toFixed(2) : 0} - ${clip.end.toFixed(2)}`
+    ? `${clip.startOffset ? clip.startOffset.toFixed(2) : 0} - ${(clip.startOffset + clip.duration).toFixed(2)}`
     : <Icon name='minus' />;
 
   const handleClickSaveClip = () => {
     setIsSaveClipModalOpen(true);
   };
 
+  const createOrUpdateSuccessMessage = createOrUpdateSuccess
+    ? <Message size='mini' floating success className='framer-clip-fading-container'>Clip successfully saved!</Message>
+    : <div />;
+
   return (
-    <Grid>
+    <Grid className='framer-grid'>
+      {createOrUpdateSuccessMessage}
       <SaveClipModal open={isSaveClipModalOpen} onClose={() => {setIsSaveClipModalOpen(false)}} />
       <Grid.Row>
         <Grid.Column width={8}>
@@ -27,7 +33,7 @@ const Framer = ({clip, currentClip}) => {
             Framer
           </Header>
           <List horizontal floated='left'>
-            <List.Item>Clip&nbsp;&nbsp;{currentClip.name || <Icon name='minus' />}</List.Item>
+            <List.Item>Keyframe&nbsp;&nbsp;{currentKeyframeId || <Icon name='minus' />}</List.Item>
             <List.Item>{clipDurationText}</List.Item>
             <List.Item header>{clipStartEndText}</List.Item>
           </List>
@@ -56,7 +62,7 @@ const Framer = ({clip, currentClip}) => {
 
 const mapStateToProps = state => ({
   clip: state.currentVideo.clip,
-  currentClip: state.clips.currentClip,
+  createOrUpdateSuccess: state.clips.createOrUpdateSuccess,
   currentKeyframeId: state.keyframes.currentKeyframe[0]
 });
 

@@ -11,7 +11,7 @@ export const UPDATE_CLIP_SUCCESS = "UPDATE_CLIP_SUCCESS";
 
 const postClip = (clip, clips) => new Promise((resolve, reject) => {
   setTimeout( () => {
-    if(clips.find(({name}) => name === clip.name)) {
+    if(clips.find(({identiryName}) => identiryName === clip.identiryName)) {
       reject({
         status: 409,
         error:'Clip already exists. Change the clip name.'
@@ -45,9 +45,8 @@ const getClips = video => new Promise((resolve) => {
 
 export const createClip = (clip, clips) => dispatch => {
   dispatch(createClipBegin());
-  if(!clip.name && clip.name !== 0) {
-    clip.name = `${clip.duration.toFixed(2)} sec 
-    (${clip.start ? clip.start.toFixed(2) : 0} - ${clip.end.toFixed(2)})`
+  if(!clip.identiryName && clip.identiryName !== 0) {
+    clip.identiryName = `${clip.duration.toFixed(2)} sec (${clip.startOffset ? clip.startOffset.toFixed(2) : 0} - ${(clip.startOffset + clip.duration).toFixed(2)})`
   }
   return postClip(clip, clips)
     .then(({data}) => {

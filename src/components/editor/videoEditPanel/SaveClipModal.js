@@ -29,7 +29,7 @@ const SaveClipModal = (
 
   useEffect(() => {
     if (currentClip) {
-      setClipName(currentClip.name);
+      setClipName(currentClip.identiryName);
     }
   }, [currentClip]);
 
@@ -37,7 +37,7 @@ const SaveClipModal = (
     if (success) {
       onClose();
     }
-  }, [onClose, success]);
+  }, [success]);
 
   return (
     <Modal size="tiny" dimmer='inverted' open={open} onClose={onClose} style={{paddingBottom: '16px'}}>
@@ -63,11 +63,11 @@ const SaveClipModal = (
               </Form.Field>
               <Form.Field>
                 <label>Start</label>
-                {clip.start ? clip.start.toFixed(2) : 0} sec
+                {!!clip.startOffset ? clip.startOffset.toFixed(2) : 0} sec
               </Form.Field>
               <Form.Field>
                 <label>End</label>
-                {!!clip.end && clip.end.toFixed(2)} sec
+                {!!clip.duration && ((!!clip.startOffset ? clip.startOffset : 0) + clip.duration).toFixed(2)} sec
               </Form.Field>
             </Form.Group>
           </Form>
@@ -84,7 +84,7 @@ const SaveClipModal = (
           floated='left'
           color="olive"
           onClick={() => {
-            dispatch(createClip({...clip, name: clipName}, clips));
+            dispatch(createClip({...clip, identiryName: clipName}, clips));
           }}
           loading={loading}
           disabled={loading}>Save New Clip</Button>
@@ -94,7 +94,7 @@ const SaveClipModal = (
           floated='left'
           color="olive"
           onClick={() => {
-            dispatch(updateClip({ ...currentClip, ...clip, name: clipName }));
+            dispatch(updateClip({ ...currentClip, ...clip, identiryName: clipName }));
           }}
           loading={loading}
           disabled={loading}>Save</Button>
@@ -108,6 +108,7 @@ const mapStateToProps = state => ({
   clip: state.currentVideo.clip,
   clips: state.clips.items,
   currentClip: state.clips.currentClip,
+  currentKeyframe: state.keyframes.currentKeyframe,
   error: state.clips.createOrUpdateError,
   loading: state.clips.creatingOrUpdating,
   success: state.clips.createOrUpdateSuccess

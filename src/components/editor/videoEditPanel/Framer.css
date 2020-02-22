@@ -1,0 +1,25 @@
+.framer-grid {
+    position: relative;
+}
+.framer-clip-fading-container {
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-name: framer-fade-and-transit-left;
+    position: absolute !important;
+    right: 260px;
+    top: 13px;
+    z-index: 2;
+}
+@keyframes framer-fade-and-transit-left {
+    0%   {opacity:0.8; right:260px;}
+    5%   {opacity:1; right:260px;}
+    45%  {opacity:1; right:260px;}
+    49%  {opacity:1; right:248px;}
+    53%  {opacity:1; right:245px;}
+    55%  {opacity:1; right:245px;}
+    60%  {opacity:0.7; right:290px;}
+    65%  {opacity:0.2; right:320px;}
+    70%  {opacity:0; right:340px;}
+    71%  {opacity:0; right:100000px;}
+    100% {opacity:0; right:100000px;}
+}

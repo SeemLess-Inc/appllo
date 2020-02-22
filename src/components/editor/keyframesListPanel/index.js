@@ -20,6 +20,9 @@ class KeyframesListPanel extends React.Component {
       this.props.dispatch(getKeyframes(this.props.currentVideo));
       this.props.dispatch(fetchClips(this.props.currentVideo));
     }
+    if (prevProps.createOrUpdateSuccess !== this.props.createOrUpdateSuccess && this.props.createOrUpdateSuccess) {
+      this.setState({ activeIndex: 1 })
+    }
   }
 
   toggleUserAccepted = src => {
@@ -78,6 +81,7 @@ class KeyframesListPanel extends React.Component {
 
 const mapStateToProps = state => ({
   clips: state.clips.items,
+  createOrUpdateSuccess: state.clips.createOrUpdateSuccess,
   currentVideo: state.currentVideo,
   keyframes: state.keyframes.items.sort((a, b) => a[1].frame_time - b[1].frame_time ),
   loading: state.keyframes.loading,
