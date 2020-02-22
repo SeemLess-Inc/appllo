@@ -9,9 +9,9 @@ const VideoClipItem = ({ currentClip, clip, dispatch }) => (
     <Item.Content style={{paddingLeft: "1em"}} onClick={() => {
       dispatch(selectClip(clip))
     }}>
-      <Header size='tiny' as="a">{clip.name}</Header>
+      <Header size='tiny' as="a">{clip.identiryName}</Header>
       <Item.Meta>Duration: {clip.duration.toFixed(2)} sec</Item.Meta>
-      <Item.Meta>{clip.start.toFixed(2)} - {clip.end.toFixed(2)}</Item.Meta>
+      <Item.Meta>{clip.startOffset.toFixed(2)} - {(clip.startOffset + clip.duration).toFixed(2)}</Item.Meta>
     </Item.Content>
   </Item>
 );

@@ -8,7 +8,7 @@ import { setClip } from "../../../store/actions/currentVideoAction";
 const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   const [rightClip, setRightClip] = useState(0);
   const [leftClip, setLeftClip] = useState(0);
-  const [start, setStart] = useState(0);
+  const [startOffset, setStartOffset] = useState(0);
   const [end, setEnd] = useState(0);
   const framerScrubber = React.createRef();
   const clipped = React.createRef();
@@ -25,7 +25,7 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
     const clippedLeft = clipped.current.offsetLeft;
     const clippedRight = clippedWidth + clippedLeft;
     const videoDuration = player.video.props.player.duration;
-    setStart(clippedLeft ? (clippedLeft / frameScrubberWidth) * videoDuration : 0);
+    setStartOffset(clippedLeft ? (clippedLeft / frameScrubberWidth) * videoDuration : 0);
     setEnd((clippedRight / frameScrubberWidth) * videoDuration);
   };
   const handleStart = () => {
@@ -37,34 +37,31 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
     const videoDuration = player.video.props.player.duration;
 
     dispatch(setClip({
-      start,
-      end,
-      duration: (clippedWidth / frameScrubberWidth) * videoDuration,
-      videoDuration
+      startOffset: startOffset,
+      duration: (clippedWidth / frameScrubberWidth) * videoDuration
     }));
 
   };
   const resetClip = () => {
     setLeftClip(0);
     setRightClip(0);
-    setStart(0);
+    setStartOffset(0);
     setEnd(0);
   };
   const setClipToCurrentClip = () => {
     if(currentClip.id) {
       const frameScrubberWidth = framerScrubber.current.offsetWidth;
       const videoDuration = player.video.props.player.duration;
+      const currentClipEnd = currentClip.startOffset + currentClip.duration;
 
-      setLeftClip((currentClip.start / videoDuration) * frameScrubberWidth);
-      setRightClip(((currentClip.end / videoDuration) * frameScrubberWidth)  - frameScrubberWidth);
-      setStart(currentClip.start);
-      setEnd(currentClip.end);
+      setLeftClip((currentClip.startOffset / videoDuration) * frameScrubberWidth);
+      setRightClip(((currentClipEnd / videoDuration) * frameScrubberWidth)  - frameScrubberWidth);
+      setStartOffset(currentClip.startOffset);
+      setEnd(currentClipEnd);
 
       dispatch(setClip({
-        start: currentClip.start,
-        end: currentClip.end,
-        duration: currentClip.duration,
-        videoDuration
+        startOffset: currentClip.startOffset,
+        duration: currentClip.duration
       }));
     }
   };
@@ -99,7 +96,7 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
         position={{x: leftClip, y: 0}}
       >
         <div className='clip-bracket left'>
-          <div className='clip-info'>{start.toFixed(2)} sec</div>
+          <div className='clip-info'>{startOffset.toFixed(2)} sec</div>
           <div className='handle'><Icon name='chevron right'/></div>
         </div>
       </Draggable>
