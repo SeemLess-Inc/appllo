@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Button, Header, Modal, Message, Form } from "semantic-ui-react";
-import { createClip, updateClip } from "../../../store/actions/clipsActions";
+import { createClip, createClipError, updateClip, updateClipError } from "../../../store/actions/clipsActions";
 
 const SaveClipModal = (
   {
     clip,
     clips,
     currentClip,
+    currentKeyframe,
     dispatch,
     error,
     loading,
@@ -38,6 +39,43 @@ const SaveClipModal = (
       onClose();
     }
   }, [success]);
+
+  const createClipJson = () => {
+    const identiryName = (!clipName)
+      ? `${clip.duration.toFixed(2)} sec (${clip.startOffset ? clip.startOffset.toFixed(2) : 0} - ${(clip.startOffset + clip.duration).toFixed(2)})`
+      : clipName;
+    setClipName(identiryName);
+    return {
+      ...clip,
+      identiryName,
+      metadata: {
+        keyframe: currentKeyframe
+      }
+    }
+  };
+
+  const updateClipJson = () => ({
+    ...currentClip,
+    ...createClipJson()
+  });
+
+  const handleClickCreateClip = () => {
+    const json = createClipJson();
+    if(clips.find(({identiryName}) => identiryName === json.identiryName)) {
+      dispatch(createClipError({ status: 409 }))
+    } else {
+      dispatch(createClip(json));
+    }
+  };
+
+  const handleClickUpdateClip = () => {
+    const json = updateClipJson();
+    if(clips.find(({identiryName, id}) => ((id !== json.id) && (identiryName === json.identiryName)))) {
+      dispatch(updateClipError({ status: 409 }))
+    } else {
+      dispatch(updateClip(json));
+    }
+  };
 
   return (
     <Modal size="tiny" dimmer='inverted' open={open} onClose={onClose} style={{paddingBottom: '16px'}}>
@@ -83,9 +121,7 @@ const SaveClipModal = (
         <Button
           floated='left'
           color="olive"
-          onClick={() => {
-            dispatch(createClip({...clip, identiryName: clipName}, clips));
-          }}
+          onClick={handleClickCreateClip}
           loading={loading}
           disabled={loading}>Save New Clip</Button>
           <Button floated='left' onClick={() => onClose()} disabled={loading}>Cancel</Button>
@@ -93,9 +129,7 @@ const SaveClipModal = (
         <Button
           floated='left'
           color="olive"
-          onClick={() => {
-            dispatch(updateClip({ ...currentClip, ...clip, identiryName: clipName }));
-          }}
+          onClick={handleClickUpdateClip}
           loading={loading}
           disabled={loading}>Save</Button>
         }

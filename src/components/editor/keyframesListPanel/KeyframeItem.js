@@ -18,7 +18,7 @@ class KeyframeItem extends React.Component {
     // Tell parent that keyframe has been toggled.
     this.props.onToggle( this.props.keyframe );
     this.setState({ userApproved: !this.props.keyframe[1].userApproved });
-  }
+  };
 
   render() {
     const { currentKeyframeId } = this.props
