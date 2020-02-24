@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Header, Grid, Item, Divider, Loader, Tab } from "semantic-ui-react";
+import { Header, Grid, Item, Divider, Loader, Menu, Tab, Icon } from "semantic-ui-react";
 import UploadVideoPanel from "./UploadVideoPanel";
 import VideoListItem from "./VideoListItem";
 import VideoListItemloading from "./VideoListItemLoading";
@@ -53,7 +53,12 @@ class VideosListPanel extends React.Component {
               menu={{ secondary: true, pointing: true }}
               panes={[
                 { menuItem: `Analyzed (${videos.items.length})` },
-                { menuItem: `Pending (${videosToUpload.items.length})` }
+                { menuItem: (
+                    <Menu.Item key='pending'>
+                      Pending ({videosToUpload.items.length})
+                      {!!videosToUpload.items.length && <>&nbsp;&nbsp;<Icon loading name='spinner' /></>}
+                    </Menu.Item>
+                  )}
               ]}
               onTabChange={(e, { activeIndex }) => {
                 this.setState({activeIndex})
