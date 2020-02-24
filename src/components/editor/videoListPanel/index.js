@@ -53,7 +53,7 @@ class VideosListPanel extends React.Component {
         <Grid stackable columns={2} verticalAlign='top'>
           <Grid.Row className='top-action-container' style={{paddingBottom: '0'}}>
             <Grid.Column>
-              <Header sub color='grey'>Source Video ({videos.items.length})</Header>
+              <Header sub color='grey'>Source Video</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
               <UploadVideoPanel />
@@ -61,7 +61,10 @@ class VideosListPanel extends React.Component {
             <Tab
               className='keyframe-tabs'
               menu={{ secondary: true, pointing: true }}
-              panes={[{ menuItem: 'Analyzed' }, { menuItem: 'Pending' }]}
+              panes={[
+                { menuItem: `Analyzed (${videos.items.length})` },
+                { menuItem: `Pending (${videosToUpload.items.length})` }
+              ]}
           />
           </Grid.Row>
           <Grid.Row className='mini-vertical-scroll scroll-panes'>
