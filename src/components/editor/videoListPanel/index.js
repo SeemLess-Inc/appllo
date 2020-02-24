@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Header, Grid, Item, Divider, Loader, Tab } from "semantic-ui-react";
+import { Header, Grid, Item, Divider, Loader, Menu, Tab, Icon } from "semantic-ui-react";
 import UploadVideoPanel from "./UploadVideoPanel";
 import VideoListItem from "./VideoListItem";
 import VideoListItemloading from "./VideoListItemLoading";
@@ -10,19 +10,8 @@ class VideosListPanel extends React.Component {
   state = { activeIndex: 0 }
 
   render() {
+    const { activeIndex } = this.state;
     const { videos, videosToUpload } = this.props;
-
-    // Show/Hide vdeo uploader
-    var videoIsUploading;
-    if (videosToUpload.loading === true) {
-      videoIsUploading = (
-        <Item.Group divided>
-          <VideoListItemloading />
-        </Item.Group>
-      );
-    } else {
-      videoIsUploading = <div />;
-    }
 
     if (videos.error !== null) {
       return <div>Error! {videos.error.message}</div>;
@@ -53,24 +42,39 @@ class VideosListPanel extends React.Component {
         <Grid stackable columns={2} verticalAlign='top'>
           <Grid.Row className='top-action-container' style={{paddingBottom: '0'}}>
             <Grid.Column>
-              <Header sub color='grey'>Source Video ({videos.items.length})</Header>
+              <Header sub color='grey'>Source Video</Header>
             </Grid.Column>
             <Grid.Column textAlign="right">
               <UploadVideoPanel />
             </Grid.Column>
             <Tab
+              activeIndex={activeIndex}
               className='keyframe-tabs'
               menu={{ secondary: true, pointing: true }}
-              panes={[{ menuItem: 'Analyzed' }, { menuItem: 'Pending' }]}
+              panes={[
+                { menuItem: `Analyzed (${videos.items.length})` },
+                { menuItem: (
+                    <Menu.Item key='pending'>
+                      Pending ({videosToUpload.items.length})
+                      {!!videosToUpload.items.length && <>&nbsp;&nbsp;<Icon loading name='spinner' /></>}
+                    </Menu.Item>
+                  )}
+              ]}
+              onTabChange={(e, { activeIndex }) => {
+                this.setState({activeIndex})
+              }}
           />
           </Grid.Row>
           <Grid.Row className='mini-vertical-scroll scroll-panes'>
-            {videoIsUploading}
-            <Divider />
             <Item.Group divided className='divided-items-ellipsis'>
-              {videos.items.map((video, id) => {
-                return <VideoListItem video={video} key={id} />;
-              })}
+              { (!activeIndex)
+                ?  videos.items.length
+                  ? videos.items.map((video, id) => <VideoListItem video={video} key={id} />)
+                  : <Item>No analyzed videos</Item>
+                : videosToUpload.items.length
+                  ? videosToUpload.items.map((video, id) => <VideoListItemloading video={video} key={id} />)
+                  : <Item>No pending videos</Item>
+              }
             </Item.Group>
           </Grid.Row>
         </Grid>
