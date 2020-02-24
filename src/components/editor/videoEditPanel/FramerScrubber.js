@@ -4,6 +4,7 @@ import {Icon, Segment} from "semantic-ui-react";
 import Draggable from 'react-draggable'; // Both at the same time
 import './FramerScrubber.css'
 import { setClip } from "../../../store/actions/currentVideoAction";
+import FramerScrubberThumbnails from "./FramerScrubberThumbnails";
 
 const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   const [rightClip, setRightClip] = useState(0);
@@ -89,6 +90,7 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   return !player ? <Segment style={{height: '80px'}} /> : (
     <div className='framer-scrubber' ref={framerScrubber}>
       <div className='scrubber-area' />
+      <FramerScrubberThumbnails />
       <div className='clipped' ref={clipped} style={{left: leftClip, width: `calc(100% + ${rightClip}px - ${leftClip}px)`}}/>
       <Draggable
         { ...draggableClipBracketAttr }

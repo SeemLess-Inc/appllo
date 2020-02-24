@@ -18,6 +18,7 @@
 .framer-scrubber .clipped {
     background-color: #c7f5fd;
     border-color: #7be3ec;
+    opacity: 0.4;
 }
 .framer-scrubber .clip-bracket {
     border: 3px solid #438cb5;
