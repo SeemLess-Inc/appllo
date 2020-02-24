@@ -10,19 +10,8 @@ class VideosListPanel extends React.Component {
   state = { activeIndex: 0 }
 
   render() {
+    const { activeIndex } = this.state;
     const { videos, videosToUpload } = this.props;
-
-    // Show/Hide vdeo uploader
-    var videoIsUploading;
-    if (videosToUpload.loading === true) {
-      videoIsUploading = (
-        <Item.Group divided>
-          <VideoListItemloading />
-        </Item.Group>
-      );
-    } else {
-      videoIsUploading = <div />;
-    }
 
     if (videos.error !== null) {
       return <div>Error! {videos.error.message}</div>;
@@ -59,21 +48,28 @@ class VideosListPanel extends React.Component {
               <UploadVideoPanel />
             </Grid.Column>
             <Tab
+              activeIndex={activeIndex}
               className='keyframe-tabs'
               menu={{ secondary: true, pointing: true }}
               panes={[
                 { menuItem: `Analyzed (${videos.items.length})` },
                 { menuItem: `Pending (${videosToUpload.items.length})` }
               ]}
+              onTabChange={(e, { activeIndex }) => {
+                this.setState({activeIndex})
+              }}
           />
           </Grid.Row>
           <Grid.Row className='mini-vertical-scroll scroll-panes'>
-            {videoIsUploading}
-            <Divider />
             <Item.Group divided className='divided-items-ellipsis'>
-              {videos.items.map((video, id) => {
-                return <VideoListItem video={video} key={id} />;
-              })}
+              { (!activeIndex)
+                ?  videos.items.length
+                  ? videos.items.map((video, id) => <VideoListItem video={video} key={id} />)
+                  : <Item>No analyzed videos</Item>
+                : videosToUpload.items.length
+                  ? videosToUpload.items.map((video, id) => <VideoListItemloading video={video} key={id} />)
+                  : <Item>No pending videos</Item>
+              }
             </Item.Group>
           </Grid.Row>
         </Grid>
