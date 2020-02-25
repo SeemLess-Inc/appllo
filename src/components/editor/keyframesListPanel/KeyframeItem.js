@@ -18,7 +18,7 @@ class KeyframeItem extends React.Component {
     // Tell parent that keyframe has been toggled.
     this.props.onToggle( this.props.keyframe );
     this.setState({ userApproved: !this.props.keyframe[1].userApproved });
-  }
+  };
 
   render() {
     const { currentKeyframeId } = this.props
@@ -67,7 +67,7 @@ class KeyframeItem extends React.Component {
     return (
       <Item className={currentKeyframeId === id && "active"}>
         <Checkbox onChange={this.toggle} checked={src.userApproved} />
-        <Item.Image src={'./video.png'} size='tiny' style={{ paddingLeft: "1em" }} />
+        <Item.Image src={src.image_url} size='tiny' style={{ paddingLeft: "1em" }} />
         <Item.Content onClick={selectNewKeyframe}>
           <Header size='tiny' as="a" style={{paddingTop: '6px', lineHeight: '11px'}}>{title}</Header>
           <Item.Meta style={{fontSize: '11px', lineHeight: '11px'}}>Duration: {src.frame_time}</Item.Meta>

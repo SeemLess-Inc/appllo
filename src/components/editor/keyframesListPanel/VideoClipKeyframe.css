@@ -1,0 +1,7 @@
+.scroll-panes > .items > .item > .content > .accordion.video-clip-keyframe-accordion > div:first-child {
+    margin-top: 0 !important;
+    padding-bottom: 0;
+}
+.scroll-panes > .items > .item > .content > .accordion.video-clip-keyframe-accordion > .content {
+    padding-top: 0 !important;
+}
