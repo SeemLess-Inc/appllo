@@ -4,7 +4,7 @@
     height: 50px;
 }
 .video-tags-container {
-    bottom: 34px;
+    bottom: 27px;
     display: block;
     left: 176px;
     position: absolute;
@@ -13,4 +13,7 @@
 }
 .video-tags {
     position: relative;
+}
+.selectedKeyFrame {
+    margin-top: 10;
 }

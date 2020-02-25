@@ -5,7 +5,7 @@ import FramerScrubber from "./FramerScrubber";
 import SaveClipModal from "./SaveClipModal";
 import './Framer.css'
 
-const Framer = ({clip, createOrUpdateSuccess, currentKeyframeId}) => {
+const Framer = ({clip, createOrUpdateSuccess, currentKeyframeId,playerWidth,array,selectKeyFrame,extracting}) => {
   const [isSaveClipModalOpen, setIsSaveClipModalOpen] = useState(false);
   const clipDurationText = clip.duration
     ? `${clip.duration.toFixed(2)} sec`
@@ -53,7 +53,7 @@ const Framer = ({clip, createOrUpdateSuccess, currentKeyframeId}) => {
       </Grid.Row>
       <Grid.Row style={{padding: '0'}}>
         <Grid.Column>
-          <FramerScrubber/>
+          <FramerScrubber playerWidth={playerWidth} array={array} selectKeyFrame={(index)=>selectKeyFrame(index)} extracting={extracting}/>
         </Grid.Column>
       </Grid.Row>
     </Grid>

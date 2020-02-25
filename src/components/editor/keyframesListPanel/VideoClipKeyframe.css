@@ -5,3 +5,10 @@
 .scroll-panes > .items > .item > .content > .accordion.video-clip-keyframe-accordion > .content {
     padding-top: 0 !important;
 }
+.thumbnailEditIcon{
+    width:100px;
+    height:50px;
+}
+.thumbnail {
+    object-fit: contain;
+}

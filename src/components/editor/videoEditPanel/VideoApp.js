@@ -7,7 +7,8 @@ import { seekToKeyFrame } from "../../../store/actions/keyframesActions";
 import VideoKeyframeTag from "./VideoKeyframeTag";
 import "../../../../node_modules/video-react/dist/video-react.css"
 import "./VideoApp.css"
-
+var array = [];
+var videoDuration = null;
 class VideoApp extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +16,7 @@ class VideoApp extends Component {
   }
 
   componentDidMount() {
+    
     const { dispatch } = this.props;
     this.player.subscribeToStateChange(this.handleStateChange.bind(this));
     dispatch(setPlayer(this.player));
@@ -60,15 +62,13 @@ class VideoApp extends Component {
         <Grid.Row>
           <Grid.Column width={16}>
             <Container>
-
-              <div className='video-tags-container'>
+              <div className='video-tags-container' ref={el => (this.instance = el)}>
                 <div className='video-tags'>
                   { this.playerProp('hasStarted') && keyframes.length && keyframes.map((keyframe, i) => (
                     <VideoKeyframeTag key={i} keyframe={keyframe} player={this.player} />
                   ))}
                 </div>
               </div>
-
               <Player
                 playsInline
                 src={currentVideo.src}

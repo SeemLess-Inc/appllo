@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import {Icon, Segment} from "semantic-ui-react";
+import {Icon, Segment, Loader } from "semantic-ui-react";
 import Draggable from 'react-draggable'; // Both at the same time
-import './FramerScrubber.css'
+import './FramerScrubber.css';
 import { setClip } from "../../../store/actions/currentVideoAction";
 import FramerScrubberThumbnails from "./FramerScrubberThumbnails";
 
-const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
+const FramerScrubber = ({player, clip, currentClip, dispatch, playerWidth, array, selectKeyFrame, extracting}) => {
+  const [selectedKeyFrame, setSelectedKeyFrame] = useState(0);
+  const [scrollLeft, setScrollleft] = useState(0);
+
+  const [keyFrameMarker, setKeyFrameMarker] = useState(0);
+
   const [rightClip, setRightClip] = useState(0);
   const [leftClip, setLeftClip] = useState(0);
   const [startOffset, setStartOffset] = useState(0);
@@ -14,6 +19,11 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   const framerScrubber = React.createRef();
   const clipped = React.createRef();
   const playerVideoPropsSrc = (!!player && player.video.props.src);
+
+  const setKeyFramePosition = (e, { x }) => {
+    setKeyFrameMarker(x);
+  };
+
   const leftHandleDrag = (e, {x}) => {
     setLeftClip(x);
   };
@@ -77,6 +87,31 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   useEffect(() => { resetClip() }, [playerVideoPropsSrc]);
   useEffect(() => { setClipToCurrentClip() }, [currentClip.id]);
 
+  const setKeyFrame = (index) => {
+    setSelectedKeyFrame(index)
+    selectKeyFrame(index)
+  }
+
+  const scollPos = () => {
+    setScrollleft(document.getElementById("videoFrames").scrollLeft);
+    let selectedFrame = (keyFrameMarker + scrollLeft) / 150;
+    setKeyFrame(Math.floor(selectedFrame));
+    console.log('array length: ' + array.length)
+  }
+
+  useEffect(() => {
+    console.log('scrollLeft: ' + scrollLeft);
+  }, [scrollLeft]);
+
+  useEffect(() => {
+    console.log('keyFrameMarker: ' + keyFrameMarker);
+  }, [keyFrameMarker]);
+
+  const onStopKeyFrameMarker = () => {
+    let selectedFrame = (keyFrameMarker + scrollLeft) / 150;
+    setKeyFrame(Math.floor(selectedFrame));
+  }
+
   const draggableClipBracketAttr = {
     axis: 'x',
     handle: '.handle',
@@ -88,10 +123,38 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
   };
 
   return !player ? <Segment style={{height: '80px'}} /> : (
+    <div>
+      <div id="selectedKeyFrame" style={{ position:'absolute',bottom:100, left: keyFrameMarker-60 }}>
+
+      </div>
+      <div style={{ marginLeft: keyFrameMarker-3}}>
+        <Icon
+          name='tag'
+          className={'video-tag-active'}
+          size='small'
+        />
+      </div>
     <div className='framer-scrubber' ref={framerScrubber}>
-      <div className='scrubber-area' />
-      <FramerScrubberThumbnails />
+      <div className='scrubber-area' id="videoFrames" style={{ width: `${playerWidth}` }} onScroll={() => scollPos()} />
+      {/* <FramerScrubberThumbnails /> */}
       <div className='clipped' ref={clipped} style={{left: leftClip, width: `calc(100% + ${rightClip}px - ${leftClip}px)`}}/>
+      
+      <div className='clipped' ref={clipped} style={{ left: leftClip, width: `calc(100% + ${rightClip}px - ${leftClip}px)` }} >
+          {extracting &&
+            <div className="loader">
+              <Loader active inline />
+            </div>
+          }
+        </div>
+        <Draggable
+          axis="x"
+          onDrag={setKeyFramePosition}
+          position={{ x: keyFrameMarker, y: 0 }}
+          onStop={onStopKeyFrameMarker}
+        >
+          <div className="keyFrameMarker"></div>
+        </Draggable>
+
       <Draggable
         { ...draggableClipBracketAttr }
         onDrag={leftHandleDrag}
@@ -112,6 +175,7 @@ const FramerScrubber = ({player, clip, currentClip, dispatch}) => {
           <div className='handle'><Icon name='chevron left'/></div>
         </div>
       </Draggable>
+    </div>
     </div>
   )
 };

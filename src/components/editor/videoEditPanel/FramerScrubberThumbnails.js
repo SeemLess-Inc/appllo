@@ -4,6 +4,7 @@ import './FramerScrubber.css'
 import './FrameScrubberThumbnails.css'
 import { Image } from "semantic-ui-react";
 const FrameScrubberThumbnails = ({currentKeyframe, player, keyframes}) => {
+  console.log('keyframes: ' + JSON.stringify(keyframes))
   const keyframeThumbnailPosition = keyframeSeconds => {
     const videoDuration = player.video.props.player.duration;
     return `${(keyframeSeconds / videoDuration) * 100}%`
