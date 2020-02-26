@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Dropdown } from "semantic-ui-react";
 
 function KeyframeHumansForm(props) {
@@ -42,7 +42,9 @@ Example data:
   // Inspect data
   const humans = props.data;
   //  const totalItems = humans.length;
-  const human = humans[0];
+
+  const [human, setHuman] = useState(humans[0]);
+  useEffect(() => { setHuman(humans[0]) }, [humans[0]]);
 
   // Age Options
   const optionsAge = [];
@@ -69,18 +71,27 @@ Example data:
         selection
         options={optionsAge}
         value={human.age}
+        onChange={(e, {value}) => {
+          setHuman({age: value});
+        }}
       />
       <Dropdown
         placeholder={optionsRace[0].text}
         selection
         options={optionsRace}
         value={human.ethnicity}
+        onChange={(e, {value}) => {
+          setHuman({ethnicity: value});
+        }}
       />
       <Dropdown
         placeholder={optionsGender[0].text}
         selection
         options={optionsGender}
         value={human.gender}
+        onChange={(e, {value}) => {
+          setHuman({gender: value});
+        }}
       />
     </Form>
   );
